@@ -111,4 +111,24 @@ public class Biblioteka {
 		
 		return true;
 	}
+	
+	//wstawianie rekordu do tabeli wypozyczenia
+	public boolean insert_wypozyczenia(int id_czytelnika, int id_ksiazki) {
+		try {
+			PreparedStatement prep_stmt = conn.prepareStatement(
+					"INSERT INTO wypozyczenia VALUES (NULL, ?, ?);");
+			
+			prep_stmt.setInt(1, id_czytelnika);
+			prep_stmt.setInt(2, id_ksiazki);
+			
+			prep_stmt.execute();
+		} catch (SQLException e) {
+			System.err.println("B³¹d przy wypo¿yczaniu!");
+			//e.printStackTrace();
+			
+			return false;
+		}
+		
+		return true;
+	}
 }
