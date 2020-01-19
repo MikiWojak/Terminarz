@@ -2,6 +2,7 @@ package biblioteka;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -62,6 +63,27 @@ public class Biblioteka {
 			stat.execute(create_wypozyczenia);
 		} catch (SQLException e) {
 			System.err.println("B³¹d przy tworzeniu tabeli!");
+			e.printStackTrace();
+			
+			return false;
+		}
+		
+		return true;
+	}
+	
+	//wstawianie rekordu do tabeli czytelnicy
+	public boolean insert_czytelnik(String imie, String nazwisko, String pesel) {
+		try {
+			PreparedStatement prep_stmt = conn.prepareStatement(
+					"INSERT INTO czytelnicy VALUES (NULL, ?, ?, ?);");
+			
+			prep_stmt.setString(1, imie);
+			prep_stmt.setString(2, nazwisko);
+			prep_stmt.setString(3, pesel);
+			
+			prep_stmt.execute();
+		} catch (SQLException e) {
+			System.err.println("B³¹d przy wstawianiu czytelnika!");
 			e.printStackTrace();
 			
 			return false;
