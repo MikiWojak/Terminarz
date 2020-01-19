@@ -3,8 +3,11 @@ package biblioteka;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.LinkedList;
+import java.util.List;
 
 import model.Czytelnik;
 import model.Ksiazka;
@@ -130,5 +133,30 @@ public class Biblioteka {
 		}
 		
 		return true;
+	}
+	
+	//pobieranie wszystkich rekordów z tabeli czytelnicy
+	public List<Czytelnik>select_czytelnicy() {
+		List<Czytelnik> czytelnicy = new LinkedList<Czytelnik>();
+		
+		try {
+			ResultSet result = stat.executeQuery("SELECT * FROM czytelnicy");
+			int id_czytelnika;
+			String imie, nazwisko, pesel;
+			
+			while (result.next()) {
+				id_czytelnika = result.getInt("id_czytelnika");
+				imie = result.getString("imie");
+				nazwisko = result.getString("nazwisko");
+				pesel = result.getString("pesel");
+				
+				czytelnicy.add(new Czytelnik(id_czytelnika, imie, nazwisko, pesel));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+		return czytelnicy;
 	}
 }
