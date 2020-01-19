@@ -91,4 +91,24 @@ public class Biblioteka {
 		
 		return true;
 	}
+	
+	//wstawianie rekordu do tabeli ksiazki
+	public boolean insert_ksiazka(String tytul, String autor) {
+		try {
+			PreparedStatement prep_stmt = conn.prepareStatement(
+					"INSERT INTO ksiazki VALUES (NULL, ?, ?);");
+			
+			prep_stmt.setString(1, tytul);
+			prep_stmt.setString(2, autor);
+			
+			prep_stmt.execute();
+		} catch (SQLException e) {
+			System.err.println("B³¹d przy wstawianiu ksiazki!");
+			//e.printStackTrace();
+			
+			return false;
+		}
+		
+		return true;
+	}
 }
