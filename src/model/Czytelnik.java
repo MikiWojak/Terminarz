@@ -2,14 +2,14 @@ package model;
 
 public class Czytelnik {
 	//pola
-	private int id;
+	private int id_czytelnika;
 	private String imie;
 	private String nazwisko;
 	private String pesel;
 	
 	//operacje na danych
-	public int get_id() { return id; }
-	public void set_id(int id) { this.id = id; }
+	public int get_id() { return id_czytelnika; }
+	public void set_id(int id_czytelnika) { this.id_czytelnika = id_czytelnika; }
 	
 	public String get_imie() { return imie; }
 	public void set_imie(String imie) { this.imie = imie; }
@@ -22,14 +22,14 @@ public class Czytelnik {
 	
 	//konstruktory
 	public Czytelnik() {}
-	public Czytelnik(int id, String imie, String nazwisko, String pesel) {
-		this.id = id;
+	public Czytelnik(int id_czytelnika, String imie, String nazwisko, String pesel) {
+		this.id_czytelnika = id_czytelnika;
 		this.imie = imie;
 		this.nazwisko = nazwisko;
 		this.pesel = pesel;
 	}
 	
 	public String toString() {
-		return id + "\t" + imie + "\t" + nazwisko + "\t" + pesel;
+		return id_czytelnika + "\t" + imie + "\t" + nazwisko + "\t" + pesel;
 	}
 }
