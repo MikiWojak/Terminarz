@@ -1,6 +1,7 @@
 package model;
 
 public class Ksiazka {
+	//pola
 	private int id;
 	private String tytul;
 	private String autor;
