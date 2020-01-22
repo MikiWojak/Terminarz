@@ -28,6 +28,7 @@ public class Main {
 		//otwarcie po³¹czenia
 		Biblioteka biblioteka = new Biblioteka();
 		
+		/*
 		//dodanie czytelników
 		biblioteka.insert_czytelnik("Mikolaj", "Zarnowski", "01234567890");
 		biblioteka.insert_czytelnik("Jan", "Kowalski", "09876543210");
@@ -37,6 +38,7 @@ public class Main {
 		biblioteka.insert_ksiazka("Wiedzmin", "Andrzej Sapkowski");
 		biblioteka.insert_ksiazka("Wladca Pierscieni", "John R.R. Tolkien");
 		biblioteka.insert_ksiazka("Sword Art Online", "Reki Kawahara");
+		*/
 		
 		//listy czytelników i ksi¹¿ek
 		List<Czytelnik>czytelnicy = biblioteka.select_czytelnicy();
@@ -50,7 +52,7 @@ public class Main {
 			System.out.println(c);
 		}
 		
-		System.out.println("Lista ksi¹¿ek:");
+		System.out.println("\nLista ksi¹¿ek:");
 		//skrócona wersja FOR dla ka¿dego elementu listy
 		for(Ksiazka k : ksiazki)
 		{
