@@ -137,7 +137,7 @@ public class Biblioteka {
 	
 	//pobieranie wszystkich rekordów z tabeli czytelnicy
 	public List<Czytelnik>select_czytelnicy() {
-		List<Czytelnik> czytelnicy = new LinkedList<Czytelnik>();
+		List<Czytelnik>czytelnicy = new LinkedList<Czytelnik>();
 		
 		try {
 			ResultSet result = stat.executeQuery("SELECT * FROM czytelnicy");
@@ -158,5 +158,29 @@ public class Biblioteka {
 		}
 		
 		return czytelnicy;
+	}
+	
+	//pobieranie wszystkich rekordów z tabeli ksiazki
+	public List<Ksiazka>select_ksiazki() {
+		List<Ksiazka>ksiazki = new LinkedList<Ksiazka>();
+		
+		try {
+			ResultSet result = stat.executeQuery("SELECT * FROM ksiazki");
+			int id_ksiazki;
+			String tytul, autor;
+			
+			while(result.next()) {
+				id_ksiazki = result.getInt("id_ksiazki");
+				tytul = result.getString("tytul");
+				autor = result.getString("autor");
+				
+				ksiazki.add(new Ksiazka(id_ksiazki, tytul, autor));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+		return ksiazki;
 	}
 }
