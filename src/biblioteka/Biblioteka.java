@@ -183,4 +183,14 @@ public class Biblioteka {
 		
 		return ksiazki;
 	}
+	
+	//zamkniêcie po³¹czenia
+	public void close_connection() {
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			System.err.println("Problem z zamkniêciem po³¹czenia!");
+			e.printStackTrace();
+		}
+	}
 }
