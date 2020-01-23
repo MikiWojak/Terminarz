@@ -21,6 +21,16 @@ public class Main {
 		List<Ksiazka>ksiazki = biblioteka.select_ksiazki();
 		List<Wypozyczenia>wypozyczenia = biblioteka.select_wypozyczenia();
 		
+		/*
+		biblioteka.insert_wypozyczenia(1, 2);
+		biblioteka.insert_wypozyczenia(3, 1);
+		biblioteka.insert_wypozyczenia(1, 1);
+		biblioteka.insert_wypozyczenia(2, 3);
+		biblioteka.insert_wypozyczenia(1, 3);
+		biblioteka.insert_wypozyczenia(3, 2);
+		*/
+		
+		/*
 		//wyswietlenie
 		System.out.println("Lista czytelników:");
 		//skrócona wersja FOR dla ka¿dego elementu listy
@@ -35,14 +45,13 @@ public class Main {
 		{
 			System.out.println(k);
 		}
-		/*
+		*/
 		System.out.println("Lista wypozyczeñ:");
 		//skrócona wersja FOR dla ka¿dego elementu listy
-		for(Wypozyczenia w : wypozyczenia)
+		for(int i = 0; i < wypozyczenia.size(); i++)
 		{
-			System.out.println(w);
+			System.out.println(wypozyczenia.get(i).get_id_czytelnika() + "\t" + wypozyczenia.get(i).get_id_ksiazki());
 		}
-		*/
 		
 		//zamkniêcie po³¹czenia
 		biblioteka.close_connection();
