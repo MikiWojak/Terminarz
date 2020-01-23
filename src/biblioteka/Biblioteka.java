@@ -184,6 +184,28 @@ public class Biblioteka {
 		return ksiazki;
 	}
 	
+	public List<Wypozyczenia>select_wypozyczenia() {
+		List<Wypozyczenia>wypozyczenia = new LinkedList<Wypozyczenia>();
+		
+		try {
+			ResultSet result = stat.executeQuery("SELECT * FROM wypozyczenia");
+			int id_wypozyczenia, id_czytelnika, id_ksiazki;
+			
+			while(result.next()) {
+				id_wypozyczenia = result.getInt("id_wypozyczenia");
+				id_czytelnika = result.getInt("id_czytelnika");
+				id_ksiazki = result.getInt("id_ksiazki");
+				
+				wypozyczenia.add(new Wypozyczenia(id_wypozyczenia, id_ksiazki, id_czytelnika));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+		return wypozyczenia;
+	}
+	
 	//zamkniêcie po³¹czenia
 	public void close_connection() {
 		try {

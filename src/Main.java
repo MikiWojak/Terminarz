@@ -19,6 +19,7 @@ public class Main {
 		//listy czytelników i ksi¹¿ek
 		List<Czytelnik>czytelnicy = biblioteka.select_czytelnicy();
 		List<Ksiazka>ksiazki = biblioteka.select_ksiazki();
+		List<Wypozyczenia>wypozyczenia = biblioteka.select_wypozyczenia();
 		
 		//wyswietlenie
 		System.out.println("Lista czytelników:");
@@ -34,6 +35,14 @@ public class Main {
 		{
 			System.out.println(k);
 		}
+		/*
+		System.out.println("Lista wypozyczeñ:");
+		//skrócona wersja FOR dla ka¿dego elementu listy
+		for(Wypozyczenia w : wypozyczenia)
+		{
+			System.out.println(w);
+		}
+		*/
 		
 		//zamkniêcie po³¹czenia
 		biblioteka.close_connection();
