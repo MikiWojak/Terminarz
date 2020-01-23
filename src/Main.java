@@ -7,9 +7,10 @@ import model.Ksiazka;
 import model.Wypozyczenia;
 
 public class Main {
-	/**
-	 * Launch the application.
-	 */
+	static List<Czytelnik>czytelnicy ;
+	static List<Ksiazka>ksiazki;
+	static List<Wypozyczenia>wypozyczenia;
+	
 	public static void main(String[] args) {
 		//TEST BD
 		
@@ -17,9 +18,9 @@ public class Main {
 		Biblioteka biblioteka = new Biblioteka();
 		
 		//listy czytelników i ksi¹¿ek
-		List<Czytelnik>czytelnicy = biblioteka.select_czytelnicy();
-		List<Ksiazka>ksiazki = biblioteka.select_ksiazki();
-		List<Wypozyczenia>wypozyczenia = biblioteka.select_wypozyczenia();
+		czytelnicy = biblioteka.select_czytelnicy();
+		ksiazki = biblioteka.select_ksiazki();
+		wypozyczenia = biblioteka.select_wypozyczenia();
 		
 		/*
 		biblioteka.insert_wypozyczenia(1, 2);
@@ -55,5 +56,13 @@ public class Main {
 		
 		//zamkniêcie po³¹czenia
 		biblioteka.close_connection();
+	}
+	
+	public void lista_wypozyczen() {
+		for(int i = 0; i < czytelnicy.size(); i++) {
+			for (int j = 0; j < wypozyczenia.size(); j++) {
+				//TO DO
+			}
+		}
 	}
 }
