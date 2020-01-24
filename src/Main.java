@@ -47,21 +47,35 @@ public class Main {
 			System.out.println(k);
 		}
 		*/
+		/*
 		System.out.println("Lista wypozyczeñ:");
 		//skrócona wersja FOR dla ka¿dego elementu listy
 		for(int i = 0; i < wypozyczenia.size(); i++)
 		{
 			System.out.println(wypozyczenia.get(i).get_id_czytelnika() + "\t" + wypozyczenia.get(i).get_id_ksiazki());
 		}
+		*/
 		
+		lista_wypozyczen();
 		//zamkniêcie po³¹czenia
 		biblioteka.close_connection();
 	}
 	
-	public void lista_wypozyczen() {
+	public static void lista_wypozyczen() {
 		for(int i = 0; i < czytelnicy.size(); i++) {
+			//wyœwietlenie czytelnika
+			System.out.println(czytelnicy.get(i));
+			//szukanie wsród wypozyczen
 			for (int j = 0; j < wypozyczenia.size(); j++) {
-				//TO DO
+				//czy id_czytelnika jest równe
+				if(czytelnicy.get(i).get_id() == wypozyczenia.get(j).get_id_czytelnika()) {
+					//szukanie wœród ksi¹¿ek
+					for (int k = 0; k < ksiazki.size(); k++) {
+						if (wypozyczenia.get(j).get_id_ksiazki() == ksiazki.get(k).get_id()) {
+							System.out.println("\t" + ksiazki.get(k));
+						}
+					}
+				}
 			}
 		}
 	}
