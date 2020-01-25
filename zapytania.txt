@@ -1,0 +1,3 @@
+SELECT g.nazwa_grupa, z.tytul_zadanie, z.data_zadanie, z.czy_wykonane 
+FROM grupy AS g, zadania AS z, przypisania AS p 
+WHERE g.id_grupa = p.id_grupa AND z.id_zadanie = p.id_zadanie

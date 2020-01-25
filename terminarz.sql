@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 24 Sty 2020, 18:24
+-- Czas generowania: 25 Sty 2020, 11:05
 -- Wersja serwera: 10.4.10-MariaDB
 -- Wersja PHP: 7.3.12
 
@@ -34,6 +34,14 @@ CREATE TABLE `grupy` (
   `opis_grupa` text COLLATE utf8_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
+--
+-- Zrzut danych tabeli `grupy`
+--
+
+INSERT INTO `grupy` (`id_grupa`, `nazwa_grupa`, `opis_grupa`) VALUES
+(1, 'szkoła', 'Obowiązki szkolne\r\nKonkursy szkolne\r\nEtc.'),
+(2, 'zawody', 'Zawody różne');
+
 -- --------------------------------------------------------
 
 --
@@ -45,6 +53,15 @@ CREATE TABLE `przypisania` (
   `id_grupa` int(11) NOT NULL,
   `id_zadanie` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Zrzut danych tabeli `przypisania`
+--
+
+INSERT INTO `przypisania` (`id_przypis`, `id_grupa`, `id_zadanie`) VALUES
+(1, 1, 2),
+(2, 1, 3),
+(3, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -100,13 +117,13 @@ ALTER TABLE `zadania`
 -- AUTO_INCREMENT dla tabeli `grupy`
 --
 ALTER TABLE `grupy`
-  MODIFY `id_grupa` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_grupa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT dla tabeli `przypisania`
 --
 ALTER TABLE `przypisania`
-  MODIFY `id_przypis` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_przypis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT dla tabeli `zadania`
