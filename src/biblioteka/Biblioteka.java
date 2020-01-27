@@ -192,17 +192,17 @@ public class Biblioteka {
 			List<Wypozyczenia>wypozyczenia = new LinkedList<Wypozyczenia>();
 			
 			try {
-				ResultSet result = stat.executeQuery("SELECT * FROM ksiazki");
+				ResultSet result = stat.executeQuery("SELECT * FROM wypozyczenia");
 				int id_wypozyczenia, id_ksiazki, id_czytelnika;
 				Date data_wypozyczenia;
 				
 				while(result.next()) {
 					id_wypozyczenia = result.getInt("id_wypozyczenia");
-					id_ksiazki = result.getInt("id_ksiazki");
 					id_czytelnika = result.getInt("id_czytelnika");
+					id_ksiazki = result.getInt("id_ksiazki");
 					data_wypozyczenia = result.getDate("data_wypozyczenia");
 					
-					wypozyczenia.add(new Wypozyczenia(id_wypozyczenia, id_ksiazki, id_czytelnika, data_wypozyczenia));
+					wypozyczenia.add(new Wypozyczenia(id_wypozyczenia, id_czytelnika, id_ksiazki, data_wypozyczenia));
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
