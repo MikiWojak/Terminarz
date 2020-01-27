@@ -5,6 +5,7 @@ public class Wypozyczenia {
 	private int id_wypozyczenia;
 	private int id_ksiazki;
 	private int id_czytelnika;
+	private String data_wypozyczenia;
 	
 	//operacje na danych
 	public int get_id_wypozyczenia() { return id_wypozyczenia; }
@@ -16,11 +17,15 @@ public class Wypozyczenia {
 	public int get_id_czytelnika() { return id_czytelnika; }
 	public void set_id_czytelnika(int id_czytelnika) { this.id_czytelnika = id_czytelnika; }
 	
+	public String get_data_wypozyczenia() { return data_wypozyczenia; }
+	public void set_data_wypozyczenia(String data_wypozyczenia) { this.data_wypozyczenia = data_wypozyczenia; }
+	
 	//konstruktory
 	public Wypozyczenia() {}
-	public Wypozyczenia(int id_wypozyczenia, int id_ksiazki, int id_czytelnika) {
+	public Wypozyczenia(int id_wypozyczenia, int id_ksiazki, int id_czytelnika, String data_wypozyczenia) {
 		this.id_wypozyczenia = id_wypozyczenia;
 		this.id_ksiazki = id_ksiazki;
 		this.id_czytelnika = id_czytelnika;
+		this.data_wypozyczenia = data_wypozyczenia;
 	}
 }
