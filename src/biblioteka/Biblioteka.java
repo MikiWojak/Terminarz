@@ -1,11 +1,13 @@
 package biblioteka;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -58,7 +60,8 @@ public class Biblioteka {
 		String create_wypozyczenia = "CREATE TABLE IF NOT EXISTS wypozyczenia"
 				+ "(id_wypozyczenia INTEGER PRIMARY KEY AUTOINCREMENT,"
 				+ "id_czytelnika INT,"
-				+ "id_ksiazki INT)";
+				+ "id_ksiazki INT,"
+				+ "data_wypozyczenia DATE)";
 		
 		try {
 			stat.execute(create_czytelnicy);
@@ -116,14 +119,14 @@ public class Biblioteka {
 	}
 	
 	//wstawianie rekordu do tabeli wypozyczenia
-	public boolean insert_wypozyczenia(int id_czytelnika, int id_ksiazki) {
+	public boolean insert_wypozyczenia(int id_czytelnika, int id_ksiazki, Date data_wypozyczenia) {
 		try {
 			PreparedStatement prep_stmt = conn.prepareStatement(
-					"INSERT INTO wypozyczenia VALUES (NULL, ?, ?);");
+					"INSERT INTO wypozyczenia VALUES (NULL, ?, ?, ?);");
 			
 			prep_stmt.setInt(1, id_czytelnika);
 			prep_stmt.setInt(2, id_ksiazki);
-			
+			prep_stmt.setDate(3, data_wypozyczenia);		
 			prep_stmt.execute();
 		} catch (SQLException e) {
 			System.err.println("B³¹d przy wypo¿yczaniu!");
@@ -183,6 +186,31 @@ public class Biblioteka {
 		
 		return ksiazki;
 	}
+	
+	//pobieranie wszystkich rekordów z tabeli wypozyczenia
+		public List<Wypozyczenia>select_wypozyczenia() {
+			List<Wypozyczenia>wypozyczenia = new LinkedList<Wypozyczenia>();
+			
+			try {
+				ResultSet result = stat.executeQuery("SELECT * FROM ksiazki");
+				int id_wypozyczenia, id_ksiazki, id_czytelnika;
+				Date data_wypozyczenia;
+				
+				while(result.next()) {
+					id_wypozyczenia = result.getInt("id_wypozyczenia");
+					id_ksiazki = result.getInt("id_ksiazki");
+					id_czytelnika = result.getInt("id_czytelnika");
+					data_wypozyczenia = result.getDate("data_wypozyczenia");
+					
+					wypozyczenia.add(new Wypozyczenia(id_wypozyczenia, id_ksiazki, id_czytelnika, data_wypozyczenia));
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return null;
+			}
+			
+			return wypozyczenia;
+		}
 	
 	//zamkniêcie po³¹czenia
 	public void close_connection() {
