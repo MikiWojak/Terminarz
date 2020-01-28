@@ -1,18 +1,15 @@
 import java.awt.EventQueue;
+import java.sql.Date;
+
+import model.Zadanie;
+import model.Grupa;
+import model.Przypis;
 
 public class Main {
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Program window = new Program();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		Zadanie zadanie = new Zadanie(1, Date.valueOf("2020-01-29"), "Stanowiska egzaminacyjne", "", "nie takie wa¿ne", false);
 	}
 }
