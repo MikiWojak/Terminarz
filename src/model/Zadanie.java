@@ -1,9 +1,11 @@
 package model;
 
+import java.sql.Date;
+
 public class Zadanie {
 	//pola - kolumny
 	private int id_zadanie;
-	private long data_zadanie;			//KESTIA DATY!!!
+	private Date data_zadanie;			//KESTIA DATY!!!
 	private String tytul_zadanie;
 	private String opis_zadanie;
 	private String priorytet_zadanie;
@@ -11,7 +13,7 @@ public class Zadanie {
 	
 	//konstruktory
 	public Zadanie() {}
-	public Zadanie(int id_zadanie, long data_zadanie, String tytul_zadanie, String opis_zadanie, String priorytet_zadanie, boolean czy_wykonane) {
+	public Zadanie(int id_zadanie, Date data_zadanie, String tytul_zadanie, String opis_zadanie, String priorytet_zadanie, boolean czy_wykonane) {
 		this.id_zadanie = id_zadanie;
 		this.data_zadanie = data_zadanie;
 		this.tytul_zadanie = tytul_zadanie;
@@ -24,8 +26,8 @@ public class Zadanie {
 	public int pobierz_id_zadanie() { return id_zadanie; }
 	public void ustaw_id_zadanie(int id_zadanie) { this.id_zadanie = id_zadanie; }
 	
-	public long pobierz_data_zadanie() { return data_zadanie; }
-	public void ustaw_data_zadanie(long data_zadanie) { this.data_zadanie = data_zadanie; }
+	public Date pobierz_data_zadanie() { return data_zadanie; }
+	public void ustaw_data_zadanie(Date data_zadanie) { this.data_zadanie = data_zadanie; }
 	
 	public String pobierz_tytul_zadanie() { return tytul_zadanie; }
 	public void ustaw_tytul_zadanie(String tytul_zadanie) { this.tytul_zadanie = tytul_zadanie; }
