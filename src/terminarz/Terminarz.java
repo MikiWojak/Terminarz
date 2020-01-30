@@ -39,14 +39,34 @@ public class Terminarz {
 	}
 
 	private boolean utworz_tabele() {
-		// TODO Auto-generated method stub
+		//zapytania do tworzenia tabel (o ile nie istniej¹)
 		String tabela_zadania = "CREATE TABLE IF NOT EXISTS zadania"
-				+ "id_zadanie INT PRIMARY KEY AUTOINCREMENT"
-				+ "data_zadanie DATE"
-				+ "tytul_zadanie TEXT"
-				+ "opis_zadanie TEXT"
-				+ "priorytet_zadanie TEXT"
+				+ "id_zadanie INT PRIMARY KEY AUTOINCREMENT,"
+				+ "data_zadanie DATE,"
+				+ "tytul_zadanie VARCHAR(255),"
+				+ "opis_zadanie TEXT,"
+				+ "priorytet_zadanie TEXT,"
 				+ "czy_wykonane TINYINT(1)";
+		String tabela_grupy = "CREATE TABLE IF NOT EXISTS grupy"
+				+ "id_grupa INT PRIMARY KEY AUTOINCREMENT,"
+				+ "nazwa_grupa VARCHAR(255),"
+				+ "opis_grupa TEXT";
+		String tabela_przypisania = "CREATE TABLE IF NOT EXISTS przypisania"
+				+ "id_przypis INT PRIMARY KEY AUTOINCREMENT,"
+				+ "id_grupa INT,"
+				+ "id_zadanie INT";
+		
+		try {
+			//wykonanie zapytañ
+			stat.execute(tabela_zadania);
+			stat.execute(tabela_grupy);
+			stat.execute(tabela_przypisania);
+		} catch (SQLException e) {
+			System.err.println("B³¹d przy tworzeniu tabel!");
+			e.printStackTrace();
+			
+			return false;
+		}
 		
 		return true;
 	}
