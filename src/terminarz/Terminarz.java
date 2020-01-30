@@ -1,8 +1,10 @@
 package terminarz;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.Driver;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -64,6 +66,29 @@ public class Terminarz {
 			stat.execute(tabela_przypisania);
 		} catch (SQLException e) {
 			System.err.println("B³¹d przy tworzeniu tabel!");
+			e.printStackTrace();
+			
+			return false;
+		}
+		
+		return true;
+	}
+	
+	//wstawienie rekordu do tabeli zadania
+	public boolean wstaw_zadanie(Date data_zadanie, String tytul_zadanie, String opis_zadanie, String priorytet_zadanie, boolean czy_wykonane) {
+		try {
+			PreparedStatement prepStmt = conn.prepareStatement(
+				"INSERT INTO zadania VALUES (NULL, ?, ?, ?, ?, ?)");
+			
+			prepStmt.setDate(1, data_zadanie);
+			prepStmt.setString(2, tytul_zadanie);
+			prepStmt.setString(3, opis_zadanie);
+			prepStmt.setString(4, priorytet_zadanie);
+			prepStmt.setBoolean(5, czy_wykonane);
+			
+			prepStmt.execute();
+		} catch (SQLException e) {
+			System.err.println("B³¹d przy wstawianiu zadania!");
 			e.printStackTrace();
 			
 			return false;
