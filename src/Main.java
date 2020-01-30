@@ -2,15 +2,18 @@ import java.awt.EventQueue;
 import java.sql.Date;
 
 import model.Zadanie;
+import terminarz.Terminarz;
 import model.Grupa;
 import model.Przypis;
 
 public class Main {
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
-		//Test klas - rekordów
+		//test_klas_rekordow();
+		test_bd();
+	}
+	
+	public static void test_klas_rekordow() {
 		Zadanie zadanie = new Zadanie(1, Date.valueOf("2020-01-29"), "Stanowiska egzaminacyjne", "Opis zadania", "nie takie wa¿ne", false);
 		System.out.println("Zadanie:");
 		System.out.println(
@@ -34,5 +37,9 @@ public class Main {
 				"\t" + przypis.pobierz_id_przypis() + "\n" +
 				"\t" + przypis.pobierz_id_grupa() + "\n" +
 				"\t" + przypis.pobierz_id_zadanie() + "\n");
+	}
+	
+	public static void test_bd() {
+		Terminarz terminarz = new Terminarz();
 	}
 }
