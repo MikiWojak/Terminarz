@@ -46,5 +46,6 @@ public class Main {
 		//test wstawiania rekordów
 		//terminarz.wstaw_zadanie(Date.valueOf("2020-04-15"), "Konkurs SEP na program komputerowy", "Program komputerowy edukacyjny/u¿ytkowy\nTerminarz", "wa¿ne", false);
 		//terminarz.wstaw_grupe("Zawody", "Zawody, konkursy, turnieje, itd.");
+		terminarz.wstaw_przypisanie(1, 3);
 	}
 }
