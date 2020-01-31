@@ -96,4 +96,24 @@ public class Terminarz {
 		
 		return true;
 	}
+	
+	//wstawienie rekordu do tabeli grupy
+	public boolean wstaw_grupe(String nazwa_grupa, String opis_grupa) {
+		try {
+			PreparedStatement prepStmt = conn.prepareStatement(
+				"INSERT INTO grupy VALUES (NULL, ?, ?)");
+			
+			prepStmt.setString(1, nazwa_grupa);
+			prepStmt.setString(2, opis_grupa);
+			
+			prepStmt.execute();
+		} catch (SQLException e) {
+			System.err.println("B³¹d przy wstawianiu grupy!");
+			e.printStackTrace();
+			
+			return false;
+		}
+		
+		return true;
+	}
 }
