@@ -116,4 +116,23 @@ public class Terminarz {
 		
 		return true;
 	}
+	
+	//wstawienie rekordu do tabeli przypisania
+	public boolean wstaw_przypisanie(int id_grupa, int id_zadanie) {
+		try {
+			PreparedStatement prepStmp = conn.prepareStatement(
+				"INSERT INTO przypisania VALUES (NULL, ?, ?)");
+			
+			prepStmp.setInt(1, id_grupa);
+			prepStmp.setInt(2, id_zadanie);
+			
+			prepStmp.execute();
+		} catch (SQLException e) {
+			System.err.println("B³¹d przy wstawianiu przzypisania!");
+			e.printStackTrace();
+			
+			return false;
+		}
+		return true;
+	}
 }
