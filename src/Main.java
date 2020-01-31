@@ -40,6 +40,10 @@ public class Main {
 	}
 	
 	public static void test_bd() {
+		//test tworzenia tabel
 		Terminarz terminarz = new Terminarz();
+		
+		//test wstawiania rekordów
+		terminarz.wstaw_zadanie(Date.valueOf("2020-04-15"), "Konkurs SEP na program komputerowy", "Program komputerowy edukacyjny/u¿ytkowy\nTerminarz", "wa¿ne", false);
 	}
 }
