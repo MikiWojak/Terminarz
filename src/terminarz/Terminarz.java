@@ -5,8 +5,13 @@ import java.sql.Date;
 import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.LinkedList;
+import java.util.List;
+
+import model.Zadanie;
 
 public class Terminarz {
 	//sta³e
@@ -134,6 +139,34 @@ public class Terminarz {
 			return false;
 		}
 		return true;
+	}
+	
+	//lista wszystkich zadan
+	List<Zadanie>lista_zadania() {
+		List<Zadanie>zadania = new LinkedList<Zadanie>();
+		
+		try {
+			ResultSet wynik = stat.executeQuery("SELECT * FROM zadania");
+			int id_zadanie;
+			Date data_zadanie;
+			String tytul_zadanie, opis_zadanie, priorytet_zadanie;
+			boolean czy_wykonane;
+			
+			while(wynik.next()) {
+				id_zadanie = wynik.getInt("id_zadanie");
+				data_zadanie = wynik.getDate("data_zadanie");
+				tytul_zadanie = wynik.getString("tytul_zadanie");
+				opis_zadanie = wynik.getString("opis_zadanie");
+				priorytet_zadanie = wynik.getString("priorytet_zadanie");
+				czy_wykonane = wynik.getBoolean("czy_wykonane");
+				
+				zadania.add(new Zadanie(id_zadanie, data_zadanie, tytul_zadanie, opis_zadanie, priorytet_zadanie, czy_wykonane));
+			}
+		} catch (SQLException e) {
+			// TODO: handle exception
+		}
+		
+		return zadania;
 	}
 	
 	//zamkniecie polaczenia
