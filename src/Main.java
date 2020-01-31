@@ -10,7 +10,7 @@ public class Main {
 	
 	public static void main(String[] args) {
 		//test_klas_rekordow();
-		test_bd();
+		//test_bd();
 	}
 	
 	public static void test_klas_rekordow() {
@@ -46,6 +46,8 @@ public class Main {
 		//test wstawiania rekordów
 		//terminarz.wstaw_zadanie(Date.valueOf("2020-04-15"), "Konkurs SEP na program komputerowy", "Program komputerowy edukacyjny/u¿ytkowy\nTerminarz", "wa¿ne", false);
 		//terminarz.wstaw_grupe("Zawody", "Zawody, konkursy, turnieje, itd.");
-		terminarz.wstaw_przypisanie(1, 3);
+		//terminarz.wstaw_przypisanie(1, 3);
+		
+		terminarz.zamknij_polaczenie();
 	}
 }

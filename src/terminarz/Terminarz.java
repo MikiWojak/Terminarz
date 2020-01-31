@@ -135,4 +135,14 @@ public class Terminarz {
 		}
 		return true;
 	}
+	
+	//zamkniecie polaczenia
+	public void zamknij_polaczenie() {
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			System.err.println("Problem z zamkniêciem po³¹czenia!");
+			e.printStackTrace();
+		}
+	}
 }
