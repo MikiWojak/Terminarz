@@ -142,7 +142,7 @@ public class Terminarz {
 	}
 	
 	//lista wszystkich zadan
-	List<Zadanie>lista_zadania() {
+	public List<Zadanie>lista_zadania() {
 		List<Zadanie>zadania = new LinkedList<Zadanie>();
 		
 		try {
