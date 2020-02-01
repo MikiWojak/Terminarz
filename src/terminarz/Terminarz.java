@@ -163,7 +163,8 @@ public class Terminarz {
 				zadania.add(new Zadanie(id_zadanie, data_zadanie, tytul_zadanie, opis_zadanie, priorytet_zadanie, czy_wykonane));
 			}
 		} catch (SQLException e) {
-			// TODO: handle exception
+			e.printStackTrace();
+			return null;
 		}
 		
 		return zadania;
