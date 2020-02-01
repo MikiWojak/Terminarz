@@ -11,6 +11,7 @@ import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
 
+import model.Grupa;
 import model.Zadanie;
 
 public class Terminarz {
@@ -168,6 +169,30 @@ public class Terminarz {
 		}
 		
 		return zadania;
+	}
+	
+	//lista wszystkich grup
+	public List<Grupa>lista_grupy() {
+		List<Grupa>grupy = new LinkedList<Grupa>();
+		
+		try {
+			ResultSet wynik = stat.executeQuery("SELECT * FROM grupy");
+			int id_grupa;
+			String nazwa_grupa, opis_grupa;
+			
+			while(wynik.next()) {
+				id_grupa = wynik.getInt("id_grupa");
+				nazwa_grupa = wynik.getString("nazwa_grupa");
+				opis_grupa = wynik.getString("opis_grupa");
+				
+				grupy.add(new Grupa(id_grupa, nazwa_grupa, opis_grupa));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+		return grupy;		
 	}
 	
 	//zamkniecie polaczenia
