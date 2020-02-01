@@ -56,8 +56,8 @@ public class Main {
 	public static void test_list_bd() {
 		Terminarz terminarz = new Terminarz();
 		
+		//zadania
 		List<Zadanie>zadania = terminarz.lista_zadania();
-		
 		System.out.println("\tZadania:");
 		for (int i = 0 ; i < zadania.size(); i++) {
 			System.out.println(zadania.get(i).pobierz_id_zadanie());
@@ -66,7 +66,16 @@ public class Main {
 			System.out.println(zadania.get(i).pobierz_opis_zadanie());
 			System.out.println(zadania.get(i).pobierz_priorytet_zadanie());
 			System.out.println(zadania.get(i).pobierz_czy_wykonane());
-			
+			System.out.println();
+		}
+		
+		//grupy
+		List<Grupa>grupy = terminarz.lista_grupy();
+		System.out.println("\tGrupy");
+		for (int i = 0; i < grupy.size(); i++) {
+			System.out.println(grupy.get(i).pobierz_id_grupa());
+			System.out.println(grupy.get(i).pobierz_nazwa_grupa());
+			System.out.println(grupy.get(i).pobierz_opis_grupa());
 			System.out.println();
 		}
 		
