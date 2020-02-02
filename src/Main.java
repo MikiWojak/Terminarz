@@ -85,8 +85,19 @@ public class Main {
 	}
 	
 	public static void test_zlozone() {
-		Zlozone zlozone = new Zlozone();
+		Zlozone zlozone = new Zlozone(1, Date.valueOf("2020-04-15"), "Konkurs SEP na najlepszy program komputerowy", "Program Terminarz napisany w jêzyku Java", "wa¿ne", false, 3, "Zawody", "Zadania zw. z zawodami");
 		
-		//System.out.println(zlozone.pobierz_id_zadanie());
+		System.out.println(zlozone.pobierz_id_grupa());
+		System.out.println(zlozone.pobierz_nazwa_grupa());
+		System.out.println(zlozone.pobierz_opis_grupa());
+		
+		System.out.println();
+		
+		System.out.println(zlozone.pobierz_id_zadanie());
+		System.out.println(zlozone.pobierz_data_zadanie());
+		System.out.println(zlozone.pobierz_tytul_zadanie());
+		System.out.println(zlozone.pobierz_opis_zadanie());
+		System.out.println(zlozone.pobierz_priorytet_zadanie());
+		System.out.println(zlozone.pobierz_czy_wykonane());
 	}
 }
