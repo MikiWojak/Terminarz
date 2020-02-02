@@ -13,6 +13,7 @@ import java.util.List;
 
 import model.Grupa;
 import model.Zadanie;
+import model.Zlozone;
 
 public class Terminarz {
 	//sta³e
@@ -193,6 +194,15 @@ public class Terminarz {
 		}
 		
 		return grupy;		
+	}
+	
+	//z³o¿one zapytanie do BD - wszystkie wyniki
+	public List<Zlozone>lista_zlozone() {
+		List<Zlozone>zlozone = new LinkedList<Zlozone>();
+		
+		
+		
+		return zlozone;
 	}
 	
 	//zamkniecie polaczenia
