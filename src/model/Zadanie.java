@@ -4,12 +4,12 @@ import java.sql.Date;
 
 public class Zadanie {
 	//pola - kolumny
-	private int id_zadanie;
-	private Date data_zadanie;			//KESTIA DATY!!!
-	private String tytul_zadanie;
-	private String opis_zadanie;
-	private String priorytet_zadanie;
-	private boolean czy_wykonane;
+	protected int id_zadanie;
+	protected Date data_zadanie;			//KESTIA DATY!!!
+	protected String tytul_zadanie;
+	protected String opis_zadanie;
+	protected String priorytet_zadanie;
+	protected boolean czy_wykonane;
 	
 	//konstruktory
 	public Zadanie() {}

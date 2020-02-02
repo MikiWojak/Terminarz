@@ -3,6 +3,7 @@ import java.sql.Date;
 import java.util.List;
 
 import model.Zadanie;
+import model.Zlozone;
 import terminarz.Terminarz;
 import model.Grupa;
 import model.Przypis;
@@ -12,7 +13,8 @@ public class Main {
 	public static void main(String[] args) {
 		//test_klas_rekordow();
 		//test_bd();
-		test_list_bd();
+		//test_list_bd();
+		test_zlozone();
 	}
 	
 	public static void test_klas_rekordow() {
@@ -80,5 +82,11 @@ public class Main {
 		}
 		
 		terminarz.zamknij_polaczenie();
+	}
+	
+	public static void test_zlozone() {
+		Zlozone zlozone = new Zlozone();
+		
+		//System.out.println(zlozone.pobierz_id_zadanie());
 	}
 }
