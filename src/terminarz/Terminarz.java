@@ -200,7 +200,38 @@ public class Terminarz {
 	public List<Zlozone>lista_zlozone() {
 		List<Zlozone>zlozone = new LinkedList<Zlozone>();
 		
-		
+		try {
+			ResultSet wynik = stat.executeQuery(""
+					+ "SELECT z.id_zadanie, z.data_zadanie, z.tytul_zadanie, z.opis_zadanie, z.priorytet_zadanie, z.czy_wykonane, g.id_grupa, g.nazwa_grupa, g.opis_grupa"
+					+ "FROM zadania AS z, grupy AS g, przypisania AS p"
+					+ "WHERE z.id_zadanie = p.id_zadanie AND g.id_grupa = p.id_grupa");
+			
+			int id_zadanie;
+			Date data_zadanie;
+			String tytul_zadanie, opis_zadanie, priorytet_zadanie;
+			boolean czy_wykonane;
+			
+			int id_grupa;
+			String nazwa_grupa, opis_grupa;
+			
+			while(wynik.next()) {
+				id_zadanie = wynik.getInt("id_zadanie");
+				data_zadanie = wynik.getDate("data_zadanie");
+				tytul_zadanie = wynik.getString("tytul_zadanie");
+				opis_zadanie = wynik.getString("opis_zadanie");
+				priorytet_zadanie = wynik.getString("priorytet_zadanie");
+				czy_wykonane = wynik.getBoolean("czy_wykonane");
+				
+				id_grupa = wynik.getInt("id_grupa");
+				nazwa_grupa = wynik.getString("nazwa_grupa");
+				opis_grupa = wynik.getString("opis_grupa");
+				
+				zlozone.add(new Zlozone(id_zadanie, data_zadanie, tytul_zadanie, opis_zadanie, priorytet_zadanie, czy_wykonane, id_grupa, nazwa_grupa, opis_grupa));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
 		
 		return zlozone;
 	}
