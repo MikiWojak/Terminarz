@@ -11,6 +11,7 @@ import model.Przypis;
 public class Main {
 	
 	public static void main(String[] args) {
+		//uruchomienie programu okienkowego
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -19,6 +20,6 @@ public class Main {
 					e.printStackTrace();
 				}
 			}
-		}
+		});
 	}
 }
