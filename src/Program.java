@@ -89,6 +89,7 @@ public class Program {
 		Aktualizuj = new JButton("Aktualizuj");
 		Aktualizuj.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				aktualizuj_dane();
 			}
 		});
 		Aktualizuj.setFont(new Font("Arial", Font.PLAIN, 24));
@@ -98,11 +99,20 @@ public class Program {
 		frame.setVisible(true);
 	}
 	
-	public void inicjalizacja_pol() {
-		terminarz = new Terminarz();				
+	public void inicjalizacja_pol() {				
 		zadania = new LinkedList<Zadanie>();
 		grupy = new LinkedList<Grupa>();
 		przypisania = new LinkedList<Przypis>();
 		zlozone = new LinkedList<Zlozone>();
+	}
+	
+	public void aktualizuj_dane() {
+		terminarz = new Terminarz();
+		
+		zlozone = terminarz.lista_zlozone();
+		
+		lbl_nazwa_grupa.setText(zlozone.get(0).pobierz_nazwa_grupa());
+				
+		terminarz.zamknij_polaczenie();
 	}
 }
