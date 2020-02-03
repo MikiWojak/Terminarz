@@ -14,7 +14,8 @@ public class Main {
 		//test_klas_rekordow();
 		//test_bd();
 		//test_list_bd();
-		test_zlozone();
+		//test_zlozone();
+		test_zapytanie_zlozone();
 	}
 	
 	public static void test_klas_rekordow() {
@@ -99,5 +100,23 @@ public class Main {
 		System.out.println(zlozone.pobierz_opis_zadanie());
 		System.out.println(zlozone.pobierz_priorytet_zadanie());
 		System.out.println(zlozone.pobierz_czy_wykonane());
+	}
+	
+	public static void test_zapytanie_zlozone() {
+		Terminarz terminarz = new Terminarz();
+		
+		List<Zlozone>zlozone = terminarz.lista_zlozone();
+		
+		//System.out.println(zlozone.size());
+		
+		for(int i = 0; i < zlozone.size(); i++) {
+			System.out.println(zlozone.get(i).pobierz_nazwa_grupa());
+			System.out.println(zlozone.get(i).pobierz_tytul_zadanie());
+			System.out.println(zlozone.get(i).pobierz_data_zadanie());
+			System.out.println(zlozone.get(i).pobierz_czy_wykonane());
+			System.out.println();
+		}
+		
+		terminarz.zamknij_polaczenie();
 	}
 }

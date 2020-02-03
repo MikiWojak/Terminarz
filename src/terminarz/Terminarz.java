@@ -201,10 +201,11 @@ public class Terminarz {
 		List<Zlozone>zlozone = new LinkedList<Zlozone>();
 		
 		try {
-			ResultSet wynik = stat.executeQuery(""
-					+ "SELECT z.id_zadanie, z.data_zadanie, z.tytul_zadanie, z.opis_zadanie, z.priorytet_zadanie, z.czy_wykonane, g.id_grupa, g.nazwa_grupa, g.opis_grupa"
-					+ "FROM zadania AS z, grupy AS g, przypisania AS p"
-					+ "WHERE z.id_zadanie = p.id_zadanie AND g.id_grupa = p.id_grupa");
+			String zapytanie = "SELECT z.id_zadanie, z.data_zadanie, z.tytul_zadanie, z.opis_zadanie, z.priorytet_zadanie, z.czy_wykonane, g.id_grupa, g.nazwa_grupa, g.opis_grupa "
+					+ "FROM zadania AS z, grupy AS g, przypisania AS p "
+					+ "WHERE z.id_zadanie = p.id_zadanie AND g.id_grupa = p.id_grupa";
+			
+			ResultSet wynik = stat.executeQuery(zapytanie);
 			
 			int id_zadanie;
 			Date data_zadanie;
