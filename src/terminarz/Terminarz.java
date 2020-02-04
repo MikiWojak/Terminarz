@@ -11,6 +11,8 @@ import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.swing.DefaultListModel;
+
 import model.Grupa;
 import model.Zadanie;
 import model.Zlozone;
@@ -144,7 +146,7 @@ public class Terminarz {
 	}
 	
 	//lista wszystkich zadan
-	public List<Zadanie>lista_zadania() {
+	public List<Zadanie>pobierz_zadania() {
 		List<Zadanie>zadania = new LinkedList<Zadanie>();
 		
 		try {
@@ -172,8 +174,30 @@ public class Terminarz {
 		return zadania;
 	}
 	
+	//do listy w programie
+	public DefaultListModel<Object> lista_zadania() {
+		DefaultListModel<Object>lista = new DefaultListModel<Object>();
+		
+		try {
+			ResultSet wynik = stat.executeQuery("SELECT * FROM zadania ORDER BY data_zadanie");
+			Date data_zadanie;
+			String tytul_zadanie;
+			
+			while(wynik.next()) {
+				data_zadanie = wynik.getDate("data_zadanie");
+				tytul_zadanie = wynik.getString("tytul_zadanie");
+				
+				lista.addElement(data_zadanie + "   " + tytul_zadanie);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return lista;
+	}
+	
 	//lista wszystkich grup
-	public List<Grupa>lista_grupy() {
+	public List<Grupa>pobierz_grupy() {
 		List<Grupa>grupy = new LinkedList<Grupa>();
 		
 		try {
@@ -197,7 +221,7 @@ public class Terminarz {
 	}
 	
 	//z³o¿one zapytanie do BD - wszystkie wyniki
-	public List<Zlozone>lista_zlozone() {
+	public List<Zlozone>pobierz_zlozone() {
 		List<Zlozone>zlozone = new LinkedList<Zlozone>();
 		
 		try {

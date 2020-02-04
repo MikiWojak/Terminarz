@@ -53,7 +53,7 @@ public class Testy {
 		Terminarz terminarz = new Terminarz();
 		
 		//zadania
-		List<Zadanie>zadania = terminarz.lista_zadania();
+		List<Zadanie>zadania = terminarz.pobierz_zadania();
 		System.out.println("\tZadania:");
 		for (int i = 0 ; i < zadania.size(); i++) {
 			System.out.println(zadania.get(i).pobierz_id_zadanie());
@@ -66,7 +66,7 @@ public class Testy {
 		}
 		
 		//grupy
-		List<Grupa>grupy = terminarz.lista_grupy();
+		List<Grupa>grupy = terminarz.pobierz_grupy();
 		System.out.println("\tGrupy");
 		for (int i = 0; i < grupy.size(); i++) {
 			System.out.println(grupy.get(i).pobierz_id_grupa());
@@ -98,7 +98,7 @@ public class Testy {
 	public void test_zapytanie_zlozone() {
 		Terminarz terminarz = new Terminarz();
 		
-		List<Zlozone>zlozone = terminarz.lista_zlozone();
+		List<Zlozone>zlozone = terminarz.pobierz_zlozone();
 		
 		//System.out.println(zlozone.size());
 		

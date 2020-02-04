@@ -43,6 +43,10 @@ public class Program {
 	public Program() {
 		inicjalizacja_pol();
 		initialize();
+		
+		terminarz = new Terminarz();
+		lista.setModel(terminarz.lista_zadania());
+		terminarz.zamknij_polaczenie();
 	}
 
 	/**
@@ -100,6 +104,7 @@ public class Program {
 		frame.getContentPane().add(Aktualizuj);
 		
 		lista = new JList();
+		lista.setFont(new Font("Arial", Font.PLAIN, 20));
 		lista.setBounds(326, 13, 755, 414);
 		frame.getContentPane().add(lista);
 		
@@ -115,7 +120,7 @@ public class Program {
 	
 	public void aktualizuj_dane() {
 		terminarz = new Terminarz();
-		zlozone = terminarz.lista_zlozone();
+		zlozone = terminarz.pobierz_zlozone();
 		
 		String czy_wykonane;
 		if (zlozone.get(0).pobierz_czy_wykonane()) { czy_wykonane = "nie"; }
