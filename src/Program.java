@@ -12,6 +12,7 @@ import model.Zlozone;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.awt.event.ActionEvent;
@@ -108,10 +109,19 @@ public class Program {
 	
 	public void aktualizuj_dane() {
 		terminarz = new Terminarz();
-		
 		zlozone = terminarz.lista_zlozone();
 		
+		String czy_wykonane;
+		if (zlozone.get(0).pobierz_czy_wykonane()) { czy_wykonane = "nie"; }
+		else { czy_wykonane = "tak"; }
+		
 		lbl_nazwa_grupa.setText(zlozone.get(0).pobierz_nazwa_grupa());
+		lbl_opis_grupa.setText(zlozone.get(0).pobierz_opis_grupa());
+		lbl_tytul_zadanie.setText(zlozone.get(0).pobierz_tytul_zadanie());
+		lbl_data_zadanie.setText(zlozone.get(0).pobierz_data_zadanie().toString());
+		lbl_opis_zadanie.setText(zlozone.get(0).pobierz_opis_zadanie());
+		lbl_priorytet_zadanie.setText(zlozone.get(0).pobierz_priorytet_zadanie());
+		lbl_czy_wykonane.setText(czy_wykonane);
 				
 		terminarz.zamknij_polaczenie();
 	}
