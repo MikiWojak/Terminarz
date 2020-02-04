@@ -10,9 +10,12 @@ import model.Zadanie;
 import model.Zlozone;
 
 import java.awt.Font;
+
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.sql.Date;
+import java.sql.ResultSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.awt.event.ActionEvent;
@@ -45,7 +48,8 @@ public class Program {
 		initialize();
 		
 		terminarz = new Terminarz();
-		lista.setModel(terminarz.lista_zadania());
+		zadania = terminarz.pobierz_zadania();
+		lista.setModel(lista_zadania());
 		terminarz.zamknij_polaczenie();
 	}
 
@@ -135,5 +139,21 @@ public class Program {
 		lbl_czy_wykonane.setText(czy_wykonane);
 				
 		terminarz.zamknij_polaczenie();
+	}
+	
+	//do listy w programie
+	public DefaultListModel<Object> lista_zadania() {
+		DefaultListModel<Object>lista = new DefaultListModel<Object>();
+			
+		try {
+			for(int i = 0; i < zadania.size(); i++) {
+				lista.addElement(zadania.get(i).pobierz_data_zadanie().toString() + "   " + zadania.get(i).pobierz_tytul_zadanie());
+			}
+		} catch (IndexOutOfBoundsException e) {
+			e.printStackTrace();
+			return null;
+		}
+			
+		return lista;
 	}
 }
