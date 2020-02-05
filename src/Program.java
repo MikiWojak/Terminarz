@@ -144,10 +144,13 @@ public class Program {
 	//do listy w programie
 	public DefaultListModel<Object> lista_zadania() {
 		DefaultListModel<Object>lista = new DefaultListModel<Object>();
-			
+		String czy_wykonane;
 		try {
 			for(int i = 0; i < zadania.size(); i++) {
-				lista.addElement(zadania.get(i).pobierz_data_zadanie().toString() + "   " + zadania.get(i).pobierz_tytul_zadanie());
+				if(zadania.get(i).pobierz_czy_wykonane()) { czy_wykonane = "*"; }
+				else { czy_wykonane = " "; }
+				
+				lista.addElement(czy_wykonane + "   " + zadania.get(i).pobierz_data_zadanie().toString() + "   " + zadania.get(i).pobierz_tytul_zadanie());
 			}
 		} catch (IndexOutOfBoundsException e) {
 			e.printStackTrace();
