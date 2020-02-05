@@ -2,6 +2,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import terminarz.Terminarz;
 import model.Grupa;
@@ -24,16 +25,9 @@ public class Program {
 	private List<Grupa>grupy;
 	private List<Przypis>przypisania;
 	private List<Zlozone>zlozone;
+	private ZadSzczegoly zad_szczegowy;
 	
 	private JFrame frame;
-	private JLabel lbl_nazwa_grupa;
-	private JLabel lbl_opis_grupa;
-	private JLabel lbl_tytul_zadanie;
-	private JLabel lbl_data_zadanie;
-	private JLabel lbl_opis_zadanie;
-	private JLabel lbl_priorytet_zadanie;
-	private JLabel lbl_czy_wykonane;
-	private JButton Aktualizuj;
 
 	/**
 	 * Create the application.
@@ -52,50 +46,9 @@ public class Program {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		lbl_nazwa_grupa = new JLabel("New label");
-		lbl_nazwa_grupa.setFont(new Font("Arial", Font.PLAIN, 24));
-		lbl_nazwa_grupa.setBounds(12, 13, 1069, 37);
-		frame.getContentPane().add(lbl_nazwa_grupa);
-		
-		lbl_opis_grupa = new JLabel("New label");
-		lbl_opis_grupa.setFont(new Font("Arial", Font.PLAIN, 24));
-		lbl_opis_grupa.setBounds(12, 63, 1069, 37);
-		frame.getContentPane().add(lbl_opis_grupa);
-		
-		lbl_tytul_zadanie = new JLabel("New label");
-		lbl_tytul_zadanie.setFont(new Font("Arial", Font.PLAIN, 24));
-		lbl_tytul_zadanie.setBounds(12, 113, 1069, 37);
-		frame.getContentPane().add(lbl_tytul_zadanie);
-		
-		lbl_data_zadanie = new JLabel("New label");
-		lbl_data_zadanie.setFont(new Font("Arial", Font.PLAIN, 24));
-		lbl_data_zadanie.setBounds(12, 163, 1069, 37);
-		frame.getContentPane().add(lbl_data_zadanie);
-		
-		lbl_opis_zadanie = new JLabel("New label");
-		lbl_opis_zadanie.setFont(new Font("Arial", Font.PLAIN, 24));
-		lbl_opis_zadanie.setBounds(12, 213, 1069, 37);
-		frame.getContentPane().add(lbl_opis_zadanie);
-		
-		lbl_priorytet_zadanie = new JLabel("New label");
-		lbl_priorytet_zadanie.setFont(new Font("Arial", Font.PLAIN, 24));
-		lbl_priorytet_zadanie.setBounds(12, 263, 1069, 37);
-		frame.getContentPane().add(lbl_priorytet_zadanie);
-		
-		lbl_czy_wykonane = new JLabel("New label");
-		lbl_czy_wykonane.setFont(new Font("Arial", Font.PLAIN, 24));
-		lbl_czy_wykonane.setBounds(12, 313, 1069, 37);
-		frame.getContentPane().add(lbl_czy_wykonane);
-		
-		Aktualizuj = new JButton("Aktualizuj");
-		Aktualizuj.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				aktualizuj_dane();
-			}
-		});
-		Aktualizuj.setFont(new Font("Arial", Font.PLAIN, 24));
-		Aktualizuj.setBounds(457, 363, 222, 37);
-		frame.getContentPane().add(Aktualizuj);
+		zad_szczegowy = new ZadSzczegoly();
+		zad_szczegowy.setBounds(0, 0, 1111, 592);
+		frame.getContentPane().add(zad_szczegowy);
 		
 		frame.setVisible(true);
 	}
@@ -105,24 +58,5 @@ public class Program {
 		grupy = new LinkedList<Grupa>();
 		przypisania = new LinkedList<Przypis>();
 		zlozone = new LinkedList<Zlozone>();
-	}
-	
-	public void aktualizuj_dane() {
-		terminarz = new Terminarz();
-		zlozone = terminarz.lista_zlozone();
-		
-		String czy_wykonane;
-		if (zlozone.get(0).pobierz_czy_wykonane()) { czy_wykonane = "nie"; }
-		else { czy_wykonane = "tak"; }
-		
-		lbl_nazwa_grupa.setText(zlozone.get(0).pobierz_nazwa_grupa());
-		lbl_opis_grupa.setText(zlozone.get(0).pobierz_opis_grupa());
-		lbl_tytul_zadanie.setText(zlozone.get(0).pobierz_tytul_zadanie());
-		lbl_data_zadanie.setText(zlozone.get(0).pobierz_data_zadanie().toString());
-		lbl_opis_zadanie.setText(zlozone.get(0).pobierz_opis_zadanie());
-		lbl_priorytet_zadanie.setText(zlozone.get(0).pobierz_priorytet_zadanie());
-		lbl_czy_wykonane.setText(czy_wykonane);
-				
-		terminarz.zamknij_polaczenie();
 	}
 }
