@@ -25,6 +25,7 @@ public class Program {
 	private List<Grupa>grupy;
 	private List<Przypis>przypisania;
 	private List<Zlozone>zlozone;
+	private ZadLista zad_lista;
 	private ZadSzczegoly zad_szczegowy;
 	
 	private JFrame frame;
@@ -46,9 +47,15 @@ public class Program {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
+		zad_lista = new ZadLista();
+		zad_lista.setBounds(0, 0, 1111, 592);
+		frame.getContentPane().add(zad_lista);
+		
+		/*
 		zad_szczegowy = new ZadSzczegoly();
 		zad_szczegowy.setBounds(0, 0, 1111, 592);
 		frame.getContentPane().add(zad_szczegowy);
+		*/
 		
 		frame.setVisible(true);
 	}

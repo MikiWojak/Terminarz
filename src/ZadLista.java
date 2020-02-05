@@ -22,6 +22,8 @@ public class ZadLista extends JPanel {
 		add(lista);
 		
 		inicjalizacja_pol();
+		
+		lista.setModel(lista_zadania());		//BAZA DANYCH!!!
 	}
 	
 	public void inicjalizacja_pol() {
