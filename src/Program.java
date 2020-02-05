@@ -59,4 +59,5 @@ public class Program {
 		przypisania = new LinkedList<Przypis>();
 		zlozone = new LinkedList<Zlozone>();
 	}
+
 }
