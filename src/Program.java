@@ -125,18 +125,21 @@ public class Program {
 	public void aktualizuj_dane() {
 		terminarz = new Terminarz();
 		zlozone = terminarz.pobierz_zlozone();
+		int index = lista.getSelectedIndex();
 		
-		String czy_wykonane;
-		if (zlozone.get(0).pobierz_czy_wykonane()) { czy_wykonane = "nie"; }
-		else { czy_wykonane = "tak"; }
-		
-		lbl_nazwa_grupa.setText(zlozone.get(0).pobierz_nazwa_grupa());
-		lbl_opis_grupa.setText(zlozone.get(0).pobierz_opis_grupa());
-		lbl_tytul_zadanie.setText(zlozone.get(0).pobierz_tytul_zadanie());
-		lbl_data_zadanie.setText(zlozone.get(0).pobierz_data_zadanie().toString());
-		lbl_opis_zadanie.setText(zlozone.get(0).pobierz_opis_zadanie());
-		lbl_priorytet_zadanie.setText(zlozone.get(0).pobierz_priorytet_zadanie());
-		lbl_czy_wykonane.setText(czy_wykonane);
+		if (index >=0) {
+			String czy_wykonane;
+			if (zlozone.get(index).pobierz_czy_wykonane()) { czy_wykonane = "tak"; }
+			else { czy_wykonane = "nie"; }
+			
+			lbl_nazwa_grupa.setText(zlozone.get(index).pobierz_nazwa_grupa());
+			lbl_opis_grupa.setText(zlozone.get(index).pobierz_opis_grupa());
+			lbl_tytul_zadanie.setText(zlozone.get(index).pobierz_tytul_zadanie());
+			lbl_data_zadanie.setText(zlozone.get(index).pobierz_data_zadanie().toString());
+			lbl_opis_zadanie.setText(zlozone.get(index).pobierz_opis_zadanie());
+			lbl_priorytet_zadanie.setText(zlozone.get(index).pobierz_priorytet_zadanie());
+			lbl_czy_wykonane.setText(czy_wykonane);
+		}
 				
 		terminarz.zamknij_polaczenie();
 	}
