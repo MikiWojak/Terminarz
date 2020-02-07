@@ -81,11 +81,21 @@ public class Program {
 		zad_szczegowy.add(tytul_szczegoly);
 		
 		btn_zad_lista = new JButton("Lista");
+		btn_zad_lista.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				zmiana_panelu(zad_lista);
+			}
+		});
 		btn_zad_lista.setFont(new Font("Arial", Font.PLAIN, 20));
 		btn_zad_lista.setBounds(12, 601, 133, 39);
 		frame.getContentPane().add(btn_zad_lista);
 		
 		btn_zad_szczegoly = new JButton("Szczeg\u00F3\u0142y\r\n");
+		btn_zad_szczegoly.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				zmiana_panelu(zad_szczegowy);
+			}
+		});
 		btn_zad_szczegoly.setFont(new Font("Arial", Font.PLAIN, 20));
 		btn_zad_szczegoly.setBounds(157, 601, 133, 39);
 		frame.getContentPane().add(btn_zad_szczegoly);
@@ -98,5 +108,12 @@ public class Program {
 		grupy = new LinkedList<Grupa>();
 		przypisania = new LinkedList<Przypis>();
 		zlozone = new LinkedList<Zlozone>();
+	}
+	
+	public void zmiana_panelu(JPanel panel) {
+		warstwy.removeAll();
+		warstwy.add(panel);
+		warstwy.repaint();
+		warstwy.revalidate();
 	}
 }
