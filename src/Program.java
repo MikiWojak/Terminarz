@@ -20,6 +20,7 @@ import javax.swing.JLayeredPane;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.JList;
 
 public class Program {
 	
@@ -37,6 +38,7 @@ public class Program {
 	private JButton btn_zad_szczegoly;
 	private JLabel tytul_szczegoly;
 	private JLabel tytul_lista;
+	private JList lista;
 
 	/**
 	 * Create the application.
@@ -56,7 +58,7 @@ public class Program {
 		frame.getContentPane().setLayout(null);
 		
 		warstwy = new JLayeredPane();
-		warstwy.setBounds(12, 13, 1058, 527);
+		warstwy.setBounds(12, 13, 1058, 575);
 		frame.getContentPane().add(warstwy);
 		warstwy.setLayout(new CardLayout(0, 0));
 		
@@ -69,6 +71,10 @@ public class Program {
 		tytul_lista.setFont(new Font("Arial", Font.PLAIN, 20));
 		tytul_lista.setBounds(12, 13, 1034, 41);
 		zad_lista.add(tytul_lista);
+		
+		lista = new JList();
+		lista.setBounds(22, 67, 1024, 440);
+		zad_lista.add(lista);
 		
 		zad_szczegowy = new JPanel();
 		warstwy.add(zad_szczegowy, "name_762878183462982");
