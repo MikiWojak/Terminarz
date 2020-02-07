@@ -43,12 +43,12 @@ public class Program {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 1111, 592);
+		frame.setBounds(100, 100, 1100, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		zad_lista = new ZadLista();
-		zad_lista.setBounds(0, 0, 1111, 592);
+		zad_lista.setBounds(0, 0, 1000, 550);
 		frame.getContentPane().add(zad_lista);
 		
 		/*

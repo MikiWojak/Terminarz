@@ -1,15 +1,18 @@
 import javax.swing.JPanel;
 
 import model.Zadanie;
+import terminarz.Terminarz;
 
 import java.util.LinkedList;
 import java.util.List;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
+import java.awt.Font;
 
 public class ZadLista extends JPanel {
 	private List<Zadanie>zadania;
+	private Terminarz terminarz;
 	
 	private JList lista;
 	
@@ -18,10 +21,15 @@ public class ZadLista extends JPanel {
 		setLayout(null);
 		
 		lista = new JList();
-		lista.setBounds(12, 13, 753, 454);
+		lista.setFont(new Font("Arial", Font.PLAIN, 20));
+		lista.setBounds(12, 13, 900, 454);
 		add(lista);
 		
 		inicjalizacja_pol();
+		
+		terminarz = new Terminarz();
+		zadania = terminarz.lista_zadania();
+		terminarz.zamknij_polaczenie();
 		
 		lista.setModel(lista_zadania());		//BAZA DANYCH!!!
 	}
@@ -47,5 +55,5 @@ public class ZadLista extends JPanel {
 			}
 				
 			return lista;
-		}
+	}
 }
