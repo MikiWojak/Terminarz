@@ -51,6 +51,8 @@ public class Program {
 	private JLabel opis_wykonane;
 	private JLabel opis_opis_zad;
 	private JLabel opis_priorytet_zad;
+	private JLabel opis_id_zad;
+	private JLabel tresc_id_zad;
 
 	/**
 	 * Create the application.
@@ -95,7 +97,6 @@ public class Program {
 		btn_zad_szczegoly.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				zmiana_panelu(zad_szczegowy);
-				lista_rekordy();
 			}
 		});
 		btn_zad_szczegoly.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -145,35 +146,35 @@ public class Program {
 		opis_wykonane.setBounds(22, 301, 94, 25);
 		zad_szczegowy.add(opis_wykonane);
 		
-		tresc_data_zad = new JLabel("Data");
+		tresc_data_zad = new JLabel("Data zadania");
 		tresc_data_zad.setVerticalAlignment(SwingConstants.TOP);
 		tresc_data_zad.setHorizontalAlignment(SwingConstants.LEFT);
 		tresc_data_zad.setFont(new Font("Arial", Font.PLAIN, 20));
 		tresc_data_zad.setBounds(128, 67, 918, 25);
 		zad_szczegowy.add(tresc_data_zad);
 		
-		tresc_tytul_zad = new JLabel("Data");
+		tresc_tytul_zad = new JLabel("Tytu\u0142 zadania");
 		tresc_tytul_zad.setVerticalAlignment(SwingConstants.TOP);
 		tresc_tytul_zad.setHorizontalAlignment(SwingConstants.LEFT);
 		tresc_tytul_zad.setFont(new Font("Arial", Font.PLAIN, 20));
 		tresc_tytul_zad.setBounds(128, 105, 918, 25);
 		zad_szczegowy.add(tresc_tytul_zad);
 		
-		tresc_opis_zad = new JLabel("Data");
+		tresc_opis_zad = new JLabel("Opis zadania");
 		tresc_opis_zad.setVerticalAlignment(SwingConstants.TOP);
 		tresc_opis_zad.setHorizontalAlignment(SwingConstants.LEFT);
 		tresc_opis_zad.setFont(new Font("Arial", Font.PLAIN, 20));
 		tresc_opis_zad.setBounds(128, 143, 918, 100);
 		zad_szczegowy.add(tresc_opis_zad);
 		
-		tresc_priorytet_zad = new JLabel("Data");
+		tresc_priorytet_zad = new JLabel("Priorytet zadania");
 		tresc_priorytet_zad.setVerticalAlignment(SwingConstants.TOP);
 		tresc_priorytet_zad.setHorizontalAlignment(SwingConstants.LEFT);
 		tresc_priorytet_zad.setFont(new Font("Arial", Font.PLAIN, 20));
 		tresc_priorytet_zad.setBounds(128, 263, 918, 25);
 		zad_szczegowy.add(tresc_priorytet_zad);
 		
-		tresc_wykonane = new JLabel("Data");
+		tresc_wykonane = new JLabel("Czy wykonane zadanie");
 		tresc_wykonane.setVerticalAlignment(SwingConstants.TOP);
 		tresc_wykonane.setHorizontalAlignment(SwingConstants.LEFT);
 		tresc_wykonane.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -186,9 +187,24 @@ public class Program {
 		btn_zad_lista.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				zmiana_panelu(zad_lista);
+				//lista_rekordy();
 			}
 		});
 		btn_zad_lista.setFont(new Font("Arial", Font.PLAIN, 20));
+		
+		opis_id_zad = new JLabel("ID");
+		opis_id_zad.setVerticalAlignment(SwingConstants.TOP);
+		opis_id_zad.setHorizontalAlignment(SwingConstants.RIGHT);
+		opis_id_zad.setFont(new Font("Arial", Font.ITALIC, 20));
+		opis_id_zad.setBounds(22, 339, 94, 25);
+		zad_szczegowy.add(opis_id_zad);
+		
+		tresc_id_zad = new JLabel("ID zadania");
+		tresc_id_zad.setVerticalAlignment(SwingConstants.TOP);
+		tresc_id_zad.setHorizontalAlignment(SwingConstants.LEFT);
+		tresc_id_zad.setFont(new Font("Arial", Font.PLAIN, 20));
+		tresc_id_zad.setBounds(128, 339, 918, 25);
+		zad_szczegowy.add(tresc_id_zad);
 		
 		frame.setVisible(true);
 		
@@ -237,24 +253,17 @@ public class Program {
 		return lista;
 	}
 	
-	/*
-	public void aktualizuj_dane() {
-		terminarz = new Terminarz();
-		zlozone = terminarz.lista_zlozone();
+	public void zadanie_szczegoly(int index) {
 		
 		String czy_wykonane;
 		if (zlozone.get(0).pobierz_czy_wykonane()) { czy_wykonane = "nie"; }
 		else { czy_wykonane = "tak"; }
-		
-		lbl_nazwa_grupa.setText(zlozone.get(0).pobierz_nazwa_grupa());
-		lbl_opis_grupa.setText(zlozone.get(0).pobierz_opis_grupa());
+		/*
 		lbl_tytul_zadanie.setText(zlozone.get(0).pobierz_tytul_zadanie());
 		lbl_data_zadanie.setText(zlozone.get(0).pobierz_data_zadanie().toString());
 		lbl_opis_zadanie.setText(zlozone.get(0).pobierz_opis_zadanie());
 		lbl_priorytet_zadanie.setText(zlozone.get(0).pobierz_priorytet_zadanie());
 		lbl_czy_wykonane.setText(czy_wykonane);
-				
-		terminarz.zamknij_polaczenie();
+		*/
 	}
-	*/
 }
