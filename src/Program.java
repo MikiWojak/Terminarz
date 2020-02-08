@@ -41,6 +41,11 @@ public class Program {
 	private JLabel tytul_szczegoly;
 	private JLabel tytul_lista;
 	private JList lista;
+	private JLabel label;
+	private JLabel label_1;
+	private JLabel label_2;
+	private JLabel label_3;
+	private JLabel label_4;
 
 	/**
 	 * Create the application.
@@ -100,15 +105,85 @@ public class Program {
 		tytul_szczegoly.setBounds(12, 13, 1034, 41);
 		zad_szczegowy.add(tytul_szczegoly);
 		
-		btn_zad_lista = new JButton("Lista");
+		JLabel lblNewLabel = new JLabel("Data");
+		lblNewLabel.setVerticalAlignment(SwingConstants.TOP);
+		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblNewLabel.setFont(new Font("Arial", Font.ITALIC, 20));
+		lblNewLabel.setBounds(22, 67, 94, 25);
+		zad_szczegowy.add(lblNewLabel);
+		
+		JLabel lblTytul = new JLabel("Tytu\u0142");
+		lblTytul.setVerticalAlignment(SwingConstants.TOP);
+		lblTytul.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblTytul.setFont(new Font("Arial", Font.ITALIC, 20));
+		lblTytul.setBounds(22, 105, 94, 25);
+		zad_szczegowy.add(lblTytul);
+		
+		JLabel lblOpis = new JLabel("Opis");
+		lblOpis.setVerticalAlignment(SwingConstants.TOP);
+		lblOpis.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblOpis.setFont(new Font("Arial", Font.ITALIC, 20));
+		lblOpis.setBounds(22, 143, 94, 25);
+		zad_szczegowy.add(lblOpis);
+		
+		JLabel lblPriorytet = new JLabel("Priorytet");
+		lblPriorytet.setVerticalAlignment(SwingConstants.TOP);
+		lblPriorytet.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblPriorytet.setFont(new Font("Arial", Font.ITALIC, 20));
+		lblPriorytet.setBounds(22, 263, 94, 25);
+		zad_szczegowy.add(lblPriorytet);
+		
+		JLabel lblWykonane = new JLabel("Wykonane");
+		lblWykonane.setVerticalAlignment(SwingConstants.TOP);
+		lblWykonane.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblWykonane.setFont(new Font("Arial", Font.ITALIC, 20));
+		lblWykonane.setBounds(22, 301, 94, 25);
+		zad_szczegowy.add(lblWykonane);
+		
+		label = new JLabel("Data");
+		label.setVerticalAlignment(SwingConstants.TOP);
+		label.setHorizontalAlignment(SwingConstants.LEFT);
+		label.setFont(new Font("Arial", Font.PLAIN, 20));
+		label.setBounds(128, 67, 918, 25);
+		zad_szczegowy.add(label);
+		
+		label_1 = new JLabel("Data");
+		label_1.setVerticalAlignment(SwingConstants.TOP);
+		label_1.setHorizontalAlignment(SwingConstants.LEFT);
+		label_1.setFont(new Font("Arial", Font.PLAIN, 20));
+		label_1.setBounds(128, 105, 918, 25);
+		zad_szczegowy.add(label_1);
+		
+		label_2 = new JLabel("Data");
+		label_2.setVerticalAlignment(SwingConstants.TOP);
+		label_2.setHorizontalAlignment(SwingConstants.LEFT);
+		label_2.setFont(new Font("Arial", Font.PLAIN, 20));
+		label_2.setBounds(128, 143, 918, 100);
+		zad_szczegowy.add(label_2);
+		
+		label_3 = new JLabel("Data");
+		label_3.setVerticalAlignment(SwingConstants.TOP);
+		label_3.setHorizontalAlignment(SwingConstants.LEFT);
+		label_3.setFont(new Font("Arial", Font.PLAIN, 20));
+		label_3.setBounds(128, 263, 918, 25);
+		zad_szczegowy.add(label_3);
+		
+		label_4 = new JLabel("Data");
+		label_4.setVerticalAlignment(SwingConstants.TOP);
+		label_4.setHorizontalAlignment(SwingConstants.LEFT);
+		label_4.setFont(new Font("Arial", Font.PLAIN, 20));
+		label_4.setBounds(128, 301, 918, 25);
+		zad_szczegowy.add(label_4);
+		
+		btn_zad_lista = new JButton("Wr\u00F3\u0107");
+		btn_zad_lista.setBounds(12, 523, 133, 39);
+		zad_szczegowy.add(btn_zad_lista);
 		btn_zad_lista.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				zmiana_panelu(zad_lista);
 			}
 		});
 		btn_zad_lista.setFont(new Font("Arial", Font.PLAIN, 20));
-		btn_zad_lista.setBounds(12, 601, 133, 39);
-		frame.getContentPane().add(btn_zad_lista);
 		
 		frame.setVisible(true);
 		
@@ -156,4 +231,25 @@ public class Program {
 				
 		return lista;
 	}
+	
+	/*
+	public void aktualizuj_dane() {
+		terminarz = new Terminarz();
+		zlozone = terminarz.lista_zlozone();
+		
+		String czy_wykonane;
+		if (zlozone.get(0).pobierz_czy_wykonane()) { czy_wykonane = "nie"; }
+		else { czy_wykonane = "tak"; }
+		
+		lbl_nazwa_grupa.setText(zlozone.get(0).pobierz_nazwa_grupa());
+		lbl_opis_grupa.setText(zlozone.get(0).pobierz_opis_grupa());
+		lbl_tytul_zadanie.setText(zlozone.get(0).pobierz_tytul_zadanie());
+		lbl_data_zadanie.setText(zlozone.get(0).pobierz_data_zadanie().toString());
+		lbl_opis_zadanie.setText(zlozone.get(0).pobierz_opis_zadanie());
+		lbl_priorytet_zadanie.setText(zlozone.get(0).pobierz_priorytet_zadanie());
+		lbl_czy_wykonane.setText(czy_wykonane);
+				
+		terminarz.zamknij_polaczenie();
+	}
+	*/
 }
