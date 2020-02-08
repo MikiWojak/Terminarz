@@ -41,11 +41,16 @@ public class Program {
 	private JLabel tytul_szczegoly;
 	private JLabel tytul_lista;
 	private JList lista;
-	private JLabel label;
-	private JLabel label_1;
-	private JLabel label_2;
-	private JLabel label_3;
-	private JLabel label_4;
+	private JLabel tresc_data_zad;
+	private JLabel tresc_tytul_zad;
+	private JLabel tresc_opis_zad;
+	private JLabel tresc_priorytet_zad;
+	private JLabel tresc_wykonane;
+	private JLabel opis_data_zad;
+	private JLabel opis_tytul_zad;
+	private JLabel opis_wykonane;
+	private JLabel opis_opis_zad;
+	private JLabel opis_priorytet_zad;
 
 	/**
 	 * Create the application.
@@ -105,75 +110,75 @@ public class Program {
 		tytul_szczegoly.setBounds(12, 13, 1034, 41);
 		zad_szczegowy.add(tytul_szczegoly);
 		
-		JLabel lblNewLabel = new JLabel("Data");
-		lblNewLabel.setVerticalAlignment(SwingConstants.TOP);
-		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel.setFont(new Font("Arial", Font.ITALIC, 20));
-		lblNewLabel.setBounds(22, 67, 94, 25);
-		zad_szczegowy.add(lblNewLabel);
+		opis_data_zad = new JLabel("Data");
+		opis_data_zad.setVerticalAlignment(SwingConstants.TOP);
+		opis_data_zad.setHorizontalAlignment(SwingConstants.RIGHT);
+		opis_data_zad.setFont(new Font("Arial", Font.ITALIC, 20));
+		opis_data_zad.setBounds(22, 67, 94, 25);
+		zad_szczegowy.add(opis_data_zad);
 		
-		JLabel lblTytul = new JLabel("Tytu\u0142");
-		lblTytul.setVerticalAlignment(SwingConstants.TOP);
-		lblTytul.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblTytul.setFont(new Font("Arial", Font.ITALIC, 20));
-		lblTytul.setBounds(22, 105, 94, 25);
-		zad_szczegowy.add(lblTytul);
+		opis_tytul_zad = new JLabel("Tytu\u0142");
+		opis_tytul_zad.setVerticalAlignment(SwingConstants.TOP);
+		opis_tytul_zad.setHorizontalAlignment(SwingConstants.RIGHT);
+		opis_tytul_zad.setFont(new Font("Arial", Font.ITALIC, 20));
+		opis_tytul_zad.setBounds(22, 105, 94, 25);
+		zad_szczegowy.add(opis_tytul_zad);
 		
-		JLabel lblOpis = new JLabel("Opis");
-		lblOpis.setVerticalAlignment(SwingConstants.TOP);
-		lblOpis.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblOpis.setFont(new Font("Arial", Font.ITALIC, 20));
-		lblOpis.setBounds(22, 143, 94, 25);
-		zad_szczegowy.add(lblOpis);
+		opis_opis_zad = new JLabel("Opis");
+		opis_opis_zad.setVerticalAlignment(SwingConstants.TOP);
+		opis_opis_zad.setHorizontalAlignment(SwingConstants.RIGHT);
+		opis_opis_zad.setFont(new Font("Arial", Font.ITALIC, 20));
+		opis_opis_zad.setBounds(22, 143, 94, 25);
+		zad_szczegowy.add(opis_opis_zad);
 		
-		JLabel lblPriorytet = new JLabel("Priorytet");
-		lblPriorytet.setVerticalAlignment(SwingConstants.TOP);
-		lblPriorytet.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblPriorytet.setFont(new Font("Arial", Font.ITALIC, 20));
-		lblPriorytet.setBounds(22, 263, 94, 25);
-		zad_szczegowy.add(lblPriorytet);
+		opis_priorytet_zad = new JLabel("Priorytet");
+		opis_priorytet_zad.setVerticalAlignment(SwingConstants.TOP);
+		opis_priorytet_zad.setHorizontalAlignment(SwingConstants.RIGHT);
+		opis_priorytet_zad.setFont(new Font("Arial", Font.ITALIC, 20));
+		opis_priorytet_zad.setBounds(22, 263, 94, 25);
+		zad_szczegowy.add(opis_priorytet_zad);
 		
-		JLabel lblWykonane = new JLabel("Wykonane");
-		lblWykonane.setVerticalAlignment(SwingConstants.TOP);
-		lblWykonane.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblWykonane.setFont(new Font("Arial", Font.ITALIC, 20));
-		lblWykonane.setBounds(22, 301, 94, 25);
-		zad_szczegowy.add(lblWykonane);
+		opis_wykonane = new JLabel("Wykonane");
+		opis_wykonane.setVerticalAlignment(SwingConstants.TOP);
+		opis_wykonane.setHorizontalAlignment(SwingConstants.RIGHT);
+		opis_wykonane.setFont(new Font("Arial", Font.ITALIC, 20));
+		opis_wykonane.setBounds(22, 301, 94, 25);
+		zad_szczegowy.add(opis_wykonane);
 		
-		label = new JLabel("Data");
-		label.setVerticalAlignment(SwingConstants.TOP);
-		label.setHorizontalAlignment(SwingConstants.LEFT);
-		label.setFont(new Font("Arial", Font.PLAIN, 20));
-		label.setBounds(128, 67, 918, 25);
-		zad_szczegowy.add(label);
+		tresc_data_zad = new JLabel("Data");
+		tresc_data_zad.setVerticalAlignment(SwingConstants.TOP);
+		tresc_data_zad.setHorizontalAlignment(SwingConstants.LEFT);
+		tresc_data_zad.setFont(new Font("Arial", Font.PLAIN, 20));
+		tresc_data_zad.setBounds(128, 67, 918, 25);
+		zad_szczegowy.add(tresc_data_zad);
 		
-		label_1 = new JLabel("Data");
-		label_1.setVerticalAlignment(SwingConstants.TOP);
-		label_1.setHorizontalAlignment(SwingConstants.LEFT);
-		label_1.setFont(new Font("Arial", Font.PLAIN, 20));
-		label_1.setBounds(128, 105, 918, 25);
-		zad_szczegowy.add(label_1);
+		tresc_tytul_zad = new JLabel("Data");
+		tresc_tytul_zad.setVerticalAlignment(SwingConstants.TOP);
+		tresc_tytul_zad.setHorizontalAlignment(SwingConstants.LEFT);
+		tresc_tytul_zad.setFont(new Font("Arial", Font.PLAIN, 20));
+		tresc_tytul_zad.setBounds(128, 105, 918, 25);
+		zad_szczegowy.add(tresc_tytul_zad);
 		
-		label_2 = new JLabel("Data");
-		label_2.setVerticalAlignment(SwingConstants.TOP);
-		label_2.setHorizontalAlignment(SwingConstants.LEFT);
-		label_2.setFont(new Font("Arial", Font.PLAIN, 20));
-		label_2.setBounds(128, 143, 918, 100);
-		zad_szczegowy.add(label_2);
+		tresc_opis_zad = new JLabel("Data");
+		tresc_opis_zad.setVerticalAlignment(SwingConstants.TOP);
+		tresc_opis_zad.setHorizontalAlignment(SwingConstants.LEFT);
+		tresc_opis_zad.setFont(new Font("Arial", Font.PLAIN, 20));
+		tresc_opis_zad.setBounds(128, 143, 918, 100);
+		zad_szczegowy.add(tresc_opis_zad);
 		
-		label_3 = new JLabel("Data");
-		label_3.setVerticalAlignment(SwingConstants.TOP);
-		label_3.setHorizontalAlignment(SwingConstants.LEFT);
-		label_3.setFont(new Font("Arial", Font.PLAIN, 20));
-		label_3.setBounds(128, 263, 918, 25);
-		zad_szczegowy.add(label_3);
+		tresc_priorytet_zad = new JLabel("Data");
+		tresc_priorytet_zad.setVerticalAlignment(SwingConstants.TOP);
+		tresc_priorytet_zad.setHorizontalAlignment(SwingConstants.LEFT);
+		tresc_priorytet_zad.setFont(new Font("Arial", Font.PLAIN, 20));
+		tresc_priorytet_zad.setBounds(128, 263, 918, 25);
+		zad_szczegowy.add(tresc_priorytet_zad);
 		
-		label_4 = new JLabel("Data");
-		label_4.setVerticalAlignment(SwingConstants.TOP);
-		label_4.setHorizontalAlignment(SwingConstants.LEFT);
-		label_4.setFont(new Font("Arial", Font.PLAIN, 20));
-		label_4.setBounds(128, 301, 918, 25);
-		zad_szczegowy.add(label_4);
+		tresc_wykonane = new JLabel("Data");
+		tresc_wykonane.setVerticalAlignment(SwingConstants.TOP);
+		tresc_wykonane.setHorizontalAlignment(SwingConstants.LEFT);
+		tresc_wykonane.setFont(new Font("Arial", Font.PLAIN, 20));
+		tresc_wykonane.setBounds(128, 301, 918, 25);
+		zad_szczegowy.add(tresc_wykonane);
 		
 		btn_zad_lista = new JButton("Wr\u00F3\u0107");
 		btn_zad_lista.setBounds(12, 523, 133, 39);
