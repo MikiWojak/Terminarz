@@ -96,7 +96,10 @@ public class Program {
 		zad_lista.add(btn_zad_szczegoly);
 		btn_zad_szczegoly.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				zmiana_panelu(zad_szczegowy);
+				if(lista.getSelectedIndex() >= 0) {
+					zmiana_panelu(zad_szczegowy);
+					zadanie_szczegoly(lista.getSelectedIndex());
+				}
 			}
 		});
 		btn_zad_szczegoly.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -256,14 +259,15 @@ public class Program {
 	public void zadanie_szczegoly(int index) {
 		
 		String czy_wykonane;
-		if (zlozone.get(0).pobierz_czy_wykonane()) { czy_wykonane = "nie"; }
-		else { czy_wykonane = "tak"; }
-		/*
-		lbl_tytul_zadanie.setText(zlozone.get(0).pobierz_tytul_zadanie());
-		lbl_data_zadanie.setText(zlozone.get(0).pobierz_data_zadanie().toString());
-		lbl_opis_zadanie.setText(zlozone.get(0).pobierz_opis_zadanie());
-		lbl_priorytet_zadanie.setText(zlozone.get(0).pobierz_priorytet_zadanie());
-		lbl_czy_wykonane.setText(czy_wykonane);
-		*/
+		if (zadania.get(index).pobierz_czy_wykonane()) { czy_wykonane = "tak"; }
+		else { czy_wykonane = "nie"; }
+		
+		tresc_data_zad.setText(zadania.get(index).pobierz_data_zadanie().toString());
+		tresc_tytul_zad.setText(zadania.get(index).pobierz_tytul_zadanie());
+		tresc_opis_zad.setText(zadania.get(index).pobierz_opis_zadanie());
+		tresc_priorytet_zad.setText(zadania.get(index).pobierz_priorytet_zadanie());
+		tresc_wykonane.setText(czy_wykonane);
+		tresc_id_zad.setText("" + index);
+		
 	}
 }
