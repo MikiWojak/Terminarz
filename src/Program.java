@@ -75,8 +75,20 @@ public class Program {
 		zad_lista.add(tytul_lista);
 		
 		lista = new JList();
+		lista.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		lista.setBounds(22, 67, 1024, 440);
 		zad_lista.add(lista);
+		
+		btn_zad_szczegoly = new JButton("Szczeg\u00F3\u0142y\r\n");
+		btn_zad_szczegoly.setBounds(12, 523, 133, 39);
+		zad_lista.add(btn_zad_szczegoly);
+		btn_zad_szczegoly.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				zmiana_panelu(zad_szczegowy);
+				lista_rekordy();
+			}
+		});
+		btn_zad_szczegoly.setFont(new Font("Arial", Font.PLAIN, 20));
 		
 		zad_szczegowy = new JPanel();
 		warstwy.add(zad_szczegowy, "name_762878183462982");
@@ -98,17 +110,10 @@ public class Program {
 		btn_zad_lista.setBounds(12, 601, 133, 39);
 		frame.getContentPane().add(btn_zad_lista);
 		
-		btn_zad_szczegoly = new JButton("Szczeg\u00F3\u0142y\r\n");
-		btn_zad_szczegoly.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				zmiana_panelu(zad_szczegowy);
-			}
-		});
-		btn_zad_szczegoly.setFont(new Font("Arial", Font.PLAIN, 20));
-		btn_zad_szczegoly.setBounds(157, 601, 133, 39);
-		frame.getContentPane().add(btn_zad_szczegoly);
-		
 		frame.setVisible(true);
+		
+		//lista jest domyslnym okienkiem
+		lista_rekordy();
 	}
 	
 	public void inicjalizacja_pol() {				
@@ -125,8 +130,12 @@ public class Program {
 		warstwy.revalidate();
 	}
 	
-	public void lista() {
+	public void lista_rekordy() {
+		terminarz = new Terminarz();
+		zadania = terminarz.lista_zadania();
+		terminarz.zamknij_polaczenie();
 		
+		lista.setModel(lista_zadania());
 	}
 	
 	//do listy w programie
