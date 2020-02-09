@@ -24,7 +24,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.JList;
 
-public class Program implements ActionListener{
+public class Program{
 	
 	private Terminarz terminarz;				//po³¹czenie z BD
 	private List<Zadanie>zadania;				//lista zadania
@@ -60,6 +60,10 @@ public class Program implements ActionListener{
 	public Program() {
 		initialize();
 		inicjalizacja_pol();
+		
+		//lista jest domyslnym okienkiem
+		//tworzona PO inicjalizacji tabeli
+		lista_rekordy();
 	}
 
 	/**
@@ -94,7 +98,14 @@ public class Program implements ActionListener{
 		btn_zad_szczegoly = new JButton("Szczeg\u00F3\u0142y\r\n");
 		btn_zad_szczegoly.setBounds(12, 523, 133, 39);
 		zad_lista.add(btn_zad_szczegoly);
-		btn_zad_szczegoly.addActionListener(this);
+		btn_zad_szczegoly.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(lista.getSelectedIndex() >= 0) {
+					zmiana_panelu(zad_szczegowy);
+					zadanie_szczegoly(lista.getSelectedIndex());
+				}
+			}
+		});
 		btn_zad_szczegoly.setFont(new Font("Arial", Font.PLAIN, 20));
 		
 		zad_szczegowy = new JPanel();
@@ -183,7 +194,6 @@ public class Program implements ActionListener{
 		btn_zad_lista.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				zmiana_panelu(zad_lista);
-				//lista_rekordy();
 			}
 		});
 		btn_zad_lista.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -203,9 +213,6 @@ public class Program implements ActionListener{
 		zad_szczegowy.add(tresc_id_zad);
 		
 		frame.setVisible(true);
-		
-		//lista jest domyslnym okienkiem
-		lista_rekordy();
 	}
 	
 	public void inicjalizacja_pol() {				
@@ -250,7 +257,6 @@ public class Program implements ActionListener{
 	}
 	
 	public void zadanie_szczegoly(int index) {
-		
 		String czy_wykonane;
 		if (zadania.get(index).pobierz_czy_wykonane()) { czy_wykonane = "tak"; }
 		else { czy_wykonane = "nie"; }
@@ -262,16 +268,5 @@ public class Program implements ActionListener{
 		tresc_wykonane.setText(czy_wykonane);
 		tresc_id_zad.setText("" + index);
 		
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		if(e.getSource() == btn_zad_szczegoly) {
-			if(lista.getSelectedIndex() >= 0) {
-				zmiana_panelu(zad_szczegowy);
-				zadanie_szczegoly(lista.getSelectedIndex());
-			}
-		}
 	}
 }
