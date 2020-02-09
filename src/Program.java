@@ -25,6 +25,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
+import java.awt.Choice;
 
 public class Program{
 	
@@ -42,7 +43,7 @@ public class Program{
 	private JButton btn_zad_szczegoly;
 	private JLabel tytul_szczegoly;
 	private JLabel tytul_lista;
-	private JList lista;
+	private JList lista_zad;
 	private JLabel tresc_data_zad;
 	private JLabel tresc_tytul_zad;
 	private JLabel tresc_opis_zad;
@@ -56,6 +57,7 @@ public class Program{
 	private JLabel opis_id_zad;
 	private JLabel tresc_id_zad;
 	private JScrollPane scrollPane;
+	private Choice lista_grupa;
 
 	/**
 	 * Create the application.
@@ -90,30 +92,34 @@ public class Program{
 		tytul_lista = new JLabel("Lista");
 		tytul_lista.setHorizontalAlignment(SwingConstants.CENTER);
 		tytul_lista.setFont(new Font("Arial", Font.PLAIN, 20));
-		tytul_lista.setBounds(12, 13, 1034, 41);
+		tytul_lista.setBounds(12, 13, 672, 41);
 		zad_lista.add(tytul_lista);
 		
 		scrollPane = new JScrollPane();
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane.setBounds(22, 67, 1024, 440);
+		scrollPane.setBounds(22, 67, 665, 440);
 		zad_lista.add(scrollPane);
 		
-		lista = new JList();
-		scrollPane.setViewportView(lista);
-		lista.setFont(new Font("Monospaced", Font.PLAIN, 20));
+		lista_zad = new JList();
+		scrollPane.setViewportView(lista_zad);
+		lista_zad.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		
 		btn_zad_szczegoly = new JButton("Szczeg\u00F3\u0142y\r\n");
 		btn_zad_szczegoly.setBounds(12, 523, 133, 39);
 		zad_lista.add(btn_zad_szczegoly);
 		btn_zad_szczegoly.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(lista.getSelectedIndex() >= 0) {
+				if(lista_zad.getSelectedIndex() >= 0) {
 					zmiana_panelu(zad_szczegowy);
-					zadanie_szczegoly(lista.getSelectedIndex());
+					zadanie_szczegoly(lista_zad.getSelectedIndex());
 				}
 			}
 		});
 		btn_zad_szczegoly.setFont(new Font("Arial", Font.PLAIN, 20));
+		
+		lista_grupa = new Choice();
+		lista_grupa.setBounds(1020, 67, 28, 22);
+		zad_lista.add(lista_grupa);
 		
 		zad_szczegowy = new JPanel();
 		warstwy.add(zad_szczegowy, "name_762878183462982");
@@ -236,12 +242,21 @@ public class Program{
 		warstwy.revalidate();
 	}
 	
-	public void lista_rekordy() {
+	public void lista_zad() {
 		terminarz = new Terminarz();
 		zadania = terminarz.lista_zadania();
 		terminarz.zamknij_polaczenie();
-		
-		lista.setModel(lista_zadania());
+	}
+	
+	public void lista_rekordy() {
+		lista_zad();
+		lista_zad.setModel(lista_zadania());
+	}
+	
+	public void lista_gru() {
+		terminarz = new Terminarz();
+		grupy = terminarz.lista_grupy();
+		terminarz.zamknij_polaczenie();
 	}
 	
 	//do listy w programie
@@ -274,6 +289,5 @@ public class Program{
 		tresc_priorytet_zad.setText(zadania.get(index).pobierz_priorytet_zadanie());
 		tresc_wykonane.setText(czy_wykonane);
 		tresc_id_zad.setText("" + index);
-		
 	}
 }
