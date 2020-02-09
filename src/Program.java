@@ -69,6 +69,8 @@ public class Program{
 		//lista jest domyslnym okienkiem
 		//tworzona PO inicjalizacji tabeli
 		lista_rekordy();
+		
+		wybor_grupy();
 	}
 
 	/**
@@ -253,12 +255,6 @@ public class Program{
 		lista_zad.setModel(lista_zadania());
 	}
 	
-	public void lista_gru() {
-		terminarz = new Terminarz();
-		grupy = terminarz.lista_grupy();
-		terminarz.zamknij_polaczenie();
-	}
-	
 	//do listy w programie
 	public DefaultListModel<Object> lista_zadania() {
 		DefaultListModel<Object>lista = new DefaultListModel<Object>();
@@ -289,5 +285,19 @@ public class Program{
 		tresc_priorytet_zad.setText(zadania.get(index).pobierz_priorytet_zadanie());
 		tresc_wykonane.setText(czy_wykonane);
 		tresc_id_zad.setText("" + index);
+	}
+	
+	public void lista_gru() {
+		terminarz = new Terminarz();
+		grupy = terminarz.lista_grupy();
+		terminarz.zamknij_polaczenie();
+	}
+	
+	public void wybor_grupy() {
+		//lista_grupa
+		int ilosc_grup = grupy.size();
+		for(int i = 0; i < ilosc_grup; i++) {
+			lista_grupa.add(grupy.get(i).pobierz_nazwa_grupa());
+		}
 	}
 }
