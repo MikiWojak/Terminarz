@@ -23,6 +23,8 @@ import java.awt.CardLayout;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.JList;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 
 public class Program{
 	
@@ -53,6 +55,7 @@ public class Program{
 	private JLabel opis_priorytet_zad;
 	private JLabel opis_id_zad;
 	private JLabel tresc_id_zad;
+	private JScrollPane scrollPane;
 
 	/**
 	 * Create the application.
@@ -90,10 +93,14 @@ public class Program{
 		tytul_lista.setBounds(12, 13, 1034, 41);
 		zad_lista.add(tytul_lista);
 		
+		scrollPane = new JScrollPane();
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane.setBounds(22, 67, 1024, 440);
+		zad_lista.add(scrollPane);
+		
 		lista = new JList();
+		scrollPane.setViewportView(lista);
 		lista.setFont(new Font("Monospaced", Font.PLAIN, 20));
-		lista.setBounds(22, 67, 1024, 440);
-		zad_lista.add(lista);
 		
 		btn_zad_szczegoly = new JButton("Szczeg\u00F3\u0142y\r\n");
 		btn_zad_szczegoly.setBounds(12, 523, 133, 39);
