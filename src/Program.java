@@ -24,7 +24,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.JList;
 
-public class Program {
+public class Program implements ActionListener{
 	
 	private Terminarz terminarz;				//po³¹czenie z BD
 	private List<Zadanie>zadania;				//lista zadania
@@ -94,14 +94,7 @@ public class Program {
 		btn_zad_szczegoly = new JButton("Szczeg\u00F3\u0142y\r\n");
 		btn_zad_szczegoly.setBounds(12, 523, 133, 39);
 		zad_lista.add(btn_zad_szczegoly);
-		btn_zad_szczegoly.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(lista.getSelectedIndex() >= 0) {
-					zmiana_panelu(zad_szczegowy);
-					zadanie_szczegoly(lista.getSelectedIndex());
-				}
-			}
-		});
+		btn_zad_szczegoly.addActionListener(this);
 		btn_zad_szczegoly.setFont(new Font("Arial", Font.PLAIN, 20));
 		
 		zad_szczegowy = new JPanel();
@@ -269,5 +262,16 @@ public class Program {
 		tresc_wykonane.setText(czy_wykonane);
 		tresc_id_zad.setText("" + index);
 		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getSource() == btn_zad_szczegoly) {
+			if(lista.getSelectedIndex() >= 0) {
+				zmiana_panelu(zad_szczegowy);
+				zadanie_szczegoly(lista.getSelectedIndex());
+			}
+		}
 	}
 }
