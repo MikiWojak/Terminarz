@@ -26,6 +26,8 @@ import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import java.awt.Choice;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
 
 public class Program{
 	
@@ -57,7 +59,7 @@ public class Program{
 	private JLabel opis_id_zad;
 	private JLabel tresc_id_zad;
 	private JScrollPane scrollPane;
-	private Choice lista_grupa;
+	private Choice wybor_grupa;
 
 	/**
 	 * Create the application.
@@ -119,10 +121,15 @@ public class Program{
 		});
 		btn_zad_szczegoly.setFont(new Font("Arial", Font.PLAIN, 20));
 		
-		lista_grupa = new Choice();
-		lista_grupa.setFont(new Font("Arial", Font.PLAIN, 20));
-		lista_grupa.setBounds(693, 13, 355, 41);
-		zad_lista.add(lista_grupa);
+		wybor_grupa = new Choice();
+		wybor_grupa.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent arg0) {
+				System.out.println(wybor_grupa.getSelectedItem());
+			}
+		});
+		wybor_grupa.setFont(new Font("Arial", Font.PLAIN, 20));
+		wybor_grupa.setBounds(693, 13, 355, 41);
+		zad_lista.add(wybor_grupa);
 		
 		zad_szczegowy = new JPanel();
 		warstwy.add(zad_szczegowy, "name_762878183462982");
@@ -299,7 +306,7 @@ public class Program{
 		lista_gru();
 		int ilosc_grup = grupy.size();
 		//wybór
-		lista_grupa.add("(nic)");
-		for(int i = 0; i < ilosc_grup; i++) { lista_grupa.add(grupy.get(i).pobierz_nazwa_grupa()); }
+		wybor_grupa.add("(nic)");
+		for(int i = 0; i < ilosc_grup; i++) { wybor_grupa.add(grupy.get(i).pobierz_nazwa_grupa()); }
 	}
 }
