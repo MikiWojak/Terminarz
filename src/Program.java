@@ -99,7 +99,7 @@ public class Program{
 		
 		scrollPane = new JScrollPane();
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane.setBounds(22, 67, 665, 440);
+		scrollPane.setBounds(22, 67, 1026, 440);
 		zad_lista.add(scrollPane);
 		
 		lista_zad = new JList();
@@ -120,7 +120,8 @@ public class Program{
 		btn_zad_szczegoly.setFont(new Font("Arial", Font.PLAIN, 20));
 		
 		lista_grupa = new Choice();
-		lista_grupa.setBounds(1020, 67, 28, 22);
+		lista_grupa.setFont(new Font("Arial", Font.PLAIN, 20));
+		lista_grupa.setBounds(693, 13, 355, 41);
 		zad_lista.add(lista_grupa);
 		
 		zad_szczegowy = new JPanel();
@@ -294,10 +295,11 @@ public class Program{
 	}
 	
 	public void wybor_grupy() {
-		//lista_grupa
+		//przygotowanie
+		lista_gru();
 		int ilosc_grup = grupy.size();
-		for(int i = 0; i < ilosc_grup; i++) {
-			lista_grupa.add(grupy.get(i).pobierz_nazwa_grupa());
-		}
+		//wybór
+		lista_grupa.add("(nic)");
+		for(int i = 0; i < ilosc_grup; i++) { lista_grupa.add(grupy.get(i).pobierz_nazwa_grupa()); }
 	}
 }
