@@ -148,7 +148,36 @@ public class Terminarz {
 		List<Zadanie>zadania = new LinkedList<Zadanie>();
 		
 		try {
-			ResultSet wynik = stat.executeQuery("SELECT * FROM zadania");
+			ResultSet wynik = stat.executeQuery("SELECT * FROM zadania ORDER BY data_zadanie");
+			int id_zadanie;
+			Date data_zadanie;
+			String tytul_zadanie, opis_zadanie, priorytet_zadanie;
+			boolean czy_wykonane;
+			
+			while(wynik.next()) {
+				id_zadanie = wynik.getInt("id_zadanie");
+				data_zadanie = wynik.getDate("data_zadanie");
+				tytul_zadanie = wynik.getString("tytul_zadanie");
+				opis_zadanie = wynik.getString("opis_zadanie");
+				priorytet_zadanie = wynik.getString("priorytet_zadanie");
+				czy_wykonane = wynik.getBoolean("czy_wykonane");
+				
+				zadania.add(new Zadanie(id_zadanie, data_zadanie, tytul_zadanie, opis_zadanie, priorytet_zadanie, czy_wykonane));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+		return zadania;
+	}
+	
+	//lista zadan z poszczegolnej grupy
+	public List<Zadanie>lista_zadania(int id_grupa) {
+		List<Zadanie>zadania = new LinkedList<Zadanie>();
+		
+		try {
+			ResultSet wynik = stat.executeQuery("SELECT * FROM zadania ORDER BY data_zadanie");
 			int id_zadanie;
 			Date data_zadanie;
 			String tytul_zadanie, opis_zadanie, priorytet_zadanie;

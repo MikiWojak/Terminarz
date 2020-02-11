@@ -125,6 +125,10 @@ public class Program{
 		wybor_grupa.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent arg0) {
 				System.out.println(wybor_grupa.getSelectedItem());
+				System.out.println(wybor_grupa.getSelectedIndex());
+				if(wybor_grupa.getSelectedIndex() > 0) {
+					System.out.println(grupy.get(wybor_grupa.getSelectedIndex() - 1).pobierz_id_grupa());
+				}
 			}
 		});
 		wybor_grupa.setFont(new Font("Arial", Font.PLAIN, 20));
