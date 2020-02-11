@@ -7,3 +7,9 @@ WHERE g.id_grupa = p.id_grupa AND z.id_zadanie = p.id_zadanie
 SELECT z.id_zadanie, z.data_zadanie, z.tytul_zadanie, z.opis_zadanie, z.priorytet_zadanie, z.czy_wykonane, g.id_grupa, g.nazwa_grupa, g.opis_grupa
 FROM zadania AS z, grupy AS g, przypisania AS p
 WHERE z.id_zadanie = p.id_zadanie AND g.id_grupa = p.id_grupa
+
+
+
+SELECT z.id_zadanie, z.data_zadanie, z.tytul_zadanie, z.opis_zadanie, z.priorytet_zadanie, z.czy_wykonane, g.id_grupa, g.nazwa_grupa, g.opis_grupa
+FROM zadania AS z, grupy AS g, przypisania AS p
+WHERE z.id_zadanie = p.id_zadanie AND g.id_grupa = p.id_grupa AND p.id_grupa = 1
