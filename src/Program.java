@@ -124,10 +124,19 @@ public class Program{
 		wybor_grupa = new Choice();
 		wybor_grupa.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent arg0) {
+				/*
 				System.out.println(wybor_grupa.getSelectedItem());
 				System.out.println(wybor_grupa.getSelectedIndex());
+				*/
 				if(wybor_grupa.getSelectedIndex() > 0) {
-					System.out.println(grupy.get(wybor_grupa.getSelectedIndex() - 1).pobierz_id_grupa());
+					int id_grupa = grupy.get(wybor_grupa.getSelectedIndex() - 1).pobierz_id_grupa();
+					System.out.println(id_grupa);
+					
+					terminarz = new Terminarz();
+					zadania = terminarz.lista_zadania(id_grupa);
+					terminarz.zamknij_polaczenie();
+					
+					lista_zad.setModel(lista_zadania());
 				}
 			}
 		});

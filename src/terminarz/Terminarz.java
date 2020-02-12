@@ -175,9 +175,12 @@ public class Terminarz {
 	//lista zadan z poszczegolnej grupy
 	public List<Zadanie>lista_zadania(int id_grupa) {
 		List<Zadanie>zadania = new LinkedList<Zadanie>();
-		
+		String zapytanie = ""
+				+ "SELECT z.id_zadanie, z.data_zadanie, z.tytul_zadanie, z.opis_zadanie, z.priorytet_zadanie, z.czy_wykonane"
+				+ "FROM zadania AS z, grupy AS g, przypisania AS p"
+				+ "WHERE z.id_zadanie = p.id_zadanie AND g.id_grupa = p.id_grupa AND p.id_grupa = " + id_grupa;
 		try {
-			ResultSet wynik = stat.executeQuery("SELECT * FROM zadania ORDER BY data_zadanie");
+			ResultSet wynik = stat.executeQuery("zapytanie");
 			int id_zadanie;
 			Date data_zadanie;
 			String tytul_zadanie, opis_zadanie, priorytet_zadanie;
