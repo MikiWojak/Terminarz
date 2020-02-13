@@ -36,6 +36,7 @@ public class Program{
 	private List<Grupa>grupy;
 	private List<Przypis>przypisania;
 	private List<Zlozone>zlozone;
+	private List<String>przypisane_grupy;
 	
 	private JFrame frame;
 	private JPanel zad_lista;
@@ -116,6 +117,8 @@ public class Program{
 				if(lista_zad.getSelectedIndex() >= 0) {
 					zmiana_panelu(zad_szczegowy);
 					zadanie_szczegoly(lista_zad.getSelectedIndex());
+					
+					lista_przypisanych_grup_debug(zadania.get(lista_zad.getSelectedIndex()).pobierz_id_zadanie());
 				}
 			}
 		});
@@ -248,6 +251,7 @@ public class Program{
 		grupy = new LinkedList<Grupa>();
 		przypisania = new LinkedList<Przypis>();
 		zlozone = new LinkedList<Zlozone>();
+		przypisane_grupy = new LinkedList<String>();
 	}
 	
 	public void zmiana_panelu(JPanel panel) {
@@ -338,5 +342,18 @@ public class Program{
 			System.out.println("\t" + zadania.get(i).pobierz_czy_wykonane());
 			System.out.println();
 		}
+	}
+	
+	public void lista_przypisanych_grup_debug(int id_zadanie) {
+		//Pobranie listy grup (do osobnej funkcji)
+		terminarz = new Terminarz();
+		przypisane_grupy = terminarz.lista_przypisanych_grup(id_zadanie);
+		terminarz.zamknij_polaczenie();
+		
+		System.out.println("Przypisane grupy");
+		for(int i = 0; i < przypisane_grupy.size(); i++) {
+			System.out.println("\t" + przypisane_grupy.get(i));
+		}
+		System.out.println();
 	}
 }

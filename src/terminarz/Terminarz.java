@@ -269,6 +269,30 @@ public class Terminarz {
 		return zlozone;
 	}
 	
+	//grupy przypisane do danego zadania
+	public List<String>lista_przypisanych_grup(int id_zadanie) {
+		List<String>przypisane_grupy = new LinkedList<String>();
+		
+		try {
+			String zapytanie = ""
+					+ "SELECT g.nazwa_grupa "
+					+ "FROM zadania AS z, grupy AS g, przypisania AS p "
+					+ "WHERE z.id_zadanie = p.id_zadanie AND g.id_grupa = p.id_grupa AND p.id_zadanie = " + id_zadanie;
+			ResultSet wynik = stat.executeQuery(zapytanie);
+			
+			String nazwa_grupa;
+			while(wynik.next()) {
+				nazwa_grupa = wynik.getString("nazwa_grupa");
+				przypisane_grupy.add(nazwa_grupa);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+		return przypisane_grupy;
+	}
+	
 	//zamkniecie polaczenia
 	public void zamknij_polaczenie() {
 		try {
