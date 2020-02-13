@@ -136,6 +136,9 @@ public class Program{
 					zadania = terminarz.lista_zadania(id_grupa);
 					terminarz.zamknij_polaczenie();
 					
+					System.out.println(zadania.size());
+					lista_zadania_debug();
+					
 					lista_zad.setModel(lista_zadania());
 				}
 			}
@@ -321,5 +324,19 @@ public class Program{
 		//wybór
 		wybor_grupa.add("(nic)");
 		for(int i = 0; i < ilosc_grup; i++) { wybor_grupa.add(grupy.get(i).pobierz_nazwa_grupa()); }
+	}
+	
+	//DEBUG
+	public void lista_zadania_debug() {
+		System.out.println("Zadania:");
+		for(int i = 0 ; i < zadania.size(); i++) {
+			System.out.println("\t" + zadania.get(i).pobierz_id_zadanie());
+			System.out.println("\t" + zadania.get(i).pobierz_data_zadanie().toString());
+			System.out.println("\t" + zadania.get(i).pobierz_tytul_zadanie());
+			System.out.println("\t" + zadania.get(i).pobierz_opis_zadanie());
+			System.out.println("\t" + zadania.get(i).pobierz_priorytet_zadanie());
+			System.out.println("\t" + zadania.get(i).pobierz_czy_wykonane());
+			System.out.println();
+		}
 	}
 }
