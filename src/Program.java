@@ -226,7 +226,7 @@ public class Program{
 		});
 		btn_zad_lista.setFont(new Font("Arial", Font.PLAIN, 20));
 		
-		opis_id_zad = new JLabel("ID");
+		opis_id_zad = new JLabel("ID w BD");
 		opis_id_zad.setVerticalAlignment(SwingConstants.TOP);
 		opis_id_zad.setHorizontalAlignment(SwingConstants.RIGHT);
 		opis_id_zad.setFont(new Font("Arial", Font.ITALIC, 20));
@@ -308,7 +308,7 @@ public class Program{
 		tresc_opis_zad.setText(zadania.get(index).pobierz_opis_zadanie());
 		tresc_priorytet_zad.setText(zadania.get(index).pobierz_priorytet_zadanie());
 		tresc_wykonane.setText(czy_wykonane);
-		tresc_id_zad.setText("" + index);
+		tresc_id_zad.setText("" + zadania.get(index).pobierz_id_zadanie());
 	}
 	
 	public void lista_gru() {
