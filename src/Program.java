@@ -124,22 +124,11 @@ public class Program{
 		wybor_grupa = new Choice();
 		wybor_grupa.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent arg0) {
-				/*
-				System.out.println(wybor_grupa.getSelectedItem());
-				System.out.println(wybor_grupa.getSelectedIndex());
-				*/
 				if(wybor_grupa.getSelectedIndex() > 0) {
 					int id_grupa = grupy.get(wybor_grupa.getSelectedIndex() - 1).pobierz_id_grupa();
-					System.out.println(id_grupa);
-					
-					terminarz = new Terminarz();
-					zadania = terminarz.lista_zadania(id_grupa);
-					terminarz.zamknij_polaczenie();
-					
-					System.out.println(zadania.size());
-					lista_zadania_debug();
-					
-					lista_zad.setModel(lista_zadania());
+					lista_rekordy(id_grupa);
+				} else {
+					lista_rekordy();
 				}
 			}
 		});
@@ -276,6 +265,17 @@ public class Program{
 	
 	public void lista_rekordy() {
 		lista_zad();
+		lista_zad.setModel(lista_zadania());
+	}
+	
+	public void lista_zad(int id_grupa) {
+		terminarz = new Terminarz();
+		zadania = terminarz.lista_zadania(id_grupa);
+		terminarz.zamknij_polaczenie();
+	}
+	
+	public void lista_rekordy(int id_grupa) {
+		lista_zad(id_grupa);
 		lista_zad.setModel(lista_zadania());
 	}
 	
