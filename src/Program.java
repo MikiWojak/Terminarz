@@ -48,7 +48,7 @@ public class Program{
 	private JButton btn_zad_lista;
 	private JButton btn_zad_szczegoly;
 	private JLabel tytul_szczegoly;
-	private JLabel tytul_lista;
+	private JLabel tytul_lista_zad;
 	private JList lista_zad;
 	private JLabel tresc_data_zad;
 	private JLabel tresc_tytul_zad;
@@ -62,7 +62,7 @@ public class Program{
 	private JLabel opis_priorytet_zad;
 	private JLabel opis_id_zad;
 	private JLabel tresc_id_zad;
-	private JScrollPane scrollPane;
+	private JScrollPane scroll_lista_zad;
 	private Choice wybor_grupa;
 	private JLabel opis_grupy;
 	private JLabel tresc_grupy;
@@ -72,8 +72,11 @@ public class Program{
 	private JMenu mn_widok;
 	private JMenuItem mn_it_zadania;
 	private JMenuItem mn_it_grupy;
-	private JLabel lblListaGrup;
+	private JLabel tytul_lista_gru;
 	private JLabel lblSzczegyGrupy;
+	private JList lista_gru;
+	private JScrollPane scroll_lista_gru;
+	private JButton btn_gru_szczegoly;
 
 	/**
 	 * Create the application.
@@ -107,19 +110,19 @@ public class Program{
 		warstwy.add(zad_lista, "name_762839293036754");
 		zad_lista.setLayout(null);
 		
-		tytul_lista = new JLabel("Lista zada\u0144");
-		tytul_lista.setHorizontalAlignment(SwingConstants.CENTER);
-		tytul_lista.setFont(new Font("Arial", Font.PLAIN, 20));
-		tytul_lista.setBounds(12, 13, 672, 41);
-		zad_lista.add(tytul_lista);
+		tytul_lista_zad = new JLabel("Lista zada\u0144");
+		tytul_lista_zad.setHorizontalAlignment(SwingConstants.CENTER);
+		tytul_lista_zad.setFont(new Font("Arial", Font.PLAIN, 20));
+		tytul_lista_zad.setBounds(12, 13, 672, 41);
+		zad_lista.add(tytul_lista_zad);
 		
-		scrollPane = new JScrollPane();
-		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane.setBounds(12, 67, 1036, 440);
-		zad_lista.add(scrollPane);
+		scroll_lista_zad = new JScrollPane();
+		scroll_lista_zad.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scroll_lista_zad.setBounds(12, 67, 1036, 440);
+		zad_lista.add(scroll_lista_zad);
 		
 		lista_zad = new JList();
-		scrollPane.setViewportView(lista_zad);
+		scroll_lista_zad.setViewportView(lista_zad);
 		lista_zad.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		
 		btn_zad_szczegoly = new JButton("Szczeg\u00F3\u0142y\r\n");
@@ -272,11 +275,25 @@ public class Program{
 		warstwy.add(gru_lista, "name_165903459099969");
 		gru_lista.setLayout(null);
 		
-		lblListaGrup = new JLabel("Lista grup");
-		lblListaGrup.setHorizontalAlignment(SwingConstants.CENTER);
-		lblListaGrup.setFont(new Font("Arial", Font.PLAIN, 20));
-		lblListaGrup.setBounds(12, 13, 1034, 41);
-		gru_lista.add(lblListaGrup);
+		tytul_lista_gru = new JLabel("Lista grup");
+		tytul_lista_gru.setHorizontalAlignment(SwingConstants.CENTER);
+		tytul_lista_gru.setFont(new Font("Arial", Font.PLAIN, 20));
+		tytul_lista_gru.setBounds(12, 13, 1034, 41);
+		gru_lista.add(tytul_lista_gru);
+		
+		scroll_lista_gru = new JScrollPane();
+		scroll_lista_gru.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scroll_lista_gru.setBounds(12, 67, 1034, 438);
+		gru_lista.add(scroll_lista_gru);
+		
+		lista_gru = new JList();
+		scroll_lista_gru.setViewportView(lista_gru);
+		lista_gru.setFont(new Font("Monospaced", Font.PLAIN, 20));
+		
+		btn_gru_szczegoly = new JButton("Szczeg\u00F3\u0142y\r\n");
+		btn_gru_szczegoly.setFont(new Font("Arial", Font.PLAIN, 20));
+		btn_gru_szczegoly.setBounds(12, 518, 133, 39);
+		gru_lista.add(btn_gru_szczegoly);
 		
 		gru_szczegoly = new JPanel();
 		warstwy.add(gru_szczegoly, "name_165906724193228");
