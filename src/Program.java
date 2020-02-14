@@ -119,8 +119,6 @@ public class Program{
 				if(lista_zad.getSelectedIndex() >= 0) {
 					zmiana_panelu(zad_szczegowy);
 					zadanie_szczegoly(lista_zad.getSelectedIndex());
-					
-					lista_przypisanych_grup_debug(zadania.get(lista_zad.getSelectedIndex()).pobierz_id_zadanie());
 				}
 			}
 		});
@@ -299,6 +297,13 @@ public class Program{
 		lista_zad.setModel(lista_zadania());
 	}
 	
+	public void lista_przypisane_grupy(int id_zadanie) {
+		//Pobranie listy grup
+		terminarz = new Terminarz();
+		przypisane_grupy = terminarz.lista_przypisanych_grup(id_zadanie);
+		terminarz.zamknij_polaczenie();
+	}
+	
 	//do listy w programie
 	public DefaultListModel<Object> lista_zadania() {
 		DefaultListModel<Object>lista = new DefaultListModel<Object>();
@@ -319,16 +324,27 @@ public class Program{
 	}
 	
 	public void zadanie_szczegoly(int index) {
+		//lista grup
+		int id_zadanie = zadania.get(index).pobierz_id_zadanie();
+		lista_przypisane_grupy(id_zadanie);
+		String grupy = "";
+		for(int i = 0; i < przypisane_grupy.size(); i++) {
+			grupy = grupy + przypisane_grupy.get(i) + "   ";
+		}
+		
+		//czy wykonane
 		String czy_wykonane;
 		if (zadania.get(index).pobierz_czy_wykonane()) { czy_wykonane = "tak"; }
 		else { czy_wykonane = "nie"; }
 		
+		//wyœwietlenie szczegó³ów
+		tresc_grupy.setText(grupy);
 		tresc_data_zad.setText(zadania.get(index).pobierz_data_zadanie().toString());
 		tresc_tytul_zad.setText(zadania.get(index).pobierz_tytul_zadanie());
 		tresc_opis_zad.setText(zadania.get(index).pobierz_opis_zadanie());
 		tresc_priorytet_zad.setText(zadania.get(index).pobierz_priorytet_zadanie());
 		tresc_wykonane.setText(czy_wykonane);
-		tresc_id_zad.setText("" + zadania.get(index).pobierz_id_zadanie());
+		tresc_id_zad.setText("" + id_zadanie);
 	}
 	
 	public void lista_gru() {
@@ -361,10 +377,7 @@ public class Program{
 	}
 	
 	public void lista_przypisanych_grup_debug(int id_zadanie) {
-		//Pobranie listy grup (do osobnej funkcji)
-		terminarz = new Terminarz();
-		przypisane_grupy = terminarz.lista_przypisanych_grup(id_zadanie);
-		terminarz.zamknij_polaczenie();
+		lista_przypisane_grupy(id_zadanie);
 		
 		System.out.println("Przypisane grupy");
 		for(int i = 0; i < przypisane_grupy.size(); i++) {
