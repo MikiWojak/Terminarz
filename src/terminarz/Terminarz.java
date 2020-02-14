@@ -135,7 +135,7 @@ public class Terminarz {
 			
 			prepStmp.execute();
 		} catch (SQLException e) {
-			System.err.println("B³¹d przy wstawianiu przzypisania!");
+			System.err.println("B³¹d przy wstawianiu przypisania!");
 			e.printStackTrace();
 			
 			return false;
@@ -178,7 +178,8 @@ public class Terminarz {
 		String zapytanie = ""
 				+ "SELECT z.id_zadanie, z.data_zadanie, z.tytul_zadanie, z.opis_zadanie, z.priorytet_zadanie, z.czy_wykonane "
 				+ "FROM zadania AS z, grupy AS g, przypisania AS p "
-				+ "WHERE z.id_zadanie = p.id_zadanie AND g.id_grupa = p.id_grupa AND p.id_grupa = " + id_grupa;
+				+ "WHERE z.id_zadanie = p.id_zadanie AND g.id_grupa = p.id_grupa AND p.id_grupa = " + id_grupa
+				+ " ORDER BY data_zadanie";
 		try {
 			ResultSet wynik = stat.executeQuery(zapytanie);
 			int id_zadanie;
@@ -209,7 +210,7 @@ public class Terminarz {
 		List<Grupa>grupy = new LinkedList<Grupa>();
 		
 		try {
-			ResultSet wynik = stat.executeQuery("SELECT * FROM grupy");
+			ResultSet wynik = stat.executeQuery("SELECT * FROM grupy ORDER BY nazwa_grupa");
 			int id_grupa;
 			String nazwa_grupa, opis_grupa;
 			
@@ -277,7 +278,8 @@ public class Terminarz {
 			String zapytanie = ""
 					+ "SELECT g.nazwa_grupa "
 					+ "FROM zadania AS z, grupy AS g, przypisania AS p "
-					+ "WHERE z.id_zadanie = p.id_zadanie AND g.id_grupa = p.id_grupa AND p.id_zadanie = " + id_zadanie;
+					+ "WHERE z.id_zadanie = p.id_zadanie AND g.id_grupa = p.id_grupa AND p.id_zadanie = " + id_zadanie
+					+ " ORDER BY g.nazwa_grupa";
 			ResultSet wynik = stat.executeQuery(zapytanie);
 			
 			String nazwa_grupa;
