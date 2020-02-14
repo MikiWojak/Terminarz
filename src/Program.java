@@ -72,6 +72,8 @@ public class Program{
 	private JMenu mn_widok;
 	private JMenuItem mn_it_zadania;
 	private JMenuItem mn_it_grupy;
+	private JLabel lblListaGrup;
+	private JLabel lblSzczegyGrupy;
 
 	/**
 	 * Create the application.
@@ -152,7 +154,7 @@ public class Program{
 		warstwy.add(zad_szczegowy, "name_762878183462982");
 		zad_szczegowy.setLayout(null);
 		
-		tytul_szczegoly = new JLabel("Szczeg\u00F3\u0142y");
+		tytul_szczegoly = new JLabel("Szczeg\u00F3\u0142y zadania");
 		tytul_szczegoly.setHorizontalAlignment(SwingConstants.CENTER);
 		tytul_szczegoly.setFont(new Font("Arial", Font.PLAIN, 20));
 		tytul_szczegoly.setBounds(12, 13, 1034, 41);
@@ -268,9 +270,23 @@ public class Program{
 		
 		gru_lista = new JPanel();
 		warstwy.add(gru_lista, "name_165903459099969");
+		gru_lista.setLayout(null);
+		
+		lblListaGrup = new JLabel("Lista grup");
+		lblListaGrup.setHorizontalAlignment(SwingConstants.CENTER);
+		lblListaGrup.setFont(new Font("Arial", Font.PLAIN, 20));
+		lblListaGrup.setBounds(12, 13, 1034, 41);
+		gru_lista.add(lblListaGrup);
 		
 		gru_szczegoly = new JPanel();
 		warstwy.add(gru_szczegoly, "name_165906724193228");
+		gru_szczegoly.setLayout(null);
+		
+		lblSzczegyGrupy = new JLabel("Szczeg\u00F3\u0142y grupy");
+		lblSzczegyGrupy.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSzczegyGrupy.setFont(new Font("Arial", Font.PLAIN, 20));
+		lblSzczegyGrupy.setBounds(12, 13, 1034, 41);
+		gru_szczegoly.add(lblSzczegyGrupy);
 		
 		menu = new JMenuBar();
 		menu.setBounds(0, 0, 1082, 26);
@@ -281,10 +297,20 @@ public class Program{
 		menu.add(mn_widok);
 		
 		mn_it_zadania = new JMenuItem("Zadania");
+		mn_it_zadania.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				zmiana_panelu(zad_lista);
+			}
+		});
 		mn_it_zadania.setFont(new Font("Arial", Font.PLAIN, 16));
 		mn_widok.add(mn_it_zadania);
 		
 		mn_it_grupy = new JMenuItem("Grupy");
+		mn_it_grupy.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				zmiana_panelu(gru_lista);
+			}
+		});
 		mn_it_grupy.setFont(new Font("Arial", Font.PLAIN, 16));
 		mn_widok.add(mn_it_grupy);
 		
