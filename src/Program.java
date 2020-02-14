@@ -28,6 +28,9 @@ import javax.swing.ScrollPaneConstants;
 import java.awt.Choice;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 
 public class Program{
 	
@@ -63,6 +66,12 @@ public class Program{
 	private Choice wybor_grupa;
 	private JLabel opis_grupy;
 	private JLabel tresc_grupy;
+	private JPanel gru_lista;
+	private JPanel gru_szczegoly;
+	private JMenuBar menu;
+	private JMenu mn_widok;
+	private JMenuItem mn_it_zadania;
+	private JMenuItem mn_it_grupy;
 
 	/**
 	 * Create the application.
@@ -88,7 +97,7 @@ public class Program{
 		frame.getContentPane().setLayout(null);
 		
 		warstwy = new JLayeredPane();
-		warstwy.setBounds(12, 13, 1058, 575);
+		warstwy.setBounds(10, 39, 1058, 575);
 		frame.getContentPane().add(warstwy);
 		warstwy.setLayout(new CardLayout(0, 0));
 		
@@ -96,7 +105,7 @@ public class Program{
 		warstwy.add(zad_lista, "name_762839293036754");
 		zad_lista.setLayout(null);
 		
-		tytul_lista = new JLabel("Lista");
+		tytul_lista = new JLabel("Lista zada\u0144");
 		tytul_lista.setHorizontalAlignment(SwingConstants.CENTER);
 		tytul_lista.setFont(new Font("Arial", Font.PLAIN, 20));
 		tytul_lista.setBounds(12, 13, 672, 41);
@@ -104,7 +113,7 @@ public class Program{
 		
 		scrollPane = new JScrollPane();
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane.setBounds(22, 67, 1026, 440);
+		scrollPane.setBounds(12, 67, 1036, 440);
 		zad_lista.add(scrollPane);
 		
 		lista_zad = new JList();
@@ -112,7 +121,7 @@ public class Program{
 		lista_zad.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		
 		btn_zad_szczegoly = new JButton("Szczeg\u00F3\u0142y\r\n");
-		btn_zad_szczegoly.setBounds(12, 523, 133, 39);
+		btn_zad_szczegoly.setBounds(12, 520, 133, 39);
 		zad_lista.add(btn_zad_szczegoly);
 		btn_zad_szczegoly.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -256,6 +265,28 @@ public class Program{
 		tresc_grupy.setFont(new Font("Arial", Font.PLAIN, 20));
 		tresc_grupy.setBounds(128, 67, 918, 25);
 		zad_szczegowy.add(tresc_grupy);
+		
+		gru_lista = new JPanel();
+		warstwy.add(gru_lista, "name_165903459099969");
+		
+		gru_szczegoly = new JPanel();
+		warstwy.add(gru_szczegoly, "name_165906724193228");
+		
+		menu = new JMenuBar();
+		menu.setBounds(0, 0, 1082, 26);
+		frame.getContentPane().add(menu);
+		
+		mn_widok = new JMenu("Widok");
+		mn_widok.setFont(new Font("Arial", Font.PLAIN, 16));
+		menu.add(mn_widok);
+		
+		mn_it_zadania = new JMenuItem("Zadania");
+		mn_it_zadania.setFont(new Font("Arial", Font.PLAIN, 16));
+		mn_widok.add(mn_it_zadania);
+		
+		mn_it_grupy = new JMenuItem("Grupy");
+		mn_it_grupy.setFont(new Font("Arial", Font.PLAIN, 16));
+		mn_widok.add(mn_it_grupy);
 		
 		frame.setVisible(true);
 	}
