@@ -61,6 +61,8 @@ public class Program{
 	private JLabel tresc_id_zad;
 	private JScrollPane scrollPane;
 	private Choice wybor_grupa;
+	private JLabel opis_grupy;
+	private JLabel tresc_grupy;
 
 	/**
 	 * Create the application.
@@ -153,70 +155,70 @@ public class Program{
 		opis_data_zad.setVerticalAlignment(SwingConstants.TOP);
 		opis_data_zad.setHorizontalAlignment(SwingConstants.RIGHT);
 		opis_data_zad.setFont(new Font("Arial", Font.ITALIC, 20));
-		opis_data_zad.setBounds(22, 67, 94, 25);
+		opis_data_zad.setBounds(22, 105, 94, 25);
 		zad_szczegowy.add(opis_data_zad);
 		
 		opis_tytul_zad = new JLabel("Tytu\u0142");
 		opis_tytul_zad.setVerticalAlignment(SwingConstants.TOP);
 		opis_tytul_zad.setHorizontalAlignment(SwingConstants.RIGHT);
 		opis_tytul_zad.setFont(new Font("Arial", Font.ITALIC, 20));
-		opis_tytul_zad.setBounds(22, 105, 94, 25);
+		opis_tytul_zad.setBounds(22, 143, 94, 25);
 		zad_szczegowy.add(opis_tytul_zad);
 		
 		opis_opis_zad = new JLabel("Opis");
 		opis_opis_zad.setVerticalAlignment(SwingConstants.TOP);
 		opis_opis_zad.setHorizontalAlignment(SwingConstants.RIGHT);
 		opis_opis_zad.setFont(new Font("Arial", Font.ITALIC, 20));
-		opis_opis_zad.setBounds(22, 143, 94, 25);
+		opis_opis_zad.setBounds(22, 181, 94, 25);
 		zad_szczegowy.add(opis_opis_zad);
 		
 		opis_priorytet_zad = new JLabel("Priorytet");
 		opis_priorytet_zad.setVerticalAlignment(SwingConstants.TOP);
 		opis_priorytet_zad.setHorizontalAlignment(SwingConstants.RIGHT);
 		opis_priorytet_zad.setFont(new Font("Arial", Font.ITALIC, 20));
-		opis_priorytet_zad.setBounds(22, 263, 94, 25);
+		opis_priorytet_zad.setBounds(22, 294, 94, 25);
 		zad_szczegowy.add(opis_priorytet_zad);
 		
 		opis_wykonane = new JLabel("Wykonane");
 		opis_wykonane.setVerticalAlignment(SwingConstants.TOP);
 		opis_wykonane.setHorizontalAlignment(SwingConstants.RIGHT);
 		opis_wykonane.setFont(new Font("Arial", Font.ITALIC, 20));
-		opis_wykonane.setBounds(22, 301, 94, 25);
+		opis_wykonane.setBounds(22, 332, 94, 25);
 		zad_szczegowy.add(opis_wykonane);
 		
 		tresc_data_zad = new JLabel("Data zadania");
 		tresc_data_zad.setVerticalAlignment(SwingConstants.TOP);
 		tresc_data_zad.setHorizontalAlignment(SwingConstants.LEFT);
 		tresc_data_zad.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_data_zad.setBounds(128, 67, 918, 25);
+		tresc_data_zad.setBounds(128, 105, 918, 25);
 		zad_szczegowy.add(tresc_data_zad);
 		
 		tresc_tytul_zad = new JLabel("Tytu\u0142 zadania");
 		tresc_tytul_zad.setVerticalAlignment(SwingConstants.TOP);
 		tresc_tytul_zad.setHorizontalAlignment(SwingConstants.LEFT);
 		tresc_tytul_zad.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_tytul_zad.setBounds(128, 105, 918, 25);
+		tresc_tytul_zad.setBounds(128, 143, 918, 25);
 		zad_szczegowy.add(tresc_tytul_zad);
 		
 		tresc_opis_zad = new JLabel("Opis zadania");
 		tresc_opis_zad.setVerticalAlignment(SwingConstants.TOP);
 		tresc_opis_zad.setHorizontalAlignment(SwingConstants.LEFT);
 		tresc_opis_zad.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_opis_zad.setBounds(128, 143, 918, 100);
+		tresc_opis_zad.setBounds(128, 181, 918, 100);
 		zad_szczegowy.add(tresc_opis_zad);
 		
 		tresc_priorytet_zad = new JLabel("Priorytet zadania");
 		tresc_priorytet_zad.setVerticalAlignment(SwingConstants.TOP);
 		tresc_priorytet_zad.setHorizontalAlignment(SwingConstants.LEFT);
 		tresc_priorytet_zad.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_priorytet_zad.setBounds(128, 263, 918, 25);
+		tresc_priorytet_zad.setBounds(128, 294, 918, 25);
 		zad_szczegowy.add(tresc_priorytet_zad);
 		
 		tresc_wykonane = new JLabel("Czy wykonane zadanie");
 		tresc_wykonane.setVerticalAlignment(SwingConstants.TOP);
 		tresc_wykonane.setHorizontalAlignment(SwingConstants.LEFT);
 		tresc_wykonane.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_wykonane.setBounds(128, 301, 918, 25);
+		tresc_wykonane.setBounds(128, 332, 918, 25);
 		zad_szczegowy.add(tresc_wykonane);
 		
 		btn_zad_lista = new JButton("Wr\u00F3\u0107");
@@ -233,15 +235,29 @@ public class Program{
 		opis_id_zad.setVerticalAlignment(SwingConstants.TOP);
 		opis_id_zad.setHorizontalAlignment(SwingConstants.RIGHT);
 		opis_id_zad.setFont(new Font("Arial", Font.ITALIC, 20));
-		opis_id_zad.setBounds(22, 339, 94, 25);
+		opis_id_zad.setBounds(22, 370, 94, 25);
 		zad_szczegowy.add(opis_id_zad);
 		
 		tresc_id_zad = new JLabel("ID zadania");
 		tresc_id_zad.setVerticalAlignment(SwingConstants.TOP);
 		tresc_id_zad.setHorizontalAlignment(SwingConstants.LEFT);
 		tresc_id_zad.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_id_zad.setBounds(128, 339, 918, 25);
+		tresc_id_zad.setBounds(128, 370, 918, 25);
 		zad_szczegowy.add(tresc_id_zad);
+		
+		opis_grupy = new JLabel("Grupy");
+		opis_grupy.setVerticalAlignment(SwingConstants.TOP);
+		opis_grupy.setHorizontalAlignment(SwingConstants.RIGHT);
+		opis_grupy.setFont(new Font("Arial", Font.ITALIC, 20));
+		opis_grupy.setBounds(22, 67, 94, 25);
+		zad_szczegowy.add(opis_grupy);
+		
+		tresc_grupy = new JLabel("Grupy przypisane do zadania");
+		tresc_grupy.setVerticalAlignment(SwingConstants.TOP);
+		tresc_grupy.setHorizontalAlignment(SwingConstants.LEFT);
+		tresc_grupy.setFont(new Font("Arial", Font.PLAIN, 20));
+		tresc_grupy.setBounds(128, 67, 918, 25);
+		zad_szczegowy.add(tresc_grupy);
 		
 		frame.setVisible(true);
 	}
