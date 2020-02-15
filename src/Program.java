@@ -90,7 +90,8 @@ public class Program{
 		
 		//lista jest domyslnym okienkiem
 		//tworzona PO inicjalizacji tabeli
-		lista_rekordy();
+		lista_rekordy_zadania();
+		lista_rekordy_grupy();
 		
 		wybor_grupy();
 	}
@@ -146,9 +147,9 @@ public class Program{
 			public void itemStateChanged(ItemEvent arg0) {
 				if(wybor_grupa.getSelectedIndex() > 0) {
 					int id_grupa = grupy.get(wybor_grupa.getSelectedIndex() - 1).pobierz_id_grupa();
-					lista_rekordy(id_grupa);
+					lista_rekordy_zadania(id_grupa);
 				} else {
-					lista_rekordy();
+					lista_rekordy_zadania();
 				}
 			}
 		});
@@ -312,18 +313,21 @@ public class Program{
 		gru_lista.add(opis_opis_gru);
 		
 		JTextPane txtpnIdGrupyW = new JTextPane();
+		txtpnIdGrupyW.setEditable(false);
 		txtpnIdGrupyW.setText("ID grupy w BD");
 		txtpnIdGrupyW.setFont(new Font("Arial", Font.PLAIN, 20));
 		txtpnIdGrupyW.setBounds(468, 67, 578, 30);
 		gru_lista.add(txtpnIdGrupyW);
 		
 		JTextPane txtpnNazwaGrupy = new JTextPane();
+		txtpnNazwaGrupy.setEditable(false);
 		txtpnNazwaGrupy.setText("Nazwa grupy");
 		txtpnNazwaGrupy.setFont(new Font("Arial", Font.PLAIN, 20));
 		txtpnNazwaGrupy.setBounds(468, 105, 578, 30);
 		gru_lista.add(txtpnNazwaGrupy);
 		
 		JTextPane txtpnOpisGrupy = new JTextPane();
+		txtpnOpisGrupy.setEditable(false);
 		txtpnOpisGrupy.setText("Opis grupy - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce velit mi, eleifend quis lobortis eget, fermentum quis velit. In eget rutrum tellus.");
 		txtpnOpisGrupy.setFont(new Font("Arial", Font.PLAIN, 20));
 		txtpnOpisGrupy.setBounds(468, 143, 578, 120);
@@ -388,21 +392,22 @@ public class Program{
 		zadania = terminarz.lista_zadania();
 		terminarz.zamknij_polaczenie();
 	}
-	
-	public void lista_rekordy() {
-		lista_zad();
-		lista_zad.setModel(lista_zadania());
-	}
-	
+
 	public void lista_zad(int id_grupa) {
 		terminarz = new Terminarz();
 		zadania = terminarz.lista_zadania(id_grupa);
 		terminarz.zamknij_polaczenie();
 	}
 	
-	public void lista_rekordy(int id_grupa) {
+	public void lista_rekordy_zadania() {
+		lista_zad();
+		lista_zad.setModel(rekordy_zadania());
+	}
+	
+	
+	public void lista_rekordy_zadania(int id_grupa) {
 		lista_zad(id_grupa);
-		lista_zad.setModel(lista_zadania());
+		lista_zad.setModel(rekordy_zadania());
 	}
 	
 	public void lista_przypisane_grupy(int id_zadanie) {
@@ -412,8 +417,8 @@ public class Program{
 		terminarz.zamknij_polaczenie();
 	}
 	
-	//do listy w programie
-	public DefaultListModel<Object> lista_zadania() {
+	//do listy zadañ w programie
+	public DefaultListModel<Object> rekordy_zadania() {
 		DefaultListModel<Object>lista = new DefaultListModel<Object>();
 		String czy_wykonane;
 		try {
@@ -455,7 +460,7 @@ public class Program{
 		tresc_id_zad.setText("" + id_zadanie);
 	}
 	
-	public void lista_gru() {
+	public void lista_grupy() {
 		terminarz = new Terminarz();
 		grupy = terminarz.lista_grupy();
 		terminarz.zamknij_polaczenie();
@@ -463,11 +468,32 @@ public class Program{
 	
 	public void wybor_grupy() {
 		//przygotowanie
-		lista_gru();
+		lista_grupy();
 		int ilosc_grup = grupy.size();
 		//wybór
 		wybor_grupa.add("(nic)");
 		for(int i = 0; i < ilosc_grup; i++) { wybor_grupa.add(grupy.get(i).pobierz_nazwa_grupa()); }
+	}
+	
+	public void lista_rekordy_grupy() {
+		lista_grupy();
+		lista_gru.setModel(rekordy_grupy());;
+	}
+	
+	//do listy grup w programie
+	public DefaultListModel<Object> rekordy_grupy() {
+		DefaultListModel<Object>lista = new DefaultListModel<Object>();
+		
+		try {
+			for(int i = 0; i < grupy.size(); i++) {
+				lista.addElement(grupy.get(i).pobierz_nazwa_grupa());
+			}
+		} catch (IndexOutOfBoundsException e) {
+			e.printStackTrace();
+			return null;
+		}
+					
+		return lista;
 	}
 	
 	//DEBUG
