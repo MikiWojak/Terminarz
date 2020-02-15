@@ -31,6 +31,7 @@ import java.awt.event.ItemEvent;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JTextPane;
 
 public class Program{
 	
@@ -76,7 +77,9 @@ public class Program{
 	private JLabel lblSzczegyGrupy;
 	private JList lista_gru;
 	private JScrollPane scroll_lista_gru;
-	private JButton btn_gru_szczegoly;
+	private JLabel opis_id_gru;
+	private JLabel opis_nazwa_gru;
+	private JLabel opis_opis_gru;
 
 	/**
 	 * Create the application.
@@ -283,17 +286,48 @@ public class Program{
 		
 		scroll_lista_gru = new JScrollPane();
 		scroll_lista_gru.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scroll_lista_gru.setBounds(12, 67, 1034, 438);
+		scroll_lista_gru.setBounds(12, 67, 338, 438);
 		gru_lista.add(scroll_lista_gru);
 		
 		lista_gru = new JList();
 		scroll_lista_gru.setViewportView(lista_gru);
 		lista_gru.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		
-		btn_gru_szczegoly = new JButton("Szczeg\u00F3\u0142y\r\n");
-		btn_gru_szczegoly.setFont(new Font("Arial", Font.PLAIN, 20));
-		btn_gru_szczegoly.setBounds(12, 518, 133, 39);
-		gru_lista.add(btn_gru_szczegoly);
+		opis_id_gru = new JLabel("ID w BD");
+		opis_id_gru.setHorizontalAlignment(SwingConstants.RIGHT);
+		opis_id_gru.setFont(new Font("Arial", Font.ITALIC, 20));
+		opis_id_gru.setBounds(362, 67, 94, 30);
+		gru_lista.add(opis_id_gru);
+		
+		opis_nazwa_gru = new JLabel("Nazwa");
+		opis_nazwa_gru.setHorizontalAlignment(SwingConstants.RIGHT);
+		opis_nazwa_gru.setFont(new Font("Arial", Font.ITALIC, 20));
+		opis_nazwa_gru.setBounds(362, 105, 94, 30);
+		gru_lista.add(opis_nazwa_gru);
+		
+		opis_opis_gru = new JLabel("Opis");
+		opis_opis_gru.setHorizontalAlignment(SwingConstants.RIGHT);
+		opis_opis_gru.setFont(new Font("Arial", Font.ITALIC, 20));
+		opis_opis_gru.setBounds(362, 143, 94, 120);
+		gru_lista.add(opis_opis_gru);
+		
+		JTextPane txtpnIdGrupyW = new JTextPane();
+		txtpnIdGrupyW.setText("ID grupy w BD");
+		txtpnIdGrupyW.setFont(new Font("Arial", Font.PLAIN, 20));
+		txtpnIdGrupyW.setBounds(468, 67, 578, 30);
+		gru_lista.add(txtpnIdGrupyW);
+		
+		JTextPane txtpnNazwaGrupy = new JTextPane();
+		txtpnNazwaGrupy.setText("Nazwa grupy");
+		txtpnNazwaGrupy.setFont(new Font("Arial", Font.PLAIN, 20));
+		txtpnNazwaGrupy.setBounds(468, 105, 578, 30);
+		gru_lista.add(txtpnNazwaGrupy);
+		
+		JTextPane txtpnOpisGrupy = new JTextPane();
+		txtpnOpisGrupy.setText("Opis grupy - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce velit mi, eleifend quis lobortis eget, fermentum quis velit. In eget rutrum tellus.");
+		txtpnOpisGrupy.setFont(new Font("Arial", Font.PLAIN, 20));
+		txtpnOpisGrupy.setBounds(468, 143, 578, 120);
+		gru_lista.add(txtpnOpisGrupy);
 		
 		gru_szczegoly = new JPanel();
 		warstwy.add(gru_szczegoly, "name_165906724193228");
