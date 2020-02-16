@@ -22,6 +22,8 @@ import javax.swing.JLayeredPane;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
@@ -80,6 +82,9 @@ public class Program{
 	private JLabel opis_id_gru;
 	private JLabel opis_nazwa_gru;
 	private JLabel opis_opis_gru;
+	private JTextPane tresc_id_gru;
+	private JTextPane tresc_nazwa_gru;
+	private JTextPane tresc_opis_gru;
 
 	/**
 	 * Create the application.
@@ -293,6 +298,15 @@ public class Program{
 		lista_gru = new JList();
 		scroll_lista_gru.setViewportView(lista_gru);
 		lista_gru.setFont(new Font("Monospaced", Font.PLAIN, 20));
+		lista_gru.addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent e) {
+				// TODO Auto-generated method stub
+				if(lista_gru.getSelectedIndex() >= 0) {
+					grupa_szczegoly(lista_gru.getSelectedIndex());
+				}
+				
+			}
+		});
 		
 		opis_id_gru = new JLabel("ID w BD");
 		opis_id_gru.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -312,26 +326,26 @@ public class Program{
 		opis_opis_gru.setBounds(362, 143, 94, 120);
 		gru_lista.add(opis_opis_gru);
 		
-		JTextPane txtpnIdGrupyW = new JTextPane();
-		txtpnIdGrupyW.setEditable(false);
-		txtpnIdGrupyW.setText("ID grupy w BD");
-		txtpnIdGrupyW.setFont(new Font("Arial", Font.PLAIN, 20));
-		txtpnIdGrupyW.setBounds(468, 67, 578, 30);
-		gru_lista.add(txtpnIdGrupyW);
+		tresc_id_gru = new JTextPane();
+		tresc_id_gru.setEditable(false);
+		tresc_id_gru.setText("ID grupy w BD");
+		tresc_id_gru.setFont(new Font("Arial", Font.PLAIN, 20));
+		tresc_id_gru.setBounds(468, 67, 578, 30);
+		gru_lista.add(tresc_id_gru);
 		
-		JTextPane txtpnNazwaGrupy = new JTextPane();
-		txtpnNazwaGrupy.setEditable(false);
-		txtpnNazwaGrupy.setText("Nazwa grupy");
-		txtpnNazwaGrupy.setFont(new Font("Arial", Font.PLAIN, 20));
-		txtpnNazwaGrupy.setBounds(468, 105, 578, 30);
-		gru_lista.add(txtpnNazwaGrupy);
+		tresc_nazwa_gru = new JTextPane();
+		tresc_nazwa_gru.setEditable(false);
+		tresc_nazwa_gru.setText("Nazwa grupy");
+		tresc_nazwa_gru.setFont(new Font("Arial", Font.PLAIN, 20));
+		tresc_nazwa_gru.setBounds(468, 105, 578, 30);
+		gru_lista.add(tresc_nazwa_gru);
 		
-		JTextPane txtpnOpisGrupy = new JTextPane();
-		txtpnOpisGrupy.setEditable(false);
-		txtpnOpisGrupy.setText("Opis grupy - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce velit mi, eleifend quis lobortis eget, fermentum quis velit. In eget rutrum tellus.");
-		txtpnOpisGrupy.setFont(new Font("Arial", Font.PLAIN, 20));
-		txtpnOpisGrupy.setBounds(468, 143, 578, 120);
-		gru_lista.add(txtpnOpisGrupy);
+		tresc_opis_gru = new JTextPane();
+		tresc_opis_gru.setEditable(false);
+		tresc_opis_gru.setText("Opis grupy - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce velit mi, eleifend quis lobortis eget, fermentum quis velit. In eget rutrum tellus.");
+		tresc_opis_gru.setFont(new Font("Arial", Font.PLAIN, 20));
+		tresc_opis_gru.setBounds(468, 143, 578, 120);
+		gru_lista.add(tresc_opis_gru);
 		
 		gru_szczegoly = new JPanel();
 		warstwy.add(gru_szczegoly, "name_165906724193228");
@@ -458,6 +472,13 @@ public class Program{
 		tresc_priorytet_zad.setText(zadania.get(index).pobierz_priorytet_zadanie());
 		tresc_wykonane.setText(czy_wykonane);
 		tresc_id_zad.setText("" + id_zadanie);
+	}
+	
+	public void grupa_szczegoly(int index) {
+		// TODO Auto-generated method stub
+		tresc_id_gru.setText("" + grupy.get(index).pobierz_id_grupa());
+		tresc_nazwa_gru.setText(grupy.get(index).pobierz_nazwa_grupa());
+		tresc_opis_gru.setText(grupy.get(index).pobierz_opis_grupa());
 	}
 	
 	public void lista_grupy() {
