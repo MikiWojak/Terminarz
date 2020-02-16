@@ -44,7 +44,7 @@ public class Program{
 	private List<Zlozone>zlozone;
 	private List<String>przypisane_grupy;
 	
-	private JFrame frame;
+	private JFrame frmTerminarz;
 	private JPanel zad_lista;
 	private JPanel zad_szczegowy;
 	private JLayeredPane warstwy;
@@ -103,14 +103,15 @@ public class Program{
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 1100, 700);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmTerminarz = new JFrame();
+		frmTerminarz.setTitle("Terminarz");
+		frmTerminarz.setBounds(100, 100, 1100, 700);
+		frmTerminarz.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmTerminarz.getContentPane().setLayout(null);
 		
 		warstwy = new JLayeredPane();
 		warstwy.setBounds(10, 39, 1058, 575);
-		frame.getContentPane().add(warstwy);
+		frmTerminarz.getContentPane().add(warstwy);
 		warstwy.setLayout(new CardLayout(0, 0));
 		
 		zad_lista = new JPanel();
@@ -206,6 +207,7 @@ public class Program{
 		btn_zad_lista.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				zmiana_panelu(zad_lista);
+				zadania_szczegoly_reset();
 			}
 		});
 		btn_zad_lista.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -327,7 +329,7 @@ public class Program{
 		
 		menu = new JMenuBar();
 		menu.setBounds(0, 0, 1082, 26);
-		frame.getContentPane().add(menu);
+		frmTerminarz.getContentPane().add(menu);
 		
 		mn_widok = new JMenu("Widok");
 		mn_widok.setFont(new Font("Arial", Font.PLAIN, 16));
@@ -346,12 +348,13 @@ public class Program{
 		mn_it_grupy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				zmiana_panelu(gru_panel);
+				grupa_szczegoly_reset();
 			}
 		});
 		mn_it_grupy.setFont(new Font("Arial", Font.PLAIN, 16));
 		mn_widok.add(mn_it_grupy);
 		
-		frame.setVisible(true);
+		frmTerminarz.setVisible(true);
 	}
 	
 	public void inicjalizacja_pol() {				
@@ -424,7 +427,7 @@ public class Program{
 		lista_przypisane_grupy(id_zadanie);
 		String grupy = "";
 		for(int i = 0; i < przypisane_grupy.size(); i++) {
-			grupy = grupy + przypisane_grupy.get(i) + "   ";
+			grupy = grupy + przypisane_grupy.get(i) + "\t";
 		}
 		
 		//czy wykonane
@@ -442,10 +445,28 @@ public class Program{
 		tresc_id_zad.setText("" + id_zadanie);
 	}
 	
+	//zerowanie pól szczegó³ów zadania
+	public void zadania_szczegoly_reset() {
+		tresc_grupy.setText("");
+		tresc_data_zad.setText("");
+		tresc_tytul_zad.setText("");
+		tresc_opis_zad.setText("");
+		tresc_priorytet_zad.setText("");
+		tresc_wykonane.setText("");
+		tresc_id_zad.setText("");
+	}
+	
 	public void grupa_szczegoly(int index) {
 		tresc_id_gru.setText("" + grupy.get(index).pobierz_id_grupa());
 		tresc_nazwa_gru.setText(grupy.get(index).pobierz_nazwa_grupa());
 		tresc_opis_gru.setText(grupy.get(index).pobierz_opis_grupa());
+	}
+	
+	//zerowanie pól szczegó³ów grupy
+	public void grupa_szczegoly_reset() {
+		tresc_id_gru.setText("");
+		tresc_nazwa_gru.setText("");
+		tresc_opis_gru.setText("");
 	}
 	
 	public void lista_grupy() {
