@@ -69,14 +69,12 @@ public class Program{
 	private Choice wybor_grupa;
 	private JLabel opis_grupy;
 	private JLabel tresc_grupy;
-	private JPanel gru_lista;
-	private JPanel gru_szczegoly;
+	private JPanel gru_panel;
 	private JMenuBar menu;
 	private JMenu mn_widok;
 	private JMenuItem mn_it_zadania;
 	private JMenuItem mn_it_grupy;
 	private JLabel tytul_lista_gru;
-	private JLabel lblSzczegyGrupy;
 	private JList lista_gru;
 	private JScrollPane scroll_lista_gru;
 	private JLabel opis_id_gru;
@@ -280,82 +278,66 @@ public class Program{
 		tresc_grupy.setBounds(128, 67, 918, 25);
 		zad_szczegowy.add(tresc_grupy);
 		
-		gru_lista = new JPanel();
-		warstwy.add(gru_lista, "name_165903459099969");
-		gru_lista.setLayout(null);
+		gru_panel = new JPanel();
+		warstwy.add(gru_panel, "name_165903459099969");
+		gru_panel.setLayout(null);
 		
 		tytul_lista_gru = new JLabel("Lista grup");
 		tytul_lista_gru.setHorizontalAlignment(SwingConstants.CENTER);
 		tytul_lista_gru.setFont(new Font("Arial", Font.PLAIN, 20));
 		tytul_lista_gru.setBounds(12, 13, 1034, 41);
-		gru_lista.add(tytul_lista_gru);
+		gru_panel.add(tytul_lista_gru);
 		
 		scroll_lista_gru = new JScrollPane();
 		scroll_lista_gru.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scroll_lista_gru.setBounds(12, 67, 338, 438);
-		gru_lista.add(scroll_lista_gru);
+		gru_panel.add(scroll_lista_gru);
 		
 		lista_gru = new JList();
 		scroll_lista_gru.setViewportView(lista_gru);
 		lista_gru.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		lista_gru.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent e) {
-				// TODO Auto-generated method stub
-				if(lista_gru.getSelectedIndex() >= 0) {
-					grupa_szczegoly(lista_gru.getSelectedIndex());
-				}
-				
+				int index = lista_gru.getSelectedIndex();
+				if(index >= 0) { grupa_szczegoly(index); }
 			}
 		});
 		
 		opis_id_gru = new JLabel("ID w BD");
 		opis_id_gru.setHorizontalAlignment(SwingConstants.RIGHT);
 		opis_id_gru.setFont(new Font("Arial", Font.ITALIC, 20));
-		opis_id_gru.setBounds(362, 67, 94, 30);
-		gru_lista.add(opis_id_gru);
+		opis_id_gru.setBounds(362, 238, 94, 30);
+		gru_panel.add(opis_id_gru);
 		
 		opis_nazwa_gru = new JLabel("Nazwa");
 		opis_nazwa_gru.setHorizontalAlignment(SwingConstants.RIGHT);
 		opis_nazwa_gru.setFont(new Font("Arial", Font.ITALIC, 20));
-		opis_nazwa_gru.setBounds(362, 105, 94, 30);
-		gru_lista.add(opis_nazwa_gru);
+		opis_nazwa_gru.setBounds(362, 67, 94, 30);
+		gru_panel.add(opis_nazwa_gru);
 		
 		opis_opis_gru = new JLabel("Opis");
 		opis_opis_gru.setHorizontalAlignment(SwingConstants.RIGHT);
 		opis_opis_gru.setFont(new Font("Arial", Font.ITALIC, 20));
-		opis_opis_gru.setBounds(362, 143, 94, 120);
-		gru_lista.add(opis_opis_gru);
+		opis_opis_gru.setBounds(362, 105, 94, 120);
+		gru_panel.add(opis_opis_gru);
 		
 		tresc_id_gru = new JTextPane();
 		tresc_id_gru.setEditable(false);
-		tresc_id_gru.setText("ID grupy w BD");
 		tresc_id_gru.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_id_gru.setBounds(468, 67, 578, 30);
-		gru_lista.add(tresc_id_gru);
+		tresc_id_gru.setBounds(468, 238, 578, 30);
+		gru_panel.add(tresc_id_gru);
 		
 		tresc_nazwa_gru = new JTextPane();
 		tresc_nazwa_gru.setEditable(false);
-		tresc_nazwa_gru.setText("Nazwa grupy");
 		tresc_nazwa_gru.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_nazwa_gru.setBounds(468, 105, 578, 30);
-		gru_lista.add(tresc_nazwa_gru);
+		tresc_nazwa_gru.setBounds(468, 67, 578, 30);
+		gru_panel.add(tresc_nazwa_gru);
 		
 		tresc_opis_gru = new JTextPane();
 		tresc_opis_gru.setEditable(false);
-		tresc_opis_gru.setText("Opis grupy - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce velit mi, eleifend quis lobortis eget, fermentum quis velit. In eget rutrum tellus.");
 		tresc_opis_gru.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_opis_gru.setBounds(468, 143, 578, 120);
-		gru_lista.add(tresc_opis_gru);
-		
-		gru_szczegoly = new JPanel();
-		warstwy.add(gru_szczegoly, "name_165906724193228");
-		gru_szczegoly.setLayout(null);
-		
-		lblSzczegyGrupy = new JLabel("Szczeg\u00F3\u0142y grupy");
-		lblSzczegyGrupy.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSzczegyGrupy.setFont(new Font("Arial", Font.PLAIN, 20));
-		lblSzczegyGrupy.setBounds(12, 13, 1034, 41);
-		gru_szczegoly.add(lblSzczegyGrupy);
+		tresc_opis_gru.setBounds(468, 105, 578, 120);
+		gru_panel.add(tresc_opis_gru);
 		
 		menu = new JMenuBar();
 		menu.setBounds(0, 0, 1082, 26);
@@ -377,7 +359,7 @@ public class Program{
 		mn_it_grupy = new JMenuItem("Grupy");
 		mn_it_grupy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				zmiana_panelu(gru_lista);
+				zmiana_panelu(gru_panel);
 			}
 		});
 		mn_it_grupy.setFont(new Font("Arial", Font.PLAIN, 16));
@@ -475,7 +457,6 @@ public class Program{
 	}
 	
 	public void grupa_szczegoly(int index) {
-		// TODO Auto-generated method stub
 		tresc_id_gru.setText("" + grupy.get(index).pobierz_id_grupa());
 		tresc_nazwa_gru.setText(grupy.get(index).pobierz_nazwa_grupa());
 		tresc_opis_gru.setText(grupy.get(index).pobierz_opis_grupa());
