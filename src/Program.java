@@ -53,22 +53,15 @@ public class Program{
 	private JLabel tytul_szczegoly;
 	private JLabel tytul_lista_zad;
 	private JList lista_zad;
-	private JLabel tresc_data_zad;
-	private JLabel tresc_tytul_zad;
-	private JLabel tresc_opis_zad;
-	private JLabel tresc_priorytet_zad;
-	private JLabel tresc_wykonane;
 	private JLabel opis_data_zad;
 	private JLabel opis_tytul_zad;
 	private JLabel opis_wykonane;
 	private JLabel opis_opis_zad;
 	private JLabel opis_priorytet_zad;
 	private JLabel opis_id_zad;
-	private JLabel tresc_id_zad;
 	private JScrollPane scroll_lista_zad;
 	private Choice wybor_grupa;
 	private JLabel opis_grupy;
-	private JLabel tresc_grupy;
 	private JPanel gru_panel;
 	private JMenuBar menu;
 	private JMenu mn_widok;
@@ -83,6 +76,13 @@ public class Program{
 	private JTextPane tresc_id_gru;
 	private JTextPane tresc_nazwa_gru;
 	private JTextPane tresc_opis_gru;
+	private JTextPane tresc_grupy;
+	private JTextPane tresc_data_zad;
+	private JTextPane tresc_tytul_zad;
+	private JTextPane tresc_opis_zad;
+	private JTextPane tresc_priorytet_zad;
+	private JTextPane tresc_wykonane;
+	private JTextPane tresc_id_zad;
 
 	/**
 	 * Create the application.
@@ -171,74 +171,34 @@ public class Program{
 		zad_szczegowy.add(tytul_szczegoly);
 		
 		opis_data_zad = new JLabel("Data");
-		opis_data_zad.setVerticalAlignment(SwingConstants.TOP);
 		opis_data_zad.setHorizontalAlignment(SwingConstants.RIGHT);
 		opis_data_zad.setFont(new Font("Arial", Font.ITALIC, 20));
-		opis_data_zad.setBounds(22, 105, 94, 25);
+		opis_data_zad.setBounds(22, 110, 94, 30);
 		zad_szczegowy.add(opis_data_zad);
 		
 		opis_tytul_zad = new JLabel("Tytu\u0142");
-		opis_tytul_zad.setVerticalAlignment(SwingConstants.TOP);
 		opis_tytul_zad.setHorizontalAlignment(SwingConstants.RIGHT);
 		opis_tytul_zad.setFont(new Font("Arial", Font.ITALIC, 20));
-		opis_tytul_zad.setBounds(22, 143, 94, 25);
+		opis_tytul_zad.setBounds(22, 153, 94, 30);
 		zad_szczegowy.add(opis_tytul_zad);
 		
 		opis_opis_zad = new JLabel("Opis");
-		opis_opis_zad.setVerticalAlignment(SwingConstants.TOP);
 		opis_opis_zad.setHorizontalAlignment(SwingConstants.RIGHT);
 		opis_opis_zad.setFont(new Font("Arial", Font.ITALIC, 20));
-		opis_opis_zad.setBounds(22, 181, 94, 25);
+		opis_opis_zad.setBounds(22, 196, 94, 120);
 		zad_szczegowy.add(opis_opis_zad);
 		
 		opis_priorytet_zad = new JLabel("Priorytet");
-		opis_priorytet_zad.setVerticalAlignment(SwingConstants.TOP);
 		opis_priorytet_zad.setHorizontalAlignment(SwingConstants.RIGHT);
 		opis_priorytet_zad.setFont(new Font("Arial", Font.ITALIC, 20));
-		opis_priorytet_zad.setBounds(22, 294, 94, 25);
+		opis_priorytet_zad.setBounds(22, 359, 94, 30);
 		zad_szczegowy.add(opis_priorytet_zad);
 		
 		opis_wykonane = new JLabel("Wykonane");
-		opis_wykonane.setVerticalAlignment(SwingConstants.TOP);
 		opis_wykonane.setHorizontalAlignment(SwingConstants.RIGHT);
 		opis_wykonane.setFont(new Font("Arial", Font.ITALIC, 20));
-		opis_wykonane.setBounds(22, 332, 94, 25);
+		opis_wykonane.setBounds(22, 402, 94, 30);
 		zad_szczegowy.add(opis_wykonane);
-		
-		tresc_data_zad = new JLabel("Data zadania");
-		tresc_data_zad.setVerticalAlignment(SwingConstants.TOP);
-		tresc_data_zad.setHorizontalAlignment(SwingConstants.LEFT);
-		tresc_data_zad.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_data_zad.setBounds(128, 105, 918, 25);
-		zad_szczegowy.add(tresc_data_zad);
-		
-		tresc_tytul_zad = new JLabel("Tytu\u0142 zadania");
-		tresc_tytul_zad.setVerticalAlignment(SwingConstants.TOP);
-		tresc_tytul_zad.setHorizontalAlignment(SwingConstants.LEFT);
-		tresc_tytul_zad.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_tytul_zad.setBounds(128, 143, 918, 25);
-		zad_szczegowy.add(tresc_tytul_zad);
-		
-		tresc_opis_zad = new JLabel("Opis zadania");
-		tresc_opis_zad.setVerticalAlignment(SwingConstants.TOP);
-		tresc_opis_zad.setHorizontalAlignment(SwingConstants.LEFT);
-		tresc_opis_zad.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_opis_zad.setBounds(128, 181, 918, 100);
-		zad_szczegowy.add(tresc_opis_zad);
-		
-		tresc_priorytet_zad = new JLabel("Priorytet zadania");
-		tresc_priorytet_zad.setVerticalAlignment(SwingConstants.TOP);
-		tresc_priorytet_zad.setHorizontalAlignment(SwingConstants.LEFT);
-		tresc_priorytet_zad.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_priorytet_zad.setBounds(128, 294, 918, 25);
-		zad_szczegowy.add(tresc_priorytet_zad);
-		
-		tresc_wykonane = new JLabel("Czy wykonane zadanie");
-		tresc_wykonane.setVerticalAlignment(SwingConstants.TOP);
-		tresc_wykonane.setHorizontalAlignment(SwingConstants.LEFT);
-		tresc_wykonane.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_wykonane.setBounds(128, 332, 918, 25);
-		zad_szczegowy.add(tresc_wykonane);
 		
 		btn_zad_lista = new JButton("Wr\u00F3\u0107");
 		btn_zad_lista.setBounds(12, 523, 133, 39);
@@ -251,32 +211,58 @@ public class Program{
 		btn_zad_lista.setFont(new Font("Arial", Font.PLAIN, 20));
 		
 		opis_id_zad = new JLabel("ID w BD");
-		opis_id_zad.setVerticalAlignment(SwingConstants.TOP);
 		opis_id_zad.setHorizontalAlignment(SwingConstants.RIGHT);
 		opis_id_zad.setFont(new Font("Arial", Font.ITALIC, 20));
-		opis_id_zad.setBounds(22, 370, 94, 25);
+		opis_id_zad.setBounds(22, 445, 94, 30);
 		zad_szczegowy.add(opis_id_zad);
 		
-		tresc_id_zad = new JLabel("ID zadania");
-		tresc_id_zad.setVerticalAlignment(SwingConstants.TOP);
-		tresc_id_zad.setHorizontalAlignment(SwingConstants.LEFT);
-		tresc_id_zad.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_id_zad.setBounds(128, 370, 918, 25);
-		zad_szczegowy.add(tresc_id_zad);
-		
 		opis_grupy = new JLabel("Grupy");
-		opis_grupy.setVerticalAlignment(SwingConstants.TOP);
 		opis_grupy.setHorizontalAlignment(SwingConstants.RIGHT);
 		opis_grupy.setFont(new Font("Arial", Font.ITALIC, 20));
-		opis_grupy.setBounds(22, 67, 94, 25);
+		opis_grupy.setBounds(22, 67, 94, 30);
 		zad_szczegowy.add(opis_grupy);
 		
-		tresc_grupy = new JLabel("Grupy przypisane do zadania");
-		tresc_grupy.setVerticalAlignment(SwingConstants.TOP);
-		tresc_grupy.setHorizontalAlignment(SwingConstants.LEFT);
+		tresc_grupy = new JTextPane();
+		tresc_grupy.setEditable(false);
 		tresc_grupy.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_grupy.setBounds(128, 67, 918, 25);
+		tresc_grupy.setBounds(128, 67, 918, 30);
 		zad_szczegowy.add(tresc_grupy);
+		
+		tresc_data_zad = new JTextPane();
+		tresc_data_zad.setFont(new Font("Arial", Font.PLAIN, 20));
+		tresc_data_zad.setEditable(false);
+		tresc_data_zad.setBounds(128, 110, 918, 30);
+		zad_szczegowy.add(tresc_data_zad);
+		
+		tresc_tytul_zad = new JTextPane();
+		tresc_tytul_zad.setFont(new Font("Arial", Font.PLAIN, 20));
+		tresc_tytul_zad.setEditable(false);
+		tresc_tytul_zad.setBounds(128, 153, 918, 30);
+		zad_szczegowy.add(tresc_tytul_zad);
+		
+		tresc_opis_zad = new JTextPane();
+		tresc_opis_zad.setFont(new Font("Arial", Font.PLAIN, 20));
+		tresc_opis_zad.setEditable(false);
+		tresc_opis_zad.setBounds(128, 196, 918, 150);
+		zad_szczegowy.add(tresc_opis_zad);
+		
+		tresc_priorytet_zad = new JTextPane();
+		tresc_priorytet_zad.setFont(new Font("Arial", Font.PLAIN, 20));
+		tresc_priorytet_zad.setEditable(false);
+		tresc_priorytet_zad.setBounds(128, 359, 918, 30);
+		zad_szczegowy.add(tresc_priorytet_zad);
+		
+		tresc_wykonane = new JTextPane();
+		tresc_wykonane.setFont(new Font("Arial", Font.PLAIN, 20));
+		tresc_wykonane.setEditable(false);
+		tresc_wykonane.setBounds(128, 402, 918, 30);
+		zad_szczegowy.add(tresc_wykonane);
+		
+		tresc_id_zad = new JTextPane();
+		tresc_id_zad.setFont(new Font("Arial", Font.PLAIN, 20));
+		tresc_id_zad.setEditable(false);
+		tresc_id_zad.setBounds(128, 445, 918, 30);
+		zad_szczegowy.add(tresc_id_zad);
 		
 		gru_panel = new JPanel();
 		warstwy.add(gru_panel, "name_165903459099969");
