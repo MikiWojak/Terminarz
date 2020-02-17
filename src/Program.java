@@ -170,6 +170,8 @@ public class Program{
 		btn_dodaj_zad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				edycja = new ZadEdit();
+				
+				lista_rekordy_zadania();
 			}
 		});
 		btn_dodaj_zad.setFont(new Font("Arial", Font.PLAIN, 20));

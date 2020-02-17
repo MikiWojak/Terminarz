@@ -17,6 +17,7 @@ import javax.swing.JTextPane;
 import java.awt.Choice;
 import javax.swing.JToggleButton;
 import java.awt.event.ActionListener;
+import java.sql.Date;
 import java.awt.event.ActionEvent;
 
 public class ZadEdit extends JDialog {
@@ -156,7 +157,7 @@ public class ZadEdit extends JDialog {
 		btn_dodaj.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				wstaw_zadanie();
-				//dispose();
+				dispose();
 			}
 		});
 		btn_dodaj.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -184,6 +185,20 @@ public class ZadEdit extends JDialog {
 	
 	public void wstaw_zadanie() {
 		String data = tresc_rok.getText() + "-" + tresc_miesiac.getText() + "-" + tresc_dzien.getText();
-		System.out.println(data);
+		//System.out.println(data);
+		
+		boolean czy_wykonane;
+		if(tresc_wykonane.getSelectedItem().equals("nie")) { czy_wykonane = false; }
+		else { czy_wykonane = true; }
+		//System.out.println(czy_wykonane);
+		
+		terminarz = new Terminarz();
+		terminarz.wstaw_zadanie(
+				Date.valueOf(data), 
+				tresc_tytul.getText(), 
+				tresc_opis.getText(), 
+				tresc_priorytet.getSelectedItem(), 
+				czy_wykonane);
+		terminarz.zamknij_polaczenie();
 	}
 }
