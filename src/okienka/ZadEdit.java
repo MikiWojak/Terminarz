@@ -22,6 +22,7 @@ import java.awt.event.ActionEvent;
 
 public class ZadEdit extends JDialog {
 	private Terminarz terminarz;
+	private Date data;
 	
 	private JLabel tytul;
 	private JPanel panel;
@@ -32,15 +33,15 @@ public class ZadEdit extends JDialog {
 	private JLabel opis_opis;
 	private JLabel opis_priorytet;
 	private JLabel opis_wykonane;
-	private JTextPane tresc_dzien;
-	private JTextPane tresc_miesiac;
-	private JTextPane tresc_rok;
 	private JTextPane tresc_tytul;
 	private JTextPane tresc_opis;
 	private Choice tresc_priorytet;
 	private Choice tresc_wykonane;
 	private JButton btn_dodaj;
 	private JButton btn_anuluj;
+	private Choice tresc_rok;
+	private Choice tresc_miesiac;
+	private Choice tresc_dzien;
 
 	public ZadEdit() {
 		initComp();
@@ -67,19 +68,19 @@ public class ZadEdit extends JDialog {
 		opis_dzien = new JLabel("Dzie\u0144");
 		opis_dzien.setHorizontalAlignment(SwingConstants.RIGHT);
 		opis_dzien.setFont(new Font("Arial", Font.ITALIC, 20));
-		opis_dzien.setBounds(12, 56, 150, 30);
+		opis_dzien.setBounds(12, 135, 150, 30);
 		panel.add(opis_dzien);
 		
 		opis_miesiac = new JLabel("Miesi\u0105c");
 		opis_miesiac.setHorizontalAlignment(SwingConstants.RIGHT);
 		opis_miesiac.setFont(new Font("Arial", Font.ITALIC, 20));
-		opis_miesiac.setBounds(12, 99, 150, 30);
+		opis_miesiac.setBounds(12, 92, 150, 30);
 		panel.add(opis_miesiac);
 		
 		opis_rok = new JLabel("Rok");
 		opis_rok.setHorizontalAlignment(SwingConstants.RIGHT);
 		opis_rok.setFont(new Font("Arial", Font.ITALIC, 20));
-		opis_rok.setBounds(12, 142, 150, 30);
+		opis_rok.setBounds(12, 56, 150, 30);
 		panel.add(opis_rok);
 		
 		opis_tytul = new JLabel("Tytu\u0142");
@@ -105,21 +106,6 @@ public class ZadEdit extends JDialog {
 		opis_wykonane.setFont(new Font("Arial", Font.ITALIC, 20));
 		opis_wykonane.setBounds(12, 434, 150, 30);
 		panel.add(opis_wykonane);
-		
-		tresc_dzien = new JTextPane();
-		tresc_dzien.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_dzien.setBounds(174, 56, 796, 30);
-		panel.add(tresc_dzien);
-		
-		tresc_miesiac = new JTextPane();
-		tresc_miesiac.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_miesiac.setBounds(174, 99, 796, 30);
-		panel.add(tresc_miesiac);
-		
-		tresc_rok = new JTextPane();
-		tresc_rok.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_rok.setBounds(174, 142, 796, 30);
-		panel.add(tresc_rok);
 		
 		tresc_tytul = new JTextPane();
 		tresc_tytul.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -156,13 +142,28 @@ public class ZadEdit extends JDialog {
 		btn_dodaj = new JButton("Dodaj\r\n");
 		btn_dodaj.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				wstaw_zadanie();
+				//wstaw_zadanie();
 				dispose();
 			}
 		});
 		btn_dodaj.setFont(new Font("Arial", Font.PLAIN, 20));
 		btn_dodaj.setBounds(758, 510, 100, 30);
 		panel.add(btn_dodaj);
+		
+		tresc_rok = new Choice();
+		tresc_rok.setFont(new Font("Arial", Font.PLAIN, 20));
+		tresc_rok.setBounds(168, 49, 798, 30);
+		panel.add(tresc_rok);
+		
+		tresc_miesiac = new Choice();
+		tresc_miesiac.setFont(new Font("Arial", Font.PLAIN, 20));
+		tresc_miesiac.setBounds(168, 92, 798, 30);
+		panel.add(tresc_miesiac);
+		
+		tresc_dzien = new Choice();
+		tresc_dzien.setFont(new Font("Arial", Font.PLAIN, 20));
+		tresc_dzien.setBounds(168, 135, 798, 30);
+		panel.add(tresc_dzien);
 	}
 	
 	public void priorytet_wartosci() {
@@ -184,6 +185,7 @@ public class ZadEdit extends JDialog {
 	}
 	
 	public void wstaw_zadanie() {
+		/*
 		String data = tresc_rok.getText() + "-" + tresc_miesiac.getText() + "-" + tresc_dzien.getText();
 		//System.out.println(data);
 		
@@ -200,5 +202,11 @@ public class ZadEdit extends JDialog {
 				tresc_priorytet.getSelectedItem(), 
 				czy_wykonane);
 		terminarz.zamknij_polaczenie();
+		*/
+	}
+	
+	//DEBUG
+	public void data_rok() {
+		
 	}
 }
