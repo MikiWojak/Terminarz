@@ -13,6 +13,8 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextPane;
 import java.awt.Choice;
 import javax.swing.JToggleButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ZadEdit extends JDialog {
 	private JLabel tytul;
@@ -35,10 +37,12 @@ public class ZadEdit extends JDialog {
 	private JButton btn_anuluj;
 
 	public ZadEdit() {
-		init();
+		initComp();
+		setTitle("Dodaj zadanie");
+		initFinal();
 	}
 	
-	public void init() {
+	public void initComp() {
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 1000, 600);
 		getContentPane().setLayout(null);
@@ -132,13 +136,29 @@ public class ZadEdit extends JDialog {
 		panel.add(tresc_wykonane);
 		
 		btn_anuluj = new JButton("Anuluj");
+		btn_anuluj.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 		btn_anuluj.setFont(new Font("Arial", Font.PLAIN, 20));
 		btn_anuluj.setBounds(870, 510, 100, 30);
 		panel.add(btn_anuluj);
 		
 		btn_dodaj = new JButton("Dodaj\r\n");
+		btn_dodaj.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+			}
+		});
 		btn_dodaj.setFont(new Font("Arial", Font.PLAIN, 20));
 		btn_dodaj.setBounds(758, 510, 100, 30);
 		panel.add(btn_dodaj);
+	}
+	
+	//koniec inicjowania okienka
+	public void initFinal() {
+		setModalityType(ModalityType.APPLICATION_MODAL);
+		setVisible(true);
 	}
 }

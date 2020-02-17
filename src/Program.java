@@ -8,11 +8,14 @@ import model.Grupa;
 import model.Przypis;
 import model.Zadanie;
 import model.Zlozone;
+import okienka.ZadEdit;
 
 import java.awt.Font;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JDialog;
+
 import java.awt.event.ActionListener;
 import java.sql.Date;
 import java.util.LinkedList;
@@ -43,6 +46,7 @@ public class Program{
 	private List<Przypis>przypisania;
 	private List<Zlozone>zlozone;
 	private List<String>przypisane_grupy;
+	private JDialog edycja;
 	
 	private JFrame frmTerminarz;
 	private JPanel zad_lista;
@@ -83,6 +87,7 @@ public class Program{
 	private JTextPane tresc_priorytet_zad;
 	private JTextPane tresc_wykonane;
 	private JTextPane tresc_id_zad;
+	private JButton btn_dodaj_zad;
 
 	/**
 	 * Create the application.
@@ -160,6 +165,16 @@ public class Program{
 		wybor_grupa.setFont(new Font("Arial", Font.PLAIN, 20));
 		wybor_grupa.setBounds(693, 13, 355, 41);
 		zad_lista.add(wybor_grupa);
+		
+		btn_dodaj_zad = new JButton("Dodaj");
+		btn_dodaj_zad.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				edycja = new ZadEdit();
+			}
+		});
+		btn_dodaj_zad.setFont(new Font("Arial", Font.PLAIN, 20));
+		btn_dodaj_zad.setBounds(915, 520, 133, 39);
+		zad_lista.add(btn_dodaj_zad);
 		
 		zad_szczegowy = new JPanel();
 		warstwy.add(zad_szczegowy, "name_762878183462982");
