@@ -7,6 +7,9 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import terminarz.Terminarz;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -17,6 +20,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class ZadEdit extends JDialog {
+	private Terminarz terminarz;
+	
 	private JLabel tytul;
 	private JPanel panel;
 	private JLabel opis_dzien;
@@ -128,11 +133,21 @@ public class ZadEdit extends JDialog {
 		tresc_priorytet = new Choice();
 		tresc_priorytet.setFont(new Font("Arial", Font.PLAIN, 20));
 		tresc_priorytet.setBounds(174, 391, 798, 30);
+		//watroœci dla priorytetu
+		tresc_priorytet.add("pilne");
+		tresc_priorytet.add("wa¿ne");
+		tresc_priorytet.add("niewa¿ne");
+		tresc_priorytet.add("nieistotne");
+		//
 		panel.add(tresc_priorytet);
 		
 		tresc_wykonane = new Choice();
 		tresc_wykonane.setFont(new Font("Arial", Font.PLAIN, 20));
 		tresc_wykonane.setBounds(174, 434, 798, 30);
+		//wartoœci dla wykonania
+		tresc_wykonane.add("nie");
+		tresc_wykonane.add("tak");
+		//
 		panel.add(tresc_wykonane);
 		
 		btn_anuluj = new JButton("Anuluj");
