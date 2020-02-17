@@ -133,21 +133,13 @@ public class ZadEdit extends JDialog {
 		tresc_priorytet = new Choice();
 		tresc_priorytet.setFont(new Font("Arial", Font.PLAIN, 20));
 		tresc_priorytet.setBounds(174, 391, 798, 30);
-		//watroœci dla priorytetu
-		tresc_priorytet.add("pilne");
-		tresc_priorytet.add("wa¿ne");
-		tresc_priorytet.add("niewa¿ne");
-		tresc_priorytet.add("nieistotne");
-		//
+		priorytet_wartosci();										//watroœci dla priorytetu
 		panel.add(tresc_priorytet);
 		
 		tresc_wykonane = new Choice();
 		tresc_wykonane.setFont(new Font("Arial", Font.PLAIN, 20));
 		tresc_wykonane.setBounds(174, 434, 798, 30);
-		//wartoœci dla wykonania
-		tresc_wykonane.add("nie");
-		tresc_wykonane.add("tak");
-		//
+		wykonane_wartosci();										//wartoœci dla wykonania
 		panel.add(tresc_wykonane);
 		
 		btn_anuluj = new JButton("Anuluj");
@@ -163,7 +155,8 @@ public class ZadEdit extends JDialog {
 		btn_dodaj = new JButton("Dodaj\r\n");
 		btn_dodaj.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				dispose();
+				wstaw_zadanie();
+				//dispose();
 			}
 		});
 		btn_dodaj.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -171,9 +164,26 @@ public class ZadEdit extends JDialog {
 		panel.add(btn_dodaj);
 	}
 	
+	public void priorytet_wartosci() {
+		tresc_priorytet.add("pilne");
+		tresc_priorytet.add("wa¿ne");
+		tresc_priorytet.add("niewa¿ne");
+		tresc_priorytet.add("nieistotne");
+	}
+	
+	public void wykonane_wartosci() {
+		tresc_wykonane.add("nie");
+		tresc_wykonane.add("tak");
+	}
+	
 	//koniec inicjowania okienka
 	public void initFinal() {
 		setModalityType(ModalityType.APPLICATION_MODAL);
 		setVisible(true);
+	}
+	
+	public void wstaw_zadanie() {
+		String data = tresc_rok.getText() + "-" + tresc_miesiac.getText() + "-" + tresc_dzien.getText();
+		System.out.println(data);
 	}
 }
