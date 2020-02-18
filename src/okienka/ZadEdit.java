@@ -144,8 +144,9 @@ public class ZadEdit extends JDialog {
 		btn_dodaj.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//wstaw_zadanie();
-				//data_rok();
-				dispose();
+				//dispose();
+				
+				miesiac_wartosci();
 			}
 		});
 		btn_dodaj.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -155,12 +156,13 @@ public class ZadEdit extends JDialog {
 		tresc_rok = new Choice();
 		tresc_rok.setFont(new Font("Arial", Font.PLAIN, 20));
 		tresc_rok.setBounds(168, 49, 798, 30);
-		rok_wartosci();												//lata
+		rok_wartosci();												//rok
 		panel.add(tresc_rok);
 		
 		tresc_miesiac = new Choice();
 		tresc_miesiac.setFont(new Font("Arial", Font.PLAIN, 20));
 		tresc_miesiac.setBounds(168, 92, 798, 30);
+		miesiac_wartosci();											//miesi¹c
 		panel.add(tresc_miesiac);
 		
 		tresc_dzien = new Choice();
@@ -181,6 +183,17 @@ public class ZadEdit extends JDialog {
 		}
 		
 		tresc_rok.select(10);
+	}
+	
+	public void miesiac_wartosci() {
+		String temp;
+		
+		for(int i = 1; i <= 12; i++) {
+			if(i < 10) {temp = "0" + i; }
+			else {temp = "" + i; }
+			
+			tresc_miesiac.add("" + temp);
+		}
 	}
 	
 	public void priorytet_wartosci() {
