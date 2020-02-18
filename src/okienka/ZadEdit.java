@@ -169,6 +169,8 @@ public class ZadEdit extends JDialog {
 		tresc_dzien.setFont(new Font("Arial", Font.PLAIN, 20));
 		tresc_dzien.setBounds(168, 135, 798, 30);
 		panel.add(tresc_dzien);
+		
+		System.out.println(czy_rok_przestepny(2008));
 	}
 	
 	public void rok_wartosci() {
@@ -194,6 +196,12 @@ public class ZadEdit extends JDialog {
 			
 			tresc_miesiac.add("" + temp);
 		}
+	}
+	
+	public boolean czy_rok_przestepny(int rok) {
+		//èrÛd≥o: http://www.algorytm.org/przetwarzanie-dat/wyznaczanie-lat-przestepnych.html
+		if((rok % 4 == 0 && rok % 100 != 0) || rok % 400 == 0) { return true; }
+		else { return false; }
 	}
 	
 	public void priorytet_wartosci() {
