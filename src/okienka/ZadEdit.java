@@ -18,6 +18,7 @@ import java.awt.Choice;
 import javax.swing.JToggleButton;
 import java.awt.event.ActionListener;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.awt.event.ActionEvent;
 
 public class ZadEdit extends JDialog {
@@ -143,6 +144,7 @@ public class ZadEdit extends JDialog {
 		btn_dodaj.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//wstaw_zadanie();
+				//data_rok();
 				dispose();
 			}
 		});
@@ -153,6 +155,7 @@ public class ZadEdit extends JDialog {
 		tresc_rok = new Choice();
 		tresc_rok.setFont(new Font("Arial", Font.PLAIN, 20));
 		tresc_rok.setBounds(168, 49, 798, 30);
+		rok_wartosci();												//lata
 		panel.add(tresc_rok);
 		
 		tresc_miesiac = new Choice();
@@ -164,6 +167,20 @@ public class ZadEdit extends JDialog {
 		tresc_dzien.setFont(new Font("Arial", Font.PLAIN, 20));
 		tresc_dzien.setBounds(168, 135, 798, 30);
 		panel.add(tresc_dzien);
+	}
+	
+	public void rok_wartosci() {
+		String data_teraz = LocalDate.now().toString();
+		String rok_str = data_teraz.substring(0, 4);
+		int rok = Integer.parseInt(rok_str);
+		rok += 10;
+		
+		for(int i = 0; i < 15; i++) {
+			tresc_rok.add("" + rok);
+			rok--;
+		}
+		
+		tresc_rok.select(10);
 	}
 	
 	public void priorytet_wartosci() {
@@ -207,6 +224,13 @@ public class ZadEdit extends JDialog {
 	
 	//DEBUG
 	public void data_rok() {
+		String data = LocalDate.now().toString();
+		System.out.println(data);
 		
+		String rok_str = data.substring(0, 4);
+		System.out.println(rok_str);
+		
+		int rok = Integer.parseInt(rok_str);
+		System.out.println(rok + "\t" + (rok - 20));
 	}
 }
