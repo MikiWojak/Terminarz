@@ -11,6 +11,8 @@ import javax.swing.border.EmptyBorder;
 import terminarz.Terminarz;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextPane;
@@ -52,7 +54,7 @@ public class ZadEdit extends JDialog {
 		initFinal();
 	}
 	
-	public void initComp() {
+	private void initComp() {
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 1000, 500);
 		getContentPane().setLayout(null);
@@ -145,8 +147,12 @@ public class ZadEdit extends JDialog {
 		btn_dodaj = new JButton("Dodaj\r\n");
 		btn_dodaj.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				wstaw_zadanie();
-				dispose();
+				if(czy_tytul_pusty()) {
+					JOptionPane.showMessageDialog(null, "Tytu³ nie mo¿e byæ pusty!", "Uwaga!", JOptionPane.WARNING_MESSAGE);
+				} else {
+					wstaw_zadanie();
+					dispose();
+				}
 			}
 		});
 		btn_dodaj.setFont(new Font("Arial", Font.BOLD, 20));
@@ -182,7 +188,7 @@ public class ZadEdit extends JDialog {
 		panel.add(tresc_dzien);
 	}
 	
-	public void rok_wartosci() {
+	private void rok_wartosci() {
 		String data_teraz = LocalDate.now().toString();
 		String rok_str = data_teraz.substring(0, 4);
 		int rok = Integer.parseInt(rok_str);
@@ -196,7 +202,7 @@ public class ZadEdit extends JDialog {
 		tresc_rok.select(10);
 	}
 	
-	public void miesiac_wartosci() {
+	private void miesiac_wartosci() {
 		String temp;
 		
 		for(int i = 1; i <= 12; i++) {
@@ -207,7 +213,7 @@ public class ZadEdit extends JDialog {
 		}
 	}
 	
-	public void dni_wartosci() {
+	private void dni_wartosci() {
 		tresc_dzien.removeAll();
 		
 		int rok = Integer.parseInt(tresc_rok.getSelectedItem());
@@ -247,37 +253,37 @@ public class ZadEdit extends JDialog {
 		}
 	}
 	
-	public boolean czy_rok_przestepny(int rok) {
+	private boolean czy_rok_przestepny(int rok) {
 		//ród³o: http://www.algorytm.org/przetwarzanie-dat/wyznaczanie-lat-przestepnych.html
 		if((rok % 4 == 0 && rok % 100 != 0) || rok % 400 == 0) { return true; }
 		else { return false; }
 	}
 	
-	public void priorytet_wartosci() {
+	private void priorytet_wartosci() {
 		tresc_priorytet.add("pilne");
 		tresc_priorytet.add("wa¿ne");
 		tresc_priorytet.add("niewa¿ne");
 		tresc_priorytet.add("nieistotne");
 	}
 	
-	public void wykonane_wartosci() {
+	private void wykonane_wartosci() {
 		tresc_wykonane.add("nie");
 		tresc_wykonane.add("tak");
 	}
 	
 	//koniec inicjowania okienka
-	public void initFinal() {
+	private void initFinal() {
 		setModalityType(ModalityType.APPLICATION_MODAL);
 		setVisible(true);
 	}
 	
-	public void wstaw_zadanie() {
+	private void wstaw_zadanie() {
 		String data = tresc_rok.getSelectedItem() + "-" + tresc_miesiac.getSelectedItem() + "-" + tresc_dzien.getSelectedItem();
-		
+			
 		boolean czy_wykonane;
 		if(tresc_wykonane.getSelectedItem().equals("nie")) { czy_wykonane = false; }
 		else { czy_wykonane = true; }
-		
+			
 		terminarz = new Terminarz();
 		terminarz.wstaw_zadanie(
 				Date.valueOf(data), 
@@ -288,8 +294,13 @@ public class ZadEdit extends JDialog {
 		terminarz.zamknij_polaczenie();
 	}
 	
+	private boolean czy_tytul_pusty() {
+		if(tresc_tytul.getText().equals("")) { return true; }
+		else { return false; }
+	}
+	
 	//DEBUG
-	public void data_rok() {
+	private void data_rok() {
 		String data = LocalDate.now().toString();
 		System.out.println(data);
 		
