@@ -145,11 +145,8 @@ public class ZadEdit extends JDialog {
 		btn_dodaj = new JButton("Dodaj\r\n");
 		btn_dodaj.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//wstaw_zadanie();
-				//dispose();
-				
-				//dni_wartosci();
-				System.out.println(tresc_rok.getSelectedItem() + "-" + tresc_miesiac.getSelectedItem() + "-" + tresc_dzien.getSelectedItem());
+				wstaw_zadanie();
+				dispose();
 			}
 		});
 		btn_dodaj.setFont(new Font("Arial", Font.BOLD, 20));
@@ -275,14 +272,11 @@ public class ZadEdit extends JDialog {
 	}
 	
 	public void wstaw_zadanie() {
-		/*
-		String data = tresc_rok.getText() + "-" + tresc_miesiac.getText() + "-" + tresc_dzien.getText();
-		//System.out.println(data);
+		String data = tresc_rok.getSelectedItem() + "-" + tresc_miesiac.getSelectedItem() + "-" + tresc_dzien.getSelectedItem();
 		
 		boolean czy_wykonane;
 		if(tresc_wykonane.getSelectedItem().equals("nie")) { czy_wykonane = false; }
 		else { czy_wykonane = true; }
-		//System.out.println(czy_wykonane);
 		
 		terminarz = new Terminarz();
 		terminarz.wstaw_zadanie(
@@ -292,7 +286,6 @@ public class ZadEdit extends JDialog {
 				tresc_priorytet.getSelectedItem(), 
 				czy_wykonane);
 		terminarz.zamknij_polaczenie();
-		*/
 	}
 	
 	//DEBUG
