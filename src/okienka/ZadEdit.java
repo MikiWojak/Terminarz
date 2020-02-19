@@ -17,6 +17,8 @@ import javax.swing.JTextPane;
 import java.awt.Choice;
 import javax.swing.JToggleButton;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.awt.event.ActionEvent;
@@ -146,7 +148,8 @@ public class ZadEdit extends JDialog {
 				//wstaw_zadanie();
 				//dispose();
 				
-				dni_wartosci();
+				//dni_wartosci();
+				System.out.println(tresc_rok.getSelectedItem() + "-" + tresc_miesiac.getSelectedItem() + "-" + tresc_dzien.getSelectedItem());
 			}
 		});
 		btn_dodaj.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -156,18 +159,29 @@ public class ZadEdit extends JDialog {
 		tresc_rok = new Choice();
 		tresc_rok.setFont(new Font("Arial", Font.PLAIN, 20));
 		tresc_rok.setBounds(168, 49, 798, 30);
+		tresc_rok.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				dni_wartosci();
+			}
+		});
 		rok_wartosci();												//rok
 		panel.add(tresc_rok);
 		
 		tresc_miesiac = new Choice();
 		tresc_miesiac.setFont(new Font("Arial", Font.PLAIN, 20));
 		tresc_miesiac.setBounds(168, 92, 798, 30);
+		tresc_miesiac.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				dni_wartosci();
+			}
+		});
 		miesiac_wartosci();											//miesi¹c
 		panel.add(tresc_miesiac);
 		
 		tresc_dzien = new Choice();
 		tresc_dzien.setFont(new Font("Arial", Font.PLAIN, 20));
 		tresc_dzien.setBounds(168, 135, 798, 30);
+		dni_wartosci(); 											//dzieñ
 		panel.add(tresc_dzien);
 	}
 	
@@ -197,10 +211,43 @@ public class ZadEdit extends JDialog {
 	}
 	
 	public void dni_wartosci() {
+		tresc_dzien.removeAll();
+		
 		int rok = Integer.parseInt(tresc_rok.getSelectedItem());
 		int miesiac = Integer.parseInt(tresc_miesiac.getSelectedItem());
+		int dni;
+		String temp;
 		
-		System.out.println(rok + "\t" + miesiac);
+		switch(miesiac) {
+		case 1:
+		case 3:
+		case 5:
+		case 7:
+		case 8:
+		case 10:
+		case 12:
+			dni = 31;
+			break;
+		case 4:
+		case 6:
+		case 9:
+		case 11:
+			dni = 30;
+			break;
+		case 2:
+			if(czy_rok_przestepny(rok)) { dni = 29; }
+			else { dni = 28; }
+			break;
+		default:
+			dni = 31;
+			break;
+		}
+		
+		for(int i = 1; i <= dni; i++) {
+			if(i < 10) { temp = "0" + i; }
+			else { temp = "" + i; }
+			tresc_dzien.add(temp);
+		}
 	}
 	
 	public boolean czy_rok_przestepny(int rok) {
