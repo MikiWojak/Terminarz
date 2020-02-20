@@ -326,8 +326,10 @@ public class ZadEdit extends JDialog {
 	}
 	
 	private void zadanie_dane() {
+		String data = zadanie.pobierz_data_zadanie().toString();
+		
 		System.out.println(zadanie.pobierz_id_zadanie());
-		System.out.println(zadanie.pobierz_data_zadanie().toString());
+		System.out.println(data);
 		System.out.println(zadanie.pobierz_tytul_zadanie());
 		System.out.println(zadanie.pobierz_opis_zadanie());
 		System.out.println(zadanie.pobierz_priorytet_zadanie());
