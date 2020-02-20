@@ -89,6 +89,7 @@ public class Program{
 	private JTextPane tresc_id_zad;
 	private JButton btn_dodaj_zad;
 	private JLabel opis_filtr;
+	private JButton btn_mod_zad;
 
 	/**
 	 * Create the application.
@@ -176,7 +177,7 @@ public class Program{
 			}
 		});
 		btn_dodaj_zad.setFont(new Font("Arial", Font.BOLD, 20));
-		btn_dodaj_zad.setBounds(1017, 549, 133, 39);
+		btn_dodaj_zad.setBounds(872, 549, 133, 39);
 		zad_lista.add(btn_dodaj_zad);
 		
 		opis_filtr = new JLabel("Filtr grupy");
@@ -184,6 +185,18 @@ public class Program{
 		opis_filtr.setFont(new Font("Arial", Font.ITALIC, 20));
 		opis_filtr.setBounds(12, 60, 777, 30);
 		zad_lista.add(opis_filtr);
+		
+		btn_mod_zad = new JButton("Modyfikuj");
+		btn_mod_zad.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(lista_zad.getSelectedIndex() >= 0) {
+					edycja = new ZadEdit(zadania.get(lista_zad.getSelectedIndex()));
+				}
+			}
+		});
+		btn_mod_zad.setFont(new Font("Arial", Font.BOLD, 20));
+		btn_mod_zad.setBounds(1017, 549, 133, 39);
+		zad_lista.add(btn_mod_zad);
 		
 		zad_szczegowy = new JPanel();
 		warstwy.add(zad_szczegowy, "name_762878183462982");

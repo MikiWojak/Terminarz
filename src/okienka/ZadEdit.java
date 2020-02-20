@@ -8,6 +8,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import model.Zadanie;
 import terminarz.Terminarz;
 
 import javax.swing.JLabel;
@@ -28,6 +29,7 @@ import java.awt.event.ActionEvent;
 public class ZadEdit extends JDialog {
 	private Terminarz terminarz;
 	private Date data;
+	private Zadanie zadanie;
 	
 	private JLabel tytul;
 	private JPanel panel;
@@ -47,10 +49,22 @@ public class ZadEdit extends JDialog {
 	private Choice tresc_rok;
 	private Choice tresc_miesiac;
 	private Choice tresc_dzien;
-
+	
+	//dodanie zadania
 	public ZadEdit() {
 		initComp();
 		setTitle("Dodaj zadanie");
+		initFinal();
+	}
+	
+	//modyfikacja zadania
+	public ZadEdit(Zadanie zadanie) {
+		initComp();
+		setTitle("Modyfikuj zadanie");
+		
+		this.zadanie = zadanie;
+		zadanie_dane();
+		
 		initFinal();
 	}
 	
@@ -309,5 +323,15 @@ public class ZadEdit extends JDialog {
 		
 		int rok = Integer.parseInt(rok_str);
 		System.out.println(rok + "\t" + (rok - 20));
+	}
+	
+	private void zadanie_dane() {
+		System.out.println(zadanie.pobierz_id_zadanie());
+		System.out.println(zadanie.pobierz_data_zadanie().toString());
+		System.out.println(zadanie.pobierz_tytul_zadanie());
+		System.out.println(zadanie.pobierz_opis_zadanie());
+		System.out.println(zadanie.pobierz_priorytet_zadanie());
+		System.out.println(zadanie.pobierz_czy_wykonane());
+		System.out.println();
 	}
 }
