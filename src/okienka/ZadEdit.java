@@ -313,20 +313,23 @@ public class ZadEdit extends JDialog {
 		setVisible(true);
 	}
 	
+	private String data_pelna() {
+		return tresc_rok.getSelectedItem() + "-" + tresc_miesiac.getSelectedItem() + "-" + tresc_dzien.getSelectedItem();
+	}
+	
+	private boolean czy_wykonane_bool() {
+		if(tresc_wykonane.getSelectedItem().equals("nie")) { return false; }
+		else { return true; }
+	}
+	
 	private void wstaw_zadanie() {
-		String data = tresc_rok.getSelectedItem() + "-" + tresc_miesiac.getSelectedItem() + "-" + tresc_dzien.getSelectedItem();
-			
-		boolean czy_wykonane;
-		if(tresc_wykonane.getSelectedItem().equals("nie")) { czy_wykonane = false; }
-		else { czy_wykonane = true; }
-			
 		terminarz = new Terminarz();
 		terminarz.wstaw_zadanie(
-				Date.valueOf(data), 
+				Date.valueOf(data_pelna()), 
 				tresc_tytul.getText(), 
 				tresc_opis.getText(), 
 				tresc_priorytet.getSelectedItem(), 
-				czy_wykonane);
+				czy_wykonane_bool());
 		terminarz.zamknij_polaczenie();
 	}
 	
@@ -336,7 +339,13 @@ public class ZadEdit extends JDialog {
 	}
 	
 	private void modyfikuj_zadanie() {
-		System.out.println("Mdyfikacja");
+		System.out.println("Modyfikacja");
+		System.out.println(data_pelna());
+		System.out.println(tresc_tytul.getText());
+		System.out.println(tresc_opis.getText());
+		System.out.println(tresc_priorytet.getSelectedItem());
+		System.out.println(tresc_wykonane.getSelectedItem());
+		System.out.println();
 	}
 	
 	//DEBUG
