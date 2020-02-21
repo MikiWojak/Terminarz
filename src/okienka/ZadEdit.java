@@ -25,6 +25,8 @@ import java.awt.event.ItemListener;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 
 public class ZadEdit extends JDialog {
 	private Terminarz terminarz;
@@ -49,6 +51,7 @@ public class ZadEdit extends JDialog {
 	private Choice tresc_rok;
 	private Choice tresc_miesiac;
 	private Choice tresc_dzien;
+	private JScrollPane scroll_opis_zad;
 	
 	//dodanie zadania
 	public ZadEdit() {
@@ -61,9 +64,11 @@ public class ZadEdit extends JDialog {
 	public ZadEdit(Zadanie zadanie) {
 		initComp();
 		setTitle("Modyfikuj zadanie");
+		btn_dodaj.setText("Zmodyfikuj");
 		
 		this.zadanie = zadanie;
 		zadanie_dane();
+		
 		
 		initFinal();
 	}
@@ -131,10 +136,14 @@ public class ZadEdit extends JDialog {
 		tresc_tytul.setBounds(172, 92, 796, 30);
 		panel.add(tresc_tytul);
 		
+		scroll_opis_zad = new JScrollPane();
+		scroll_opis_zad.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scroll_opis_zad.setBounds(172, 135, 796, 150);
+		panel.add(scroll_opis_zad);
+		
 		tresc_opis = new JTextPane();
+		scroll_opis_zad.setViewportView(tresc_opis);
 		tresc_opis.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_opis.setBounds(172, 135, 796, 150);
-		panel.add(tresc_opis);
 		
 		tresc_priorytet = new Choice();
 		tresc_priorytet.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -170,7 +179,7 @@ public class ZadEdit extends JDialog {
 			}
 		});
 		btn_dodaj.setFont(new Font("Arial", Font.BOLD, 20));
-		btn_dodaj.setBounds(758, 410, 100, 30);
+		btn_dodaj.setBounds(718, 410, 140, 30);
 		panel.add(btn_dodaj);
 		
 		tresc_rok = new Choice();
@@ -331,13 +340,27 @@ public class ZadEdit extends JDialog {
 		String miesiac = data.substring(5, 7);
 		String dzien = data.substring(8, 10);
 		
+		String czy_wykonane;
+		if (zadanie.pobierz_czy_wykonane()) { czy_wykonane = "tak"; }
+		else { czy_wykonane = "nie"; }
+		
+		tresc_rok.select(rok);
+		tresc_miesiac.select(miesiac);
+		tresc_dzien.select(dzien);
+		tresc_tytul.setText(zadanie.pobierz_tytul_zadanie());
+		tresc_opis.setText(zadanie.pobierz_opis_zadanie());
+		tresc_priorytet.select(zadanie.pobierz_priorytet_zadanie());
+		tresc_wykonane.select(czy_wykonane);
+		
+		/* DEBUG
 		System.out.println(zadanie.pobierz_id_zadanie());
 		System.out.println(data);
 		System.out.println(rok + "\t" + miesiac + "\t" + dzien);
 		System.out.println(zadanie.pobierz_tytul_zadanie());
 		System.out.println(zadanie.pobierz_opis_zadanie());
 		System.out.println(zadanie.pobierz_priorytet_zadanie());
-		System.out.println(zadanie.pobierz_czy_wykonane());
+		System.out.println(czy_wykonane);
 		System.out.println();
+		*/
 	}
 }

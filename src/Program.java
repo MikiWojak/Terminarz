@@ -90,6 +90,7 @@ public class Program{
 	private JButton btn_dodaj_zad;
 	private JLabel opis_filtr;
 	private JButton btn_mod_zad;
+	private JScrollPane scroll_opis_szczegoly_zad;
 
 	/**
 	 * Create the application.
@@ -279,11 +280,15 @@ public class Program{
 		tresc_tytul_zad.setBounds(128, 153, 1020, 30);
 		zad_szczegowy.add(tresc_tytul_zad);
 		
+		scroll_opis_szczegoly_zad = new JScrollPane();
+		scroll_opis_szczegoly_zad.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scroll_opis_szczegoly_zad.setBounds(128, 196, 1020, 150);
+		zad_szczegowy.add(scroll_opis_szczegoly_zad);
+		
 		tresc_opis_zad = new JTextPane();
+		scroll_opis_szczegoly_zad.setViewportView(tresc_opis_zad);
 		tresc_opis_zad.setFont(new Font("Arial", Font.PLAIN, 20));
 		tresc_opis_zad.setEditable(false);
-		tresc_opis_zad.setBounds(128, 196, 1020, 150);
-		zad_szczegowy.add(tresc_opis_zad);
 		
 		tresc_priorytet_zad = new JTextPane();
 		tresc_priorytet_zad.setFont(new Font("Arial", Font.PLAIN, 20));
