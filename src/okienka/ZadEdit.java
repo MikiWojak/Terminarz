@@ -30,8 +30,8 @@ import javax.swing.ScrollPaneConstants;
 
 public class ZadEdit extends JDialog {
 	private Terminarz terminarz;
-	private Date data;
 	private Zadanie zadanie;
+	private boolean czy_modyfikacja;
 	
 	private JLabel tytul;
 	private JPanel panel;
@@ -57,6 +57,9 @@ public class ZadEdit extends JDialog {
 	public ZadEdit() {
 		initComp();
 		setTitle("Dodaj zadanie");
+		
+		czy_modyfikacja = false;
+		
 		initFinal();
 	}
 	
@@ -65,6 +68,7 @@ public class ZadEdit extends JDialog {
 		initComp();
 		modyfikacja_wyglad();
 		
+		czy_modyfikacja = true;
 		this.zadanie = zadanie;
 		zadanie_dane();
 		
@@ -171,8 +175,13 @@ public class ZadEdit extends JDialog {
 				if(czy_tytul_pusty()) {
 					JOptionPane.showMessageDialog(null, "Tytu³ nie mo¿e byæ pusty!", "Uwaga!", JOptionPane.WARNING_MESSAGE);
 				} else {
-					wstaw_zadanie();
-					dispose();
+					if(czy_modyfikacja) {	//modyfikacja rekordu
+						modyfikuj_zadanie();
+					} else {				//dodanie rekordu
+						wstaw_zadanie();
+						dispose();			//USUN¥Æ
+					}
+					//dispose();			//ODKOMENTOWAÆ
 				}
 			}
 		});
@@ -324,6 +333,10 @@ public class ZadEdit extends JDialog {
 	private boolean czy_tytul_pusty() {
 		if(tresc_tytul.getText().equals("")) { return true; }
 		else { return false; }
+	}
+	
+	private void modyfikuj_zadanie() {
+		System.out.println("Mdyfikacja");
 	}
 	
 	//DEBUG
