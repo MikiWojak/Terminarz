@@ -63,12 +63,10 @@ public class ZadEdit extends JDialog {
 	//modyfikacja zadania
 	public ZadEdit(Zadanie zadanie) {
 		initComp();
-		setTitle("Modyfikuj zadanie");
-		btn_dodaj.setText("Zmodyfikuj");
+		modyfikacja_wyglad();
 		
 		this.zadanie = zadanie;
 		zadanie_dane();
-		
 		
 		initFinal();
 	}
@@ -292,6 +290,12 @@ public class ZadEdit extends JDialog {
 	private void wykonane_wartosci() {
 		tresc_wykonane.add("nie");
 		tresc_wykonane.add("tak");
+	}
+	
+	private void modyfikacja_wyglad() {
+		setTitle("Modyfikuj zadanie");
+		btn_dodaj.setText("Modyfikuj");
+		tytul.setText("Modyfikuj zadanie");
 	}
 	
 	//koniec inicjowania okienka
