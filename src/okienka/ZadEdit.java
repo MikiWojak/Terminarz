@@ -327,9 +327,13 @@ public class ZadEdit extends JDialog {
 	
 	private void zadanie_dane() {
 		String data = zadanie.pobierz_data_zadanie().toString();
+		String rok = data.substring(0, 4);
+		String miesiac = data.substring(5, 7);
+		String dzien = data.substring(8, 10);
 		
 		System.out.println(zadanie.pobierz_id_zadanie());
 		System.out.println(data);
+		System.out.println(rok + "\t" + miesiac + "\t" + dzien);
 		System.out.println(zadanie.pobierz_tytul_zadanie());
 		System.out.println(zadanie.pobierz_opis_zadanie());
 		System.out.println(zadanie.pobierz_priorytet_zadanie());
