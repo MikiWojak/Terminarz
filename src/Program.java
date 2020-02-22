@@ -36,6 +36,7 @@ import java.awt.event.ItemEvent;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JTextPane;
 
 public class Program{
@@ -149,7 +150,7 @@ public class Program{
 				if(lista_zad.getSelectedIndex() >= 0) {
 					zmiana_panelu(zad_szczegowy);
 					zadanie_szczegoly(lista_zad.getSelectedIndex());
-				}
+				} else { wybierz_rekord(); }								//komunikat
 			}
 		});
 		btn_zad_szczegoly.setFont(new Font("Arial", Font.BOLD, 20));
@@ -192,9 +193,9 @@ public class Program{
 			public void actionPerformed(ActionEvent arg0) {
 				if(lista_zad.getSelectedIndex() >= 0) {
 					edycja = new ZadEdit(zadania.get(lista_zad.getSelectedIndex()));
-				}
-				
-				lista_rekordy_zadania();
+					//przerwa
+					lista_rekordy_zadania();
+				} else { wybierz_rekord(); }
 			}
 		});
 		btn_mod_zad.setFont(new Font("Arial", Font.BOLD, 20));
@@ -400,7 +401,7 @@ public class Program{
 		
 		frmTerminarz.setVisible(true);
 	}
-	
+
 	public void inicjalizacja_pol() {				
 		zadania = new LinkedList<Zadanie>();
 		grupy = new LinkedList<Grupa>();
@@ -547,6 +548,11 @@ public class Program{
 		}
 					
 		return lista;
+	}
+	
+
+	protected void wybierz_rekord() {
+		JOptionPane.showMessageDialog(null, "Wybierz rekord z listy!", "Uwaga", JOptionPane.WARNING_MESSAGE);
 	}
 	
 	//DEBUG

@@ -179,9 +179,8 @@ public class ZadEdit extends JDialog {
 						modyfikuj_zadanie();
 					} else {				//dodanie rekordu
 						wstaw_zadanie();
-						//dispose();			//USUN¥Æ
 					}
-					dispose();			//ODKOMENTOWAÆ
+					dispose();
 				}
 			}
 		});
@@ -348,16 +347,6 @@ public class ZadEdit extends JDialog {
 				tresc_priorytet.getSelectedItem(),
 				czy_wykonane_bool());
 		terminarz.zamknij_polaczenie();
-		
-		/* DEBUG
-		System.out.println("Modyfikacja");
-		System.out.println(data_pelna());
-		System.out.println(tresc_tytul.getText());
-		System.out.println(tresc_opis.getText());
-		System.out.println(tresc_priorytet.getSelectedItem());
-		System.out.println(tresc_wykonane.getSelectedItem());
-		System.out.println();
-		*/
 	}
 	
 	//DEBUG
@@ -389,16 +378,5 @@ public class ZadEdit extends JDialog {
 		tresc_opis.setText(zadanie.pobierz_opis_zadanie());
 		tresc_priorytet.select(zadanie.pobierz_priorytet_zadanie());
 		tresc_wykonane.select(czy_wykonane);
-		
-		/* DEBUG
-		System.out.println(zadanie.pobierz_id_zadanie());
-		System.out.println(data);
-		System.out.println(rok + "\t" + miesiac + "\t" + dzien);
-		System.out.println(zadanie.pobierz_tytul_zadanie());
-		System.out.println(zadanie.pobierz_opis_zadanie());
-		System.out.println(zadanie.pobierz_priorytet_zadanie());
-		System.out.println(czy_wykonane);
-		System.out.println();
-		*/
 	}
 }
