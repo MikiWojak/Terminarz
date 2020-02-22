@@ -299,10 +299,10 @@ public class Terminarz {
 		try {
 			PreparedStatement prepStmt = conn.prepareStatement(
 						"UPDATE zadania SET "
-					+	"data_zadanie = ? "
-					+ 	"tytul_zadanie = ? "
-					+ 	"opis_zadanie = ? "
-					+ 	"priorytet_zadanie = ? "
+					+	"data_zadanie = ?, "
+					+ 	"tytul_zadanie = ?, "
+					+ 	"opis_zadanie = ?, "
+					+ 	"priorytet_zadanie = ?, "
 					+ 	"czy_wykonane = ? "
 					+ 	"WHERE id_zadanie = ?");
 			
