@@ -193,6 +193,8 @@ public class Program{
 				if(lista_zad.getSelectedIndex() >= 0) {
 					edycja = new ZadEdit(zadania.get(lista_zad.getSelectedIndex()));
 				}
+				
+				lista_rekordy_zadania();
 			}
 		});
 		btn_mod_zad.setFont(new Font("Arial", Font.BOLD, 20));

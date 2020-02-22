@@ -179,9 +179,9 @@ public class ZadEdit extends JDialog {
 						modyfikuj_zadanie();
 					} else {				//dodanie rekordu
 						wstaw_zadanie();
-						dispose();			//USUN¥Æ
+						//dispose();			//USUN¥Æ
 					}
-					//dispose();			//ODKOMENTOWAÆ
+					dispose();			//ODKOMENTOWAÆ
 				}
 			}
 		});
@@ -339,6 +339,17 @@ public class ZadEdit extends JDialog {
 	}
 	
 	private void modyfikuj_zadanie() {
+		terminarz = new Terminarz();
+		terminarz.modyfikuj_zadanie(
+				zadanie.pobierz_id_zadanie(), 
+				Date.valueOf(data_pelna()),
+				tresc_tytul.getText(),
+				tresc_opis.getText(),
+				tresc_priorytet.getSelectedItem(),
+				czy_wykonane_bool());
+		terminarz.zamknij_polaczenie();
+		
+		/* DEBUG
 		System.out.println("Modyfikacja");
 		System.out.println(data_pelna());
 		System.out.println(tresc_tytul.getText());
@@ -346,6 +357,7 @@ public class ZadEdit extends JDialog {
 		System.out.println(tresc_priorytet.getSelectedItem());
 		System.out.println(tresc_wykonane.getSelectedItem());
 		System.out.println();
+		*/
 	}
 	
 	//DEBUG
