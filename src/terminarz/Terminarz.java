@@ -295,6 +295,33 @@ public class Terminarz {
 		return przypisane_grupy;
 	}
 	
+	public boolean modyfikuj_zadanie(int id_zadanie, Date data_zadanie, String tytul_zadanie, String opis_zadanie, String priorytet_zadanie, boolean czy_wykonane) {
+		try {
+			PreparedStatement prepStmt = conn.prepareStatement(
+						"UPDATE zadania SET "
+					+	"data_zadanie = ? "
+					+ 	"tytul_zadanie = ? "
+					+ 	"opis_zadanie = ? "
+					+ 	"priorytet_zadanie = ? "
+					+ 	"czy_wykonane = ? "
+					+ 	"WHERE id_zadanie = ?");
+			
+			prepStmt.setDate(1, data_zadanie);
+			prepStmt.setString(2, tytul_zadanie);
+			prepStmt.setString(3, opis_zadanie);
+			prepStmt.setString(4, priorytet_zadanie);
+			prepStmt.setBoolean(5, czy_wykonane);
+			prepStmt.setInt(6, id_zadanie);
+			
+			prepStmt.execute();
+		} catch (SQLException e) {
+			System.err.println("B³¹d przy modyfikacji zadania!");
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+	
 	//zamkniecie polaczenia
 	public void zamknij_polaczenie() {
 		try {
