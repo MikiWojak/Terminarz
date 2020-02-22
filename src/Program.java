@@ -158,11 +158,13 @@ public class Program{
 		wybor_grupa = new Choice();
 		wybor_grupa.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent arg0) {
-				if(wybor_grupa.getSelectedIndex() > 0) {
-					int id_grupa = grupy.get(wybor_grupa.getSelectedIndex() - 1).pobierz_id_grupa();
-					lista_rekordy_zadania(id_grupa);
-				} else {
+				if(wybor_grupa.getSelectedIndex() == 0) {
 					lista_rekordy_zadania();
+				} else if (wybor_grupa.getSelectedIndex() == 1) {
+					lista_rekordy_zadania();								//ZADANIA O BRAKU GRUPY!!!
+				} else if (wybor_grupa.getSelectedIndex() > 1) {
+					int id_grupa = grupy.get(wybor_grupa.getSelectedIndex() - 2).pobierz_id_grupa();
+					lista_rekordy_zadania(id_grupa);
 				}
 			}
 		});
@@ -526,6 +528,7 @@ public class Program{
 		int ilosc_grup = grupy.size();
 		//wybór
 		wybor_grupa.add("(nic)");
+		wybor_grupa.add("(brak grupy)");
 		for(int i = 0; i < ilosc_grup; i++) { wybor_grupa.add(grupy.get(i).pobierz_nazwa_grupa()); }
 	}
 	
