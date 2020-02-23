@@ -92,6 +92,7 @@ public class Program{
 	private JLabel opis_filtr;
 	private JButton btn_mod_zad;
 	private JScrollPane scroll_opis_szczegoly_zad;
+	private JButton btn_usun;
 
 	/**
 	 * Create the application.
@@ -182,7 +183,7 @@ public class Program{
 			}
 		});
 		btn_dodaj_zad.setFont(new Font("Arial", Font.BOLD, 20));
-		btn_dodaj_zad.setBounds(872, 549, 133, 39);
+		btn_dodaj_zad.setBounds(760, 549, 133, 39);
 		zad_lista.add(btn_dodaj_zad);
 		
 		opis_filtr = new JLabel("Filtr grupy");
@@ -202,8 +203,20 @@ public class Program{
 			}
 		});
 		btn_mod_zad.setFont(new Font("Arial", Font.BOLD, 20));
-		btn_mod_zad.setBounds(1017, 549, 133, 39);
+		btn_mod_zad.setBounds(905, 549, 133, 39);
 		zad_lista.add(btn_mod_zad);
+		
+		btn_usun = new JButton("Usu\u0144");
+		btn_usun.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(lista_zad.getSelectedIndex() >= 0) {
+					usun_zadanie();
+				} else { wybierz_rekord(); }
+			}
+		});
+		btn_usun.setFont(new Font("Arial", Font.BOLD, 20));
+		btn_usun.setBounds(1050, 549, 100, 39);
+		zad_lista.add(btn_usun);
 		
 		zad_szczegowy = new JPanel();
 		warstwy.add(zad_szczegowy, "name_762878183462982");
@@ -408,7 +421,7 @@ public class Program{
 		frmTerminarz.setVisible(true);
 	}
 
-	public void inicjalizacja_pol() {				
+	private void inicjalizacja_pol() {				
 		zadania = new LinkedList<Zadanie>();
 		grupy = new LinkedList<Grupa>();
 		przypisania = new LinkedList<Przypis>();
@@ -416,32 +429,32 @@ public class Program{
 		przypisane_grupy = new LinkedList<String>();
 	}
 	
-	public void zmiana_panelu(JPanel panel) {
+	private void zmiana_panelu(JPanel panel) {
 		warstwy.removeAll();
 		warstwy.add(panel);
 		warstwy.repaint();
 		warstwy.revalidate();
 	}
 	
-	public void lista_zad() {
+	private void lista_zad() {
 		terminarz = new Terminarz();
 		zadania = terminarz.lista_zadania();
 		terminarz.zamknij_polaczenie();
 	}
 
-	public void lista_zad(int id_grupa) {
+	private void lista_zad(int id_grupa) {
 		terminarz = new Terminarz();
 		zadania = terminarz.lista_zadania(id_grupa);
 		terminarz.zamknij_polaczenie();
 	}
 	
-	public void lista_rekordy_zadania() {
+	private void lista_rekordy_zadania() {
 		lista_zad();
 		lista_zad.setModel(rekordy_zadania());
 	}
 	
 	
-	public void lista_rekordy_zadania(int id_grupa) {
+	private void lista_rekordy_zadania(int id_grupa) {
 		lista_zad(id_grupa);
 		lista_zad.setModel(rekordy_zadania());
 	}
@@ -454,7 +467,7 @@ public class Program{
 		lista_zad.setModel(rekordy_zadania());
 	}
 	
-	public void lista_przypisane_grupy(int id_zadanie) {
+	private void lista_przypisane_grupy(int id_zadanie) {
 		//Pobranie listy grup
 		terminarz = new Terminarz();
 		przypisane_grupy = terminarz.lista_przypisanych_grup(id_zadanie);
@@ -462,7 +475,7 @@ public class Program{
 	}
 	
 	//do listy zadañ w programie
-	public DefaultListModel<Object> rekordy_zadania() {
+	private DefaultListModel<Object> rekordy_zadania() {
 		DefaultListModel<Object>lista = new DefaultListModel<Object>();
 		String czy_wykonane;
 		try {
@@ -480,7 +493,7 @@ public class Program{
 		return lista;
 	}
 	
-	public void zadanie_szczegoly(int index) {
+	private void zadanie_szczegoly(int index) {
 		//lista grup
 		int id_zadanie = zadania.get(index).pobierz_id_zadanie();
 		lista_przypisane_grupy(id_zadanie);
@@ -505,7 +518,7 @@ public class Program{
 	}
 	
 	//zerowanie pól szczegó³ów zadania
-	public void zadania_szczegoly_reset() {
+	private void zadania_szczegoly_reset() {
 		tresc_grupy.setText("");
 		tresc_data_zad.setText("");
 		tresc_tytul_zad.setText("");
@@ -515,26 +528,26 @@ public class Program{
 		tresc_id_zad.setText("");
 	}
 	
-	public void grupa_szczegoly(int index) {
+	private void grupa_szczegoly(int index) {
 		tresc_id_gru.setText("" + grupy.get(index).pobierz_id_grupa());
 		tresc_nazwa_gru.setText(grupy.get(index).pobierz_nazwa_grupa());
 		tresc_opis_gru.setText(grupy.get(index).pobierz_opis_grupa());
 	}
 	
 	//zerowanie pól szczegó³ów grupy
-	public void grupa_szczegoly_reset() {
+	private void grupa_szczegoly_reset() {
 		tresc_id_gru.setText("");
 		tresc_nazwa_gru.setText("");
 		tresc_opis_gru.setText("");
 	}
 	
-	public void lista_grupy() {
+	private void lista_grupy() {
 		terminarz = new Terminarz();
 		grupy = terminarz.lista_grupy();
 		terminarz.zamknij_polaczenie();
 	}
 	
-	public void wybor_grupy() {
+	private void wybor_grupy() {
 		//przygotowanie
 		lista_grupy();
 		int ilosc_grup = grupy.size();
@@ -544,13 +557,13 @@ public class Program{
 		for(int i = 0; i < ilosc_grup; i++) { wybor_grupa.add(grupy.get(i).pobierz_nazwa_grupa()); }
 	}
 	
-	public void lista_rekordy_grupy() {
+	private void lista_rekordy_grupy() {
 		lista_grupy();
 		lista_gru.setModel(rekordy_grupy());;
 	}
 	
 	//do listy grup w programie
-	public DefaultListModel<Object> rekordy_grupy() {
+	private DefaultListModel<Object> rekordy_grupy() {
 		DefaultListModel<Object>lista = new DefaultListModel<Object>();
 		
 		try {
@@ -566,12 +579,16 @@ public class Program{
 	}
 	
 
-	protected void wybierz_rekord() {
+	private void wybierz_rekord() {
 		JOptionPane.showMessageDialog(null, "Wybierz rekord z listy!", "Uwaga", JOptionPane.WARNING_MESSAGE);
 	}
 	
+	private void usun_zadanie() {
+		System.out.println("Usuwanie...\n");
+	}
+	
 	//DEBUG
-	public void lista_zadania_debug() {
+	private void lista_zadania_debug() {
 		System.out.println("Zadania:");
 		for(int i = 0 ; i < zadania.size(); i++) {
 			System.out.println("\t" + zadania.get(i).pobierz_id_zadanie());
@@ -584,7 +601,7 @@ public class Program{
 		}
 	}
 	
-	public void lista_przypisanych_grup_debug(int id_zadanie) {
+	private void lista_przypisanych_grup_debug(int id_zadanie) {
 		lista_przypisane_grupy(id_zadanie);
 		
 		System.out.println("Przypisane grupy");
