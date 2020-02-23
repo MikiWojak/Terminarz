@@ -387,6 +387,8 @@ public class Program{
 		mn_it_zadania.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				zmiana_panelu(zad_lista);
+				lista_rekordy_zadania();
+				wybor_grupa.select(0);
 			}
 		});
 		mn_it_zadania.setFont(new Font("Arial", Font.PLAIN, 16));
@@ -396,6 +398,7 @@ public class Program{
 		mn_it_grupy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				zmiana_panelu(gru_panel);
+				lista_rekordy_grupy();
 				grupa_szczegoly_reset();
 			}
 		});
