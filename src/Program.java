@@ -444,23 +444,11 @@ public class Program{
 	}
 	
 	private void lista_rekodry_zadania_brak_grupy() {
-		/*
-		//zmienne
-		List<Integer>id_zadan_bg = new LinkedList<Integer>();
-		
-		//lista ID zadañ
 		terminarz = new Terminarz();
-		id_zadan_bg = terminarz.zadania_przypisane();
+		zadania = terminarz.lista_zadania_bez_grupy();
 		terminarz.zamknij_polaczenie();
 		
-		/*
-		//wyœwietlenie ID zadañ
-		for(int i = 0; i < id_zadan_bg.size(); i++) { System.out.println(id_zadan_bg.get(i)); }
-		System.out.println();
-		*/
-		
-		lista_zad();
-		*/
+		lista_zad.setModel(rekordy_zadania());
 	}
 	
 	public void lista_przypisane_grupy(int id_zadanie) {
@@ -548,7 +536,7 @@ public class Program{
 		lista_grupy();
 		int ilosc_grup = grupy.size();
 		//wybór
-		wybor_grupa.add("(nic)");
+		wybor_grupa.add("(brak filtru)");
 		wybor_grupa.add("(brak grupy)");
 		for(int i = 0; i < ilosc_grup; i++) { wybor_grupa.add(grupy.get(i).pobierz_nazwa_grupa()); }
 	}

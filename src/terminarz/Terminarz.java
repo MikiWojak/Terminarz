@@ -229,14 +229,15 @@ public class Terminarz {
 						}
 					}
 					
-					//co dalej?
-					data_zadanie = wynik.getDate("data_zadanie");
-					tytul_zadanie = wynik.getString("tytul_zadanie");
-					opis_zadanie = wynik.getString("opis_zadanie");
-					priorytet_zadanie = wynik.getString("priorytet_zadanie");
-					czy_wykonane = wynik.getBoolean("czy_wykonane");
+					if(!czy_przypisany) {
+						data_zadanie = wynik.getDate("data_zadanie");
+						tytul_zadanie = wynik.getString("tytul_zadanie");
+						opis_zadanie = wynik.getString("opis_zadanie");
+						priorytet_zadanie = wynik.getString("priorytet_zadanie");
+						czy_wykonane = wynik.getBoolean("czy_wykonane");
 					
-					zadania.add(new Zadanie(id_zadanie, data_zadanie, tytul_zadanie, opis_zadanie, priorytet_zadanie, czy_wykonane));
+						zadania.add(new Zadanie(id_zadanie, data_zadanie, tytul_zadanie, opis_zadanie, priorytet_zadanie, czy_wykonane));
+					}
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
