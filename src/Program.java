@@ -161,7 +161,8 @@ public class Program{
 				if(wybor_grupa.getSelectedIndex() == 0) {
 					lista_rekordy_zadania();
 				} else if (wybor_grupa.getSelectedIndex() == 1) {
-					lista_rekordy_zadania();								//ZADANIA O BRAKU GRUPY!!!
+					//ista_rekordy_zadania();								//ZADANIA O BRAKU GRUPY!!!
+					lista_rekodry_zadania_brak_grupy();
 				} else if (wybor_grupa.getSelectedIndex() > 1) {
 					int id_grupa = grupy.get(wybor_grupa.getSelectedIndex() - 2).pobierz_id_grupa();
 					lista_rekordy_zadania(id_grupa);
@@ -440,6 +441,17 @@ public class Program{
 	public void lista_rekordy_zadania(int id_grupa) {
 		lista_zad(id_grupa);
 		lista_zad.setModel(rekordy_zadania());
+	}
+	
+	private void lista_rekodry_zadania_brak_grupy() {
+		List<Integer>id_zadan_bg = new LinkedList<Integer>();
+		
+		terminarz = new Terminarz();
+		id_zadan_bg = terminarz.zadania_przypisane();
+		terminarz.zamknij_polaczenie();
+		
+		for(int i = 0; i < id_zadan_bg.size(); i++) { System.out.println(id_zadan_bg.get(i)); }
+		System.out.println();
 	}
 	
 	public void lista_przypisane_grupy(int id_zadanie) {

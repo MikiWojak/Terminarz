@@ -295,6 +295,26 @@ public class Terminarz {
 		return przypisane_grupy;
 	}
 	
+	//pobranie ID zadañ nale¿¹cych do jakiejkolwiek grupy
+	public List<Integer> zadania_przypisane() {
+		List<Integer>id_zadan_przypisanych = new LinkedList<Integer>();
+		
+		try {
+			ResultSet wynik = stat.executeQuery("SELECT DISTINCT id_zadanie FROM przypisania");
+			int id_zadanie;
+			
+			while(wynik.next()) {
+				id_zadanie = wynik.getInt("id_zadanie");
+				id_zadan_przypisanych.add(id_zadanie);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+		return id_zadan_przypisanych;
+	}
+	
 	public boolean modyfikuj_zadanie(int id_zadanie, Date data_zadanie, String tytul_zadanie, String opis_zadanie, String priorytet_zadanie, boolean czy_wykonane) {
 		try {
 			PreparedStatement prepStmt = conn.prepareStatement(
