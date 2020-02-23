@@ -444,14 +444,23 @@ public class Program{
 	}
 	
 	private void lista_rekodry_zadania_brak_grupy() {
+		/*
+		//zmienne
 		List<Integer>id_zadan_bg = new LinkedList<Integer>();
 		
+		//lista ID zadañ
 		terminarz = new Terminarz();
 		id_zadan_bg = terminarz.zadania_przypisane();
 		terminarz.zamknij_polaczenie();
 		
+		/*
+		//wyœwietlenie ID zadañ
 		for(int i = 0; i < id_zadan_bg.size(); i++) { System.out.println(id_zadan_bg.get(i)); }
 		System.out.println();
+		*/
+		
+		lista_zad();
+		*/
 	}
 	
 	public void lista_przypisane_grupy(int id_zadanie) {

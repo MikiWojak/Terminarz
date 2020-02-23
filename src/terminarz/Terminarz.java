@@ -205,6 +205,47 @@ public class Terminarz {
 		return zadania;
 	}
 	
+	//lista zadan bez przypisanej grupy
+		public List<Zadanie>lista_zadania_bez_grupy() {
+			List<Zadanie>zadania = new LinkedList<Zadanie>();
+			List<Integer>id_zadan_bg = new LinkedList<Integer>();
+			id_zadan_bg = zadania_przypisane();
+			int id_zadan_bg_rozmiar = id_zadan_bg.size();
+			boolean czy_przypisany;
+			try {
+				ResultSet wynik = stat.executeQuery("SELECT * FROM zadania ORDER BY data_zadanie");
+				int id_zadanie;
+				Date data_zadanie;
+				String tytul_zadanie, opis_zadanie, priorytet_zadanie;
+				boolean czy_wykonane;
+				
+				while(wynik.next()) {
+					czy_przypisany = false;
+					id_zadanie = wynik.getInt("id_zadanie");
+					for(int i = 0; i < id_zadan_bg_rozmiar; i++) {
+						if(id_zadanie == id_zadan_bg.get(i)) {
+							czy_przypisany = true;
+							break;
+						}
+					}
+					
+					//co dalej?
+					data_zadanie = wynik.getDate("data_zadanie");
+					tytul_zadanie = wynik.getString("tytul_zadanie");
+					opis_zadanie = wynik.getString("opis_zadanie");
+					priorytet_zadanie = wynik.getString("priorytet_zadanie");
+					czy_wykonane = wynik.getBoolean("czy_wykonane");
+					
+					zadania.add(new Zadanie(id_zadanie, data_zadanie, tytul_zadanie, opis_zadanie, priorytet_zadanie, czy_wykonane));
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return null;
+			}
+			
+			return zadania;
+		}
+	
 	//lista wszystkich grup
 	public List<Grupa>lista_grupy() {
 		List<Grupa>grupy = new LinkedList<Grupa>();
