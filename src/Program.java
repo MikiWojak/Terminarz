@@ -202,7 +202,17 @@ public class Program{
 		btn_usun.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(lista_zad.getSelectedIndex() >= 0) {
-					usun_zadanie();
+					Object nazwy_opcji[] = {"Tak", "Nie"};
+					int opcja = JOptionPane.showOptionDialog(
+							null, 
+							"Na pewno chcesz usun¹æ ten rekord?",
+							"Pytanie",
+							JOptionPane.YES_NO_OPTION,
+							JOptionPane.QUESTION_MESSAGE,
+							null,
+							nazwy_opcji,
+							nazwy_opcji[1]);
+					if(opcja == 0) { usun_zadanie(); }
 				} else { wybierz_rekord(); }
 			}
 		});
