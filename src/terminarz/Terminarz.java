@@ -384,6 +384,20 @@ public class Terminarz {
 		return true;
 	}
 	
+	public boolean usun_zadanie(int id_zadanie) {
+		try {
+			PreparedStatement prepStmt = conn.prepareStatement(
+					"DELETE FROM zadania WHERE id_zadanie = ?");
+			prepStmt.setInt(1, id_zadanie);
+			prepStmt.execute();
+		} catch (SQLException e) {
+			System.err.println("B³¹d przy usuwaniu zadania!");
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+	
 	//zamkniecie polaczenia
 	public void zamknij_polaczenie() {
 		try {
