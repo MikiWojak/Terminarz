@@ -159,14 +159,7 @@ public class Program{
 		wybor_grupa = new Choice();
 		wybor_grupa.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent arg0) {
-				if(wybor_grupa.getSelectedIndex() == 0) {
-					lista_rekordy_zadania();
-				} else if (wybor_grupa.getSelectedIndex() == 1) {
-					lista_rekodry_zadania_brak_grupy();
-				} else if (wybor_grupa.getSelectedIndex() > 1) {
-					int id_grupa = grupy.get(wybor_grupa.getSelectedIndex() - 2).pobierz_id_grupa();
-					lista_rekordy_zadania(id_grupa);
-				}
+				lista_rekordy_zadania_wybrane();
 			}
 		});
 		wybor_grupa.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -583,14 +576,17 @@ public class Program{
 	}
 	
 	private void usun_zadanie() {
-		//System.out.println("Usuwanie...\n");
-		
 		//usuniêcie
 		terminarz = new Terminarz();
 		terminarz.usun_zadanie(zadania.get(lista_zad.getSelectedIndex()).pobierz_id_zadanie());
 		terminarz.zamknij_polaczenie();
 		
-		//odœwie¿enie listy - do osobnej funkcji
+		//odœwie¿enie listy
+		lista_rekordy_zadania_wybrane();
+	}
+	
+	//lista zadan w zaleznosci od wybranej grupy
+	private void lista_rekordy_zadania_wybrane() {
 		if(wybor_grupa.getSelectedIndex() == 0) {
 			lista_rekordy_zadania();
 		} else if (wybor_grupa.getSelectedIndex() == 1) {
