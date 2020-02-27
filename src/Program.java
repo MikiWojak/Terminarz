@@ -93,6 +93,7 @@ public class Program{
 	private JButton btn_mod_zad;
 	private JScrollPane scroll_opis_szczegoly_zad;
 	private JButton btn_usun;
+	private JButton btn_zrobione;
 
 	/**
 	 * Create the application.
@@ -142,6 +143,11 @@ public class Program{
 		lista_zad = new JList();
 		scroll_lista_zad.setViewportView(lista_zad);
 		lista_zad.setFont(new Font("Monospaced", Font.PLAIN, 20));
+		lista_zad.addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent e) {
+				// TODO Auto-generated method stub
+			}
+		});
 		
 		btn_zad_szczegoly = new JButton("Szczeg\u00F3\u0142y\r\n");
 		btn_zad_szczegoly.setBounds(12, 549, 133, 39);
@@ -219,6 +225,15 @@ public class Program{
 		btn_usun.setFont(new Font("Arial", Font.BOLD, 20));
 		btn_usun.setBounds(1050, 549, 100, 39);
 		zad_lista.add(btn_usun);
+		
+		btn_zrobione = new JButton("Zrobione");
+		btn_zrobione.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btn_zrobione.setFont(new Font("Arial", Font.BOLD, 20));
+		btn_zrobione.setBounds(157, 549, 150, 39);
+		zad_lista.add(btn_zrobione);
 		
 		zad_szczegowy = new JPanel();
 		warstwy.add(zad_szczegowy, "name_762878183462982");
@@ -629,5 +644,9 @@ public class Program{
 			System.out.println("\t" + przypisane_grupy.get(i));
 		}
 		System.out.println();
+	}
+	
+	private void przycisk_zrobione(int index) {
+		// TODO Auto-generated method stub
 	}
 }
