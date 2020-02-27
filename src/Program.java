@@ -146,6 +146,7 @@ public class Program{
 		lista_zad.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent e) {
 				// TODO Auto-generated method stub
+				przycisk_zrobione(lista_zad.getSelectedIndex());
 			}
 		});
 		
@@ -229,6 +230,9 @@ public class Program{
 		btn_zrobione = new JButton("Zrobione");
 		btn_zrobione.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				if(lista_zad.getSelectedIndex() >= 0) {
+					// TODO Auto-generated method stub
+				} else { wybierz_rekord(); }	
 			}
 		});
 		btn_zrobione.setFont(new Font("Arial", Font.BOLD, 20));
@@ -648,5 +652,14 @@ public class Program{
 	
 	private void przycisk_zrobione(int index) {
 		// TODO Auto-generated method stub
+		boolean czy_wykonane;
+		if(index < 0) {czy_wykonane = false; }
+		else { czy_wykonane = zadania.get(index).pobierz_czy_wykonane(); }
+		
+		if(!czy_wykonane) {
+			btn_zrobione.setText("Zrobione");
+		} else {
+			btn_zrobione.setText("Niezrobione");
+		}
 	}
 }
