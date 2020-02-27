@@ -230,8 +230,12 @@ public class Program{
 		btn_zrobione = new JButton("Zrobione");
 		btn_zrobione.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(lista_zad.getSelectedIndex() >= 0) {
+				int sel_index = lista_zad.getSelectedIndex();
+				boolean status;
+				if(sel_index >= 0) {
 					// TODO Auto-generated method stub
+					status = zadania.get(sel_index).pobierz_czy_wykonane();
+					czy_wykonane_zmiana(sel_index, status);
 				} else { wybierz_rekord(); }	
 			}
 		});
@@ -661,5 +665,14 @@ public class Program{
 		} else {
 			btn_zrobione.setText("Niezrobione");
 		}
+	}
+	
+	private void czy_wykonane_zmiana(int index, boolean status) {
+		// TODO Auto-generated method stub
+		//zmiana wartoœæi boolean
+		//metoda w interfejsie BD
+		
+		//DEBUG
+		System.out.println(index + "\t" + status + "\t" + !status + "\n");
 	}
 }
