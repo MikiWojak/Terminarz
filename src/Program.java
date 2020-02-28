@@ -669,10 +669,18 @@ public class Program{
 	
 	private void czy_wykonane_zmiana(int index, boolean status) {
 		// TODO Auto-generated method stub
-		//zmiana wartoœæi boolean
 		//metoda w interfejsie BD
+		//odswiezenie listy
 		
+		/*
 		//DEBUG
 		System.out.println(index + "\t" + status + "\t" + !status + "\n");
+		*/
+		
+		terminarz = new Terminarz();
+		terminarz.zadanie_zmiana_wykonane(zadania.get(index).pobierz_id_zadanie(), status);
+		terminarz.zamknij_polaczenie();
+		
+		lista_rekordy_zadania_wybrane();
 	}
 }

@@ -384,6 +384,23 @@ public class Terminarz {
 		return true;
 	}
 	
+	public boolean zadanie_zmiana_wykonane(int id_zadanie, boolean czy_wykonane) {
+		czy_wykonane = !czy_wykonane;
+		try {
+			PreparedStatement prepStmt = conn.prepareStatement(
+					"UPDATE zadania SET czy_wykonane = ? WHERE id_zadanie = ?");
+			prepStmt.setBoolean(1, czy_wykonane);
+			prepStmt.setInt(2, id_zadanie);
+			prepStmt.execute();
+		} catch (SQLException e) {
+			// TODO: handle exception
+			System.err.println("B³¹d przy zmianie statusu zadania!");
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+	
 	public boolean usun_zadanie(int id_zadanie) {
 		try {
 			PreparedStatement prepStmt = conn.prepareStatement(
