@@ -145,7 +145,6 @@ public class Program{
 		lista_zad.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		lista_zad.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent e) {
-				// TODO Auto-generated method stub
 				przycisk_zrobione(lista_zad.getSelectedIndex());
 			}
 		});
@@ -233,7 +232,6 @@ public class Program{
 				int sel_index = lista_zad.getSelectedIndex();
 				boolean status;
 				if(sel_index >= 0) {
-					// TODO Auto-generated method stub
 					status = zadania.get(sel_index).pobierz_czy_wykonane();
 					czy_wykonane_zmiana(sel_index, status);
 				} else { wybierz_rekord(); }	
@@ -655,7 +653,6 @@ public class Program{
 	}
 	
 	private void przycisk_zrobione(int index) {
-		// TODO Auto-generated method stub
 		boolean czy_wykonane;
 		if(index < 0) {czy_wykonane = false; }
 		else { czy_wykonane = zadania.get(index).pobierz_czy_wykonane(); }
@@ -668,19 +665,11 @@ public class Program{
 	}
 	
 	private void czy_wykonane_zmiana(int index, boolean status) {
-		// TODO Auto-generated method stub
 		//metoda w interfejsie BD
-		//odswiezenie listy
-		
-		/*
-		//DEBUG
-		System.out.println(index + "\t" + status + "\t" + !status + "\n");
-		*/
-		
 		terminarz = new Terminarz();
 		terminarz.zadanie_zmiana_wykonane(zadania.get(index).pobierz_id_zadanie(), status);
 		terminarz.zamknij_polaczenie();
-		
+		//odswiezenie listy
 		lista_rekordy_zadania_wybrane();
 	}
 }
