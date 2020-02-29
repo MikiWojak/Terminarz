@@ -8,10 +8,15 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import model.Grupa;
+
 import javax.swing.JTextPane;
 import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class GruEdit extends JDialog {
 	private boolean czy_modyfikacja;
@@ -29,6 +34,13 @@ public class GruEdit extends JDialog {
 		initComp();
 		setTitle("Dodaj grupê");
 		czy_modyfikacja = false;
+		initFinal();
+	}
+	
+	public GruEdit(Grupa grupa) {
+		initComp();
+		modyfikacja_wyglad();
+		czy_modyfikacja = true;
 		initFinal();
 	}
 	
@@ -67,11 +79,21 @@ public class GruEdit extends JDialog {
 		panel.add(tresc_opis);
 		
 		btn_anuluj = new JButton("Anuluj");
+		btn_anuluj.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 		btn_anuluj.setFont(new Font("Arial", Font.BOLD, 20));
 		btn_anuluj.setBounds(596, 227, 100, 39);
 		panel.add(btn_anuluj);
 		
 		btn_mod = new JButton("Dodaj");
+		btn_mod.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 		btn_mod.setFont(new Font("Arial", Font.BOLD, 20));
 		btn_mod.setBounds(449, 227, 135, 39);
 		panel.add(btn_mod);
@@ -81,6 +103,12 @@ public class GruEdit extends JDialog {
 		tytul.setFont(new Font("Arial", Font.BOLD, 20));
 		tytul.setBounds(12, 13, 682, 30);
 		panel.add(tytul);
+	}
+	
+	private void modyfikacja_wyglad() {
+		setTitle("Modyfikuj zadanie");
+		btn_mod.setText("Modyfikuj");
+		tytul.setText("Modyfikuj zadanie");
 	}
 	
 	//koniec inicjowania okienka
