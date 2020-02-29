@@ -8,10 +8,12 @@ import model.Grupa;
 import model.Przypis;
 import model.Zadanie;
 import model.Zlozone;
+import okienka.GruEdit;
 import okienka.ZadEdit;
 
 import java.awt.Font;
 
+import javax.sound.midi.SysexMessage;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -94,6 +96,9 @@ public class Program{
 	private JScrollPane scroll_opis_szczegoly_zad;
 	private JButton btn_usun;
 	private JButton btn_zrobione;
+	private JButton btn_dodaj_gru;
+	private JButton btn_mod_gru;
+	private JButton btn_usun_gru;
 
 	/**
 	 * Create the application.
@@ -410,6 +415,43 @@ public class Program{
 		tresc_opis_gru.setFont(new Font("Arial", Font.PLAIN, 20));
 		tresc_opis_gru.setBounds(570, 105, 578, 120);
 		gru_panel.add(tresc_opis_gru);
+		
+		btn_dodaj_gru = new JButton("Dodaj");
+		btn_dodaj_gru.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO: handle exception
+				edycja = new GruEdit();
+			}
+		});
+		btn_dodaj_gru.setFont(new Font("Arial", Font.BOLD, 20));
+		btn_dodaj_gru.setBounds(791, 549, 100, 39);
+		gru_panel.add(btn_dodaj_gru);
+		
+		btn_mod_gru = new JButton("Modyfikuj");
+		btn_mod_gru.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// TODO: handle exception
+				if(lista_gru.getSelectedIndex() >= 0) {
+					edycja = new GruEdit();
+				} else { wybierz_rekord(); }
+			}
+		});
+		btn_mod_gru.setFont(new Font("Arial", Font.BOLD, 20));
+		btn_mod_gru.setBounds(903, 549, 133, 39);
+		gru_panel.add(btn_mod_gru);
+		
+		btn_usun_gru = new JButton("Usu\u0144");
+		btn_usun_gru.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// TODO: handle exception
+				if(lista_gru.getSelectedIndex() >= 0) {
+					System.out.println("Usuwanie grupy...");
+				} else { wybierz_rekord(); }
+			}
+		});
+		btn_usun_gru.setFont(new Font("Arial", Font.BOLD, 20));
+		btn_usun_gru.setBounds(1048, 549, 100, 39);
+		gru_panel.add(btn_usun_gru);
 		
 		menu = new JMenuBar();
 		menu.setBounds(0, 0, 1182, 26);
