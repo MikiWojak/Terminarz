@@ -10,15 +10,18 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import model.Grupa;
+import terminarz.Terminarz;
 
 import javax.swing.JTextPane;
 import java.awt.Font;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class GruEdit extends JDialog {
+	private Terminarz terminarz;
 	private boolean czy_modyfikacja;
 	
 	private JPanel panel;
@@ -56,7 +59,6 @@ public class GruEdit extends JDialog {
 		
 		tresc_nazwa = new JTextPane();
 		tresc_nazwa.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_nazwa.setEditable(false);
 		tresc_nazwa.setBounds(118, 56, 578, 30);
 		panel.add(tresc_nazwa);
 		
@@ -74,7 +76,6 @@ public class GruEdit extends JDialog {
 		
 		tresc_opis = new JTextPane();
 		tresc_opis.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_opis.setEditable(false);
 		tresc_opis.setBounds(118, 94, 578, 120);
 		panel.add(tresc_opis);
 		
@@ -91,6 +92,13 @@ public class GruEdit extends JDialog {
 		btn_mod = new JButton("Dodaj");
 		btn_mod.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				// TODO: handle exception
+				if(czy_tytul_pusty()) {
+					JOptionPane.showMessageDialog(null, "Tytu³ nie mo¿e byæ pusty!", "Uwaga!", JOptionPane.WARNING_MESSAGE);
+				} else {
+					if(czy_modyfikacja) { mod_grupe(); }
+					else { wstaw_grupe(); }
+				}
 				dispose();
 			}
 		});
@@ -105,6 +113,19 @@ public class GruEdit extends JDialog {
 		panel.add(tytul);
 	}
 	
+	protected void mod_grupe() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	protected void wstaw_grupe() {
+		terminarz = new Terminarz();
+		terminarz.wstaw_grupe(
+				tresc_nazwa.getText(),
+				tresc_opis.getText());
+		terminarz.zamknij_polaczenie();
+	}
+
 	private void modyfikacja_wyglad() {
 		setTitle("Modyfikuj zadanie");
 		btn_mod.setText("Modyfikuj");
@@ -115,5 +136,10 @@ public class GruEdit extends JDialog {
 	private void initFinal() {
 		setModalityType(ModalityType.APPLICATION_MODAL);
 		setVisible(true);
+	}
+	
+	private boolean czy_tytul_pusty() {
+		if(tresc_nazwa.getText().equals("")) { return true; }
+		else { return false;}
 	}
 }

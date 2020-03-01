@@ -181,7 +181,7 @@ public class Program{
 		btn_dodaj_zad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				edycja = new ZadEdit();
-				
+				//przerwa
 				lista_rekordy_zadania();
 			}
 		});
@@ -421,6 +421,8 @@ public class Program{
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO: handle exception
 				edycja = new GruEdit();
+				//przerwa
+				lista_rekordy_grupy();
 			}
 		});
 		btn_dodaj_gru.setFont(new Font("Arial", Font.BOLD, 20));
@@ -433,6 +435,8 @@ public class Program{
 				// TODO: handle exception
 				if(lista_gru.getSelectedIndex() >= 0) {
 					edycja = new GruEdit(null);
+					//przerwa
+					lista_rekordy_grupy();
 				} else { wybierz_rekord(); }
 			}
 		});
