@@ -434,9 +434,11 @@ public class Program{
 			public void actionPerformed(ActionEvent e) {
 				// TODO: handle exception
 				if(lista_gru.getSelectedIndex() >= 0) {
-					edycja = new GruEdit(null);
+					edycja = new GruEdit(grupy.get(lista_gru.getSelectedIndex()));
 					//przerwa
 					lista_rekordy_grupy();
+					//NIEGOTOWE
+					wybor_grupy();
 				} else { wybierz_rekord(); }
 			}
 		});

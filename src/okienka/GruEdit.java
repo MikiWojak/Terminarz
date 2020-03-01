@@ -22,6 +22,7 @@ import java.awt.event.ActionEvent;
 
 public class GruEdit extends JDialog {
 	private Terminarz terminarz;
+	private Grupa grupa;
 	private boolean czy_modyfikacja;
 	
 	private JPanel panel;
@@ -43,7 +44,9 @@ public class GruEdit extends JDialog {
 	public GruEdit(Grupa grupa) {
 		initComp();
 		modyfikacja_wyglad();
+		this.grupa = grupa;
 		czy_modyfikacja = true;
+		grupa_dane();
 		initFinal();
 	}
 	
@@ -98,8 +101,8 @@ public class GruEdit extends JDialog {
 				} else {
 					if(czy_modyfikacja) { mod_grupe(); }
 					else { wstaw_grupe(); }
+					dispose();
 				}
-				dispose();
 			}
 		});
 		btn_mod.setFont(new Font("Arial", Font.BOLD, 20));
@@ -112,15 +115,20 @@ public class GruEdit extends JDialog {
 		tytul.setBounds(12, 13, 682, 30);
 		panel.add(tytul);
 	}
-	
-	protected void mod_grupe() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	protected void wstaw_grupe() {
 		terminarz = new Terminarz();
 		terminarz.wstaw_grupe(
+				tresc_nazwa.getText(),
+				tresc_opis.getText());
+		terminarz.zamknij_polaczenie();
+	}
+	
+	protected void mod_grupe() {
+		// TODO Auto-generated method stub
+		terminarz = new Terminarz();
+		terminarz.modyfikuj_grupa(
+				grupa.pobierz_id_grupa(),
 				tresc_nazwa.getText(),
 				tresc_opis.getText());
 		terminarz.zamknij_polaczenie();
@@ -130,6 +138,11 @@ public class GruEdit extends JDialog {
 		setTitle("Modyfikuj zadanie");
 		btn_mod.setText("Modyfikuj");
 		tytul.setText("Modyfikuj zadanie");
+	}
+	
+	private void grupa_dane() {
+		tresc_nazwa.setText(grupa.pobierz_nazwa_grupa());
+		tresc_opis.setText(grupa.pobierz_opis_grupa());
 	}
 	
 	//koniec inicjowania okienka

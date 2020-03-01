@@ -393,7 +393,6 @@ public class Terminarz {
 			prepStmt.setInt(2, id_zadanie);
 			prepStmt.execute();
 		} catch (SQLException e) {
-			// TODO: handle exception
 			System.err.println("B³¹d przy zmianie statusu zadania!");
 			e.printStackTrace();
 			return false;
@@ -412,6 +411,29 @@ public class Terminarz {
 			e.printStackTrace();
 			return false;
 		}
+		return true;
+	}
+	
+	public boolean modyfikuj_grupa(int id_grupa, String nazwa_grupa, String opis_grupa) {
+		try {
+			PreparedStatement prepStmt = conn.prepareStatement(
+						"UPDATE grupy SET "
+					+ 	"nazwa_grupa = ?, "
+					+ 	"opis_grupa = ? "
+					+ 	"WHERE id_grupa = ?");
+			
+			prepStmt.setString(1, nazwa_grupa);
+			prepStmt.setString(2, opis_grupa);
+			prepStmt.setInt(3, id_grupa);
+			
+			prepStmt.execute();
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.err.println("B³¹d przy modyfikacji grupy!");
+			e.printStackTrace();
+			return false;
+		}
+		
 		return true;
 	}
 	
