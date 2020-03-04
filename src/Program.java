@@ -455,7 +455,17 @@ public class Program{
 			public void actionPerformed(ActionEvent e) {
 				// TODO: handle exception
 				if(lista_gru.getSelectedIndex() >= 0) {
-					System.out.println("Usuwanie grupy...");
+					Object nazwy_opcji[] = {"Tak", "Nie"};
+					int opcja = JOptionPane.showOptionDialog(
+							null, 
+							"Na pewno chcesz usun¹æ ten rekord?",
+							"Pytanie",
+							JOptionPane.YES_NO_OPTION,
+							JOptionPane.QUESTION_MESSAGE,
+							null,
+							nazwy_opcji,
+							nazwy_opcji[1]);
+					if(opcja == 0) { usun_grupe(); }
 				} else { wybierz_rekord(); }
 			}
 		});
@@ -666,6 +676,19 @@ public class Program{
 		
 		//odœwie¿enie listy
 		lista_rekordy_zadania_wybrane();
+	}
+	
+	private void usun_grupe() {
+		// TODO: handle exception
+		terminarz = new Terminarz();
+		terminarz.usun_grupe(grupy.get(lista_gru.getSelectedIndex()).pobierz_id_grupa());
+		terminarz.zamknij_polaczenie();
+		
+		//odœwie¿enie list
+		lista_rekordy_grupy();
+		grupa_szczegoly_reset();
+		wybor_grupa.removeAll();
+		wybor_grupy();
 	}
 	
 	//lista zadan w zaleznosci od wybranej grupy
