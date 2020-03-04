@@ -423,6 +423,9 @@ public class Program{
 				edycja = new GruEdit();
 				//przerwa
 				lista_rekordy_grupy();
+				grupa_szczegoly_reset();
+				wybor_grupa.removeAll();
+				wybor_grupy();
 			}
 		});
 		btn_dodaj_gru.setFont(new Font("Arial", Font.BOLD, 20));
@@ -437,7 +440,8 @@ public class Program{
 					edycja = new GruEdit(grupy.get(lista_gru.getSelectedIndex()));
 					//przerwa
 					lista_rekordy_grupy();
-					//NIEGOTOWE
+					grupa_szczegoly_reset();
+					wybor_grupa.removeAll();
 					wybor_grupy();
 				} else { wybierz_rekord(); }
 			}
