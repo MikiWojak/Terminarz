@@ -428,8 +428,29 @@ public class Terminarz {
 			
 			prepStmt.execute();
 		} catch (Exception e) {
-			// TODO: handle exception
 			System.err.println("B³¹d przy modyfikacji grupy!");
+			e.printStackTrace();
+			return false;
+		}
+		
+		return true;
+	}
+	
+	public boolean usun_grupe(int id_grupa) {
+		try {
+			//usuniêcie grupy
+			PreparedStatement prepStmt = conn.prepareStatement(
+					"DELETE FROM grupy WHERE id_grupa = ?");
+			prepStmt.setInt(1, id_grupa);
+			prepStmt.execute();
+			
+			//usuniêcie powi¹zañ z grup¹
+			prepStmt = conn.prepareStatement(
+					"DELETE FROM przypisania WHERE id_grupa = ?");
+			prepStmt.setInt(1, id_grupa);
+			prepStmt.execute();
+		} catch (Exception e) {
+			System.err.println("B³¹d przy usuwaniu grupy!");
 			e.printStackTrace();
 			return false;
 		}
