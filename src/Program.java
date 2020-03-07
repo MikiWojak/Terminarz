@@ -422,10 +422,7 @@ public class Program{
 				// TODO: handle exception
 				edycja = new GruEdit();
 				//przerwa
-				lista_rekordy_grupy();
-				grupa_szczegoly_reset();
-				wybor_grupa.removeAll();
-				wybor_grupy();
+				odswiez_wybor_grupy();
 			}
 		});
 		btn_dodaj_gru.setFont(new Font("Arial", Font.BOLD, 20));
@@ -439,10 +436,7 @@ public class Program{
 				if(lista_gru.getSelectedIndex() >= 0) {
 					edycja = new GruEdit(grupy.get(lista_gru.getSelectedIndex()));
 					//przerwa
-					lista_rekordy_grupy();
-					grupa_szczegoly_reset();
-					wybor_grupa.removeAll();
-					wybor_grupy();
+					odswiez_wybor_grupy();
 				} else { wybierz_rekord(); }
 			}
 		});
@@ -685,6 +679,11 @@ public class Program{
 		terminarz.zamknij_polaczenie();
 		
 		//odœwie¿enie list
+		odswiez_wybor_grupy();
+	}
+	
+	//odœwie¿enie wyboru listy po modyfikacji grupy
+	private void odswiez_wybor_grupy() {
 		lista_rekordy_grupy();
 		grupa_szczegoly_reset();
 		wybor_grupa.removeAll();
