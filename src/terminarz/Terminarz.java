@@ -401,9 +401,15 @@ public class Terminarz {
 	}
 	
 	public boolean usun_zadanie(int id_zadanie) {
+		// TODO: handle exception
 		try {
 			PreparedStatement prepStmt = conn.prepareStatement(
 					"DELETE FROM zadania WHERE id_zadanie = ?");
+			prepStmt.setInt(1, id_zadanie);
+			prepStmt.execute();
+			
+			prepStmt = conn.prepareStatement(
+					"DELETE FROM przypisania WHERE id_zadanie = ?");
 			prepStmt.setInt(1, id_zadanie);
 			prepStmt.execute();
 		} catch (SQLException e) {

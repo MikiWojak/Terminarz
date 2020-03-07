@@ -419,7 +419,6 @@ public class Program{
 		btn_dodaj_gru = new JButton("Dodaj");
 		btn_dodaj_gru.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO: handle exception
 				edycja = new GruEdit();
 				//przerwa
 				odswiez_wybor_grupy();
@@ -432,7 +431,6 @@ public class Program{
 		btn_mod_gru = new JButton("Modyfikuj");
 		btn_mod_gru.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// TODO: handle exception
 				if(lista_gru.getSelectedIndex() >= 0) {
 					edycja = new GruEdit(grupy.get(lista_gru.getSelectedIndex()));
 					//przerwa
@@ -447,7 +445,6 @@ public class Program{
 		btn_usun_gru = new JButton("Usu\u0144");
 		btn_usun_gru.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// TODO: handle exception
 				if(lista_gru.getSelectedIndex() >= 0) {
 					Object nazwy_opcji[] = {"Tak", "Nie"};
 					int opcja = JOptionPane.showOptionDialog(
@@ -673,7 +670,6 @@ public class Program{
 	}
 	
 	private void usun_grupe() {
-		// TODO: handle exception
 		terminarz = new Terminarz();
 		terminarz.usun_grupe(grupy.get(lista_gru.getSelectedIndex()).pobierz_id_grupa());
 		terminarz.zamknij_polaczenie();
