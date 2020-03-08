@@ -4,7 +4,6 @@ import java.util.List;
 import model.Grupa;
 import model.Przypis;
 import model.Zadanie;
-import model.Zlozone;
 import terminarz.Terminarz;
 
 public class Testy {
@@ -78,6 +77,7 @@ public class Testy {
 		terminarz.zamknij_polaczenie();
 	}
 	
+	/*
 	public void test_zlozone() {
 		Zlozone zlozone = new Zlozone(1, Date.valueOf("2020-04-15"), "Konkurs SEP na najlepszy program komputerowy", "Program Terminarz napisany w jêzyku Java", "wa¿ne", false, 3, "Zawody", "Zadania zw. z zawodami");
 		
@@ -94,7 +94,9 @@ public class Testy {
 		System.out.println(zlozone.pobierz_priorytet_zadanie());
 		System.out.println(zlozone.pobierz_czy_wykonane());
 	}
+	*/
 	
+	/*
 	public void test_zapytanie_zlozone() {
 		Terminarz terminarz = new Terminarz();
 		
@@ -112,4 +114,5 @@ public class Testy {
 		
 		terminarz.zamknij_polaczenie();
 	}
+	*/
 }

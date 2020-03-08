@@ -7,7 +7,6 @@ import terminarz.Terminarz;
 import model.Grupa;
 import model.Przypis;
 import model.Zadanie;
-import model.Zlozone;
 import okienka.GruEdit;
 import okienka.ZadEdit;
 
@@ -47,7 +46,6 @@ public class Program{
 	private List<Zadanie>zadania;				//lista zadania
 	private List<Grupa>grupy;
 	private List<Przypis>przypisania;
-	private List<Zlozone>zlozone;
 	private List<String>przypisane_grupy;
 	private JDialog edycja;
 	
@@ -501,7 +499,6 @@ public class Program{
 		zadania = new LinkedList<Zadanie>();
 		grupy = new LinkedList<Grupa>();
 		przypisania = new LinkedList<Przypis>();
-		zlozone = new LinkedList<Zlozone>();
 		przypisane_grupy = new LinkedList<String>();
 	}
 	
