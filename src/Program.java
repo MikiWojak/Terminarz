@@ -97,6 +97,8 @@ public class Program{
 	private JButton btn_dodaj_gru;
 	private JButton btn_mod_gru;
 	private JButton btn_usun_gru;
+	private JButton btn_dodaj_do_gru;
+	private JButton btn_usun_z_gru;
 
 	/**
 	 * Create the application.
@@ -119,12 +121,12 @@ public class Program{
 	private void initialize() {
 		frmTerminarz = new JFrame();
 		frmTerminarz.setTitle("Terminarz");
-		frmTerminarz.setBounds(100, 100, 1200, 700);
+		frmTerminarz.setBounds(100, 100, 1200, 800);
 		frmTerminarz.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmTerminarz.getContentPane().setLayout(null);
 		
 		warstwy = new JLayeredPane();
-		warstwy.setBounds(10, 39, 1160, 601);
+		warstwy.setBounds(10, 39, 1160, 701);
 		frmTerminarz.getContentPane().add(warstwy);
 		warstwy.setLayout(new CardLayout(0, 0));
 		
@@ -152,8 +154,8 @@ public class Program{
 			}
 		});
 		
-		btn_zad_szczegoly = new JButton("Szczeg\u00F3\u0142y\r\n");
-		btn_zad_szczegoly.setBounds(12, 549, 133, 39);
+		btn_zad_szczegoly = new JButton("Szczeg\u00F3\u0142y\r\n zadania");
+		btn_zad_szczegoly.setBounds(12, 549, 220, 39);
 		zad_lista.add(btn_zad_szczegoly);
 		btn_zad_szczegoly.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -175,7 +177,7 @@ public class Program{
 		wybor_grupa.setBounds(795, 60, 355, 41);
 		zad_lista.add(wybor_grupa);
 		
-		btn_dodaj_zad = new JButton("Dodaj");
+		btn_dodaj_zad = new JButton("Dodaj zadanie");
 		btn_dodaj_zad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				edycja = new ZadEdit();
@@ -184,7 +186,7 @@ public class Program{
 			}
 		});
 		btn_dodaj_zad.setFont(new Font("Arial", Font.BOLD, 20));
-		btn_dodaj_zad.setBounds(760, 549, 133, 39);
+		btn_dodaj_zad.setBounds(12, 599, 170, 39);
 		zad_lista.add(btn_dodaj_zad);
 		
 		opis_filtr = new JLabel("Filtr grupy");
@@ -193,7 +195,7 @@ public class Program{
 		opis_filtr.setBounds(12, 60, 777, 30);
 		zad_lista.add(opis_filtr);
 		
-		btn_mod_zad = new JButton("Modyfikuj");
+		btn_mod_zad = new JButton("Modyfikuj zadanie");
 		btn_mod_zad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(lista_zad.getSelectedIndex() >= 0) {
@@ -204,10 +206,10 @@ public class Program{
 			}
 		});
 		btn_mod_zad.setFont(new Font("Arial", Font.BOLD, 20));
-		btn_mod_zad.setBounds(905, 549, 133, 39);
+		btn_mod_zad.setBounds(194, 599, 220, 39);
 		zad_lista.add(btn_mod_zad);
 		
-		btn_usun = new JButton("Usu\u0144");
+		btn_usun = new JButton("Usu\u0144 zadanie");
 		btn_usun.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(lista_zad.getSelectedIndex() >= 0) {
@@ -226,10 +228,10 @@ public class Program{
 			}
 		});
 		btn_usun.setFont(new Font("Arial", Font.BOLD, 20));
-		btn_usun.setBounds(1050, 549, 100, 39);
+		btn_usun.setBounds(426, 599, 180, 39);
 		zad_lista.add(btn_usun);
 		
-		btn_zrobione = new JButton("Zrobione");
+		btn_zrobione = new JButton("Oznacz jako zrobione");
 		btn_zrobione.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int sel_index = lista_zad.getSelectedIndex();
@@ -241,8 +243,28 @@ public class Program{
 			}
 		});
 		btn_zrobione.setFont(new Font("Arial", Font.BOLD, 20));
-		btn_zrobione.setBounds(157, 549, 150, 39);
+		btn_zrobione.setBounds(244, 549, 270, 39);
 		zad_lista.add(btn_zrobione);
+		
+		btn_dodaj_do_gru = new JButton("Dodaj do grupy");
+		btn_dodaj_do_gru.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO: handle exception
+			}
+		});
+		btn_dodaj_do_gru.setFont(new Font("Arial", Font.BOLD, 20));
+		btn_dodaj_do_gru.setBounds(12, 651, 200, 39);
+		zad_lista.add(btn_dodaj_do_gru);
+		
+		btn_usun_z_gru = new JButton("Usu\u0144 z grupy");
+		btn_usun_z_gru.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// TODO: handle exception
+			}
+		});
+		btn_usun_z_gru.setFont(new Font("Arial", Font.BOLD, 20));
+		btn_usun_z_gru.setBounds(224, 651, 170, 39);
+		zad_lista.add(btn_usun_z_gru);
 		
 		zad_szczegowy = new JPanel();
 		warstwy.add(zad_szczegowy, "name_762878183462982");
@@ -285,7 +307,7 @@ public class Program{
 		zad_szczegowy.add(opis_wykonane);
 		
 		btn_zad_lista = new JButton("Wr\u00F3\u0107");
-		btn_zad_lista.setBounds(12, 549, 133, 39);
+		btn_zad_lista.setBounds(12, 649, 133, 39);
 		zad_szczegowy.add(btn_zad_lista);
 		btn_zad_lista.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -365,7 +387,7 @@ public class Program{
 		
 		scroll_lista_gru = new JScrollPane();
 		scroll_lista_gru.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scroll_lista_gru.setBounds(12, 67, 440, 521);
+		scroll_lista_gru.setBounds(12, 67, 440, 621);
 		gru_panel.add(scroll_lista_gru);
 		
 		lista_gru = new JList();
@@ -423,7 +445,7 @@ public class Program{
 			}
 		});
 		btn_dodaj_gru.setFont(new Font("Arial", Font.BOLD, 20));
-		btn_dodaj_gru.setBounds(791, 549, 100, 39);
+		btn_dodaj_gru.setBounds(803, 649, 100, 39);
 		gru_panel.add(btn_dodaj_gru);
 		
 		btn_mod_gru = new JButton("Modyfikuj");
@@ -437,7 +459,7 @@ public class Program{
 			}
 		});
 		btn_mod_gru.setFont(new Font("Arial", Font.BOLD, 20));
-		btn_mod_gru.setBounds(903, 549, 133, 39);
+		btn_mod_gru.setBounds(915, 649, 133, 39);
 		gru_panel.add(btn_mod_gru);
 		
 		btn_usun_gru = new JButton("Usu\u0144");
@@ -459,7 +481,7 @@ public class Program{
 			}
 		});
 		btn_usun_gru.setFont(new Font("Arial", Font.BOLD, 20));
-		btn_usun_gru.setBounds(1048, 549, 100, 39);
+		btn_usun_gru.setBounds(1060, 649, 100, 39);
 		gru_panel.add(btn_usun_gru);
 		
 		menu = new JMenuBar();
@@ -725,9 +747,9 @@ public class Program{
 		else { czy_wykonane = zadania.get(index).pobierz_czy_wykonane(); }
 		
 		if(!czy_wykonane) {
-			btn_zrobione.setText("Zrobione");
+			btn_zrobione.setText("Oznacz jako zrobione");
 		} else {
-			btn_zrobione.setText("Niezrobione");
+			btn_zrobione.setText("Oznacz jako niezrobione");
 		}
 	}
 	
