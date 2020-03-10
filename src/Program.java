@@ -8,6 +8,7 @@ import model.Grupa;
 import model.Przypis;
 import model.Zadanie;
 import okienka.GruEdit;
+import okienka.GruPrzypis;
 import okienka.ZadEdit;
 
 import java.awt.Font;
@@ -48,6 +49,7 @@ public class Program{
 	private List<Przypis>przypisania;
 	private List<String>przypisane_grupy;
 	private JDialog edycja;
+	private JDialog doGrupy;
 	
 	private JFrame frmTerminarz;
 	private JPanel zad_lista;
@@ -250,6 +252,12 @@ public class Program{
 		btn_dodaj_do_gru.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO: handle exception
+				//doGrupy = new GruPrzypis(zadania.get(lista_zad.getSelectedIndex()));
+				int sel_index = lista_zad.getSelectedIndex();
+				if(sel_index >= 0) {
+					doGrupy = new GruPrzypis(zadania.get(sel_index));
+					//przerwa
+				} else { wybierz_rekord(); }
 			}
 		});
 		btn_dodaj_do_gru.setFont(new Font("Arial", Font.BOLD, 20));
