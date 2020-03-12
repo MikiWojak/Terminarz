@@ -34,15 +34,13 @@ public class GruPrzypis extends JDialog {
 	private JPanel panel;
 	
 	//dodawanie grupy do zadania
-	/**
-	 * @wbp.parser.constructor
-	 */
 	public GruPrzypis(Zadanie zadanie) {
 		initComp();
 		setTitle("Dodaj grupê");
 		
 		this.zadanie = zadanie;
 		czyUsuwanie = false;
+		zadanieWskrocie();
 		
 		initFinal();
 	}
@@ -53,7 +51,8 @@ public class GruPrzypis extends JDialog {
 		usuwanieWyglad();
 		
 		this.zadanie = zadanie;
-		this.czyUsuwanie = true;
+		this.czyUsuwanie = true;	//bez wzglêdu na wartoœæ drugiego parametru
+		zadanieWskrocie();
 		
 		initFinal();
 	}
@@ -105,6 +104,12 @@ public class GruPrzypis extends JDialog {
 		trescData.setFont(new Font("Arial", Font.PLAIN, 20));
 		trescData.setBounds(12, 170, 658, 30);
 		panel.add(trescData);
+	}
+	
+	//zadanie w skrócie - dane
+	private void zadanieWskrocie() {
+		trescTytul.setText(zadanie.pobierz_tytul_zadanie());
+		trescData.setText(zadanie.pobierz_data_zadanie().toString());
 	}
 	
 	//dla usuwania zadania
