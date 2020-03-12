@@ -270,7 +270,32 @@ public class Terminarz {
 		return grupy;		
 	}
 	
-	//grupy przypisane do danego zadania
+	//lista grup przypisanych do danego zadania - wszystko
+	public List<Grupa>lista_grupy(int id_zadanie) {
+		// TODO: handle exception
+		List<Grupa>grupy = new LinkedList<Grupa>();
+		
+		try {
+			ResultSet wynik = stat.executeQuery("SELECT * FROM grupy ORDER BY nazwa_grupa");
+			int id_grupa;
+			String nazwa_grupa, opis_grupa;
+				
+			while(wynik.next()) {
+				id_grupa = wynik.getInt("id_grupa");
+				nazwa_grupa = wynik.getString("nazwa_grupa");
+				opis_grupa = wynik.getString("opis_grupa");
+					
+				grupy.add(new Grupa(id_grupa, nazwa_grupa, opis_grupa));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+			
+		return grupy;		
+	}
+	
+	//grupy przypisane do danego zadania - napisy
 	public List<String>lista_przypisanych_grup(int id_zadanie) {
 		List<String>przypisane_grupy = new LinkedList<String>();
 		
