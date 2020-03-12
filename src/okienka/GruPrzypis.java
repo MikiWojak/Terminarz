@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import model.Zadanie;
+import terminarz.Terminarz;
 import model.Grupa;
 
 import java.awt.Font;
@@ -23,23 +24,28 @@ public class GruPrzypis extends JDialog {
 	private Zadanie zadanie;
 	private List<Grupa>grupy;
 	private boolean czyUsuwanie;
+	private Terminarz terminarz;
 	
 	private JButton btnPotwierdz;
 	private JButton btnAnuluj;
 	private JLabel tytulDodaj;
-	private Choice choice;
+	private Choice wyborGrupy;
 	private JLabel tytulZad;
 	private JLabel trescTytul;
 	private JLabel trescData;
 	private JPanel panel;
 	
 	//dodawanie grupy do zadania
+	/**
+	 * @wbp.parser.constructor
+	 */
 	public GruPrzypis(Zadanie zadanie) {
 		initComp();
 		setTitle("Dodaj grupê");
 		
 		this.zadanie = zadanie;
 		czyUsuwanie = false;
+		wszystkieGrupy();
 		zadanieWskrocie();
 		
 		initFinal();
@@ -82,10 +88,10 @@ public class GruPrzypis extends JDialog {
 		tytulDodaj.setBounds(12, 13, 658, 30);
 		panel.add(tytulDodaj);
 		
-		choice = new Choice();
-		choice.setFont(new Font("Arial", Font.BOLD, 20));
-		choice.setBounds(12, 49, 658, 30);
-		panel.add(choice);
+		wyborGrupy = new Choice();
+		wyborGrupy.setFont(new Font("Arial", Font.PLAIN, 20));
+		wyborGrupy.setBounds(12, 49, 658, 30);
+		panel.add(wyborGrupy);
 		
 		tytulZad = new JLabel("Zadanie w skr\u00F3cie");
 		tytulZad.setHorizontalAlignment(SwingConstants.CENTER);
@@ -106,17 +112,27 @@ public class GruPrzypis extends JDialog {
 		panel.add(trescData);
 	}
 	
+	//dla usuwania zadania
+	private void usuwanieWyglad() {
+		setTitle("Usuñ grupê");
+		tytulDodaj.setText("Usuñ grupê z zadania");
+		btnPotwierdz.setText("Usuñ");
+	}
+	
 	//zadanie w skrócie - dane
 	private void zadanieWskrocie() {
 		trescTytul.setText(zadanie.pobierz_tytul_zadanie());
 		trescData.setText(zadanie.pobierz_data_zadanie().toString());
 	}
 	
-	//dla usuwania zadania
-	private void usuwanieWyglad() {
-		setTitle("Usuñ grupê");
-		tytulDodaj.setText("Usuñ grupê z zadania");
-		btnPotwierdz.setText("Usuñ");
+	private void wszystkieGrupy() {
+		terminarz = new Terminarz();
+		grupy = terminarz.lista_grupy();
+		terminarz.zamknij_polaczenie();
+		
+		for(int i = 0; i < grupy.size(); i++) {
+			wyborGrupy.add(grupy.get(i).pobierz_nazwa_grupa());
+		}
 	}
 	
 	//koniec inicjowania okienka
