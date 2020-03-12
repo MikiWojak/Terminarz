@@ -252,7 +252,6 @@ public class Program{
 		btn_dodaj_do_gru.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO: handle exception
-				//doGrupy = new GruPrzypis(zadania.get(lista_zad.getSelectedIndex()));
 				int sel_index = lista_zad.getSelectedIndex();
 				if(sel_index >= 0) {
 					doGrupy = new GruPrzypis(zadania.get(sel_index));
@@ -268,6 +267,11 @@ public class Program{
 		btn_usun_z_gru.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// TODO: handle exception
+				int sel_index = lista_zad.getSelectedIndex();
+				if(sel_index >= 0) {
+					doGrupy = new GruPrzypis(zadania.get(sel_index), true);
+					//przerwa
+				} else { wybierz_rekord(); }
 			}
 		});
 		btn_usun_z_gru.setFont(new Font("Arial", Font.BOLD, 20));

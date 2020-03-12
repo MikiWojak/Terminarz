@@ -24,15 +24,19 @@ public class GruPrzypis extends JDialog {
 	private List<Grupa>grupy;
 	private boolean czyUsuwanie;
 	
-	private JButton btnDodaj;
+	private JButton btnPotwierdz;
 	private JButton btnAnuluj;
 	private JLabel tytulDodaj;
 	private Choice choice;
 	private JLabel tytulZad;
 	private JLabel trescTytul;
 	private JLabel trescData;
+	private JPanel panel;
 	
 	//dodawanie grupy do zadania
+	/**
+	 * @wbp.parser.constructor
+	 */
 	public GruPrzypis(Zadanie zadanie) {
 		initComp();
 		setTitle("Dodaj grupê");
@@ -49,7 +53,7 @@ public class GruPrzypis extends JDialog {
 		usuwanieWyglad();
 		
 		this.zadanie = zadanie;
-		this.czyUsuwanie = czyUsuwanie;
+		this.czyUsuwanie = true;
 		
 		initFinal();
 	}
@@ -58,15 +62,15 @@ public class GruPrzypis extends JDialog {
 		setBounds(100, 100, 700, 325);
 		getContentPane().setLayout(null);
 		
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		panel.setBounds(0, 0, 682, 278);
 		getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		btnDodaj = new JButton("Dodaj");
-		btnDodaj.setFont(new Font("Arial", Font.BOLD, 20));
-		btnDodaj.setBounds(461, 235, 100, 30);
-		panel.add(btnDodaj);
+		btnPotwierdz = new JButton("Dodaj");
+		btnPotwierdz.setFont(new Font("Arial", Font.BOLD, 20));
+		btnPotwierdz.setBounds(461, 235, 100, 30);
+		panel.add(btnPotwierdz);
 		
 		btnAnuluj = new JButton("Anuluj");
 		btnAnuluj.setFont(new Font("Arial", Font.BOLD, 20));
@@ -106,6 +110,8 @@ public class GruPrzypis extends JDialog {
 	//dla usuwania zadania
 	private void usuwanieWyglad() {
 		setTitle("Usuñ grupê");
+		tytulDodaj.setText("Usuñ grupê z zadania");
+		btnPotwierdz.setText("Usuñ");
 	}
 	
 	//koniec inicjowania okienka
