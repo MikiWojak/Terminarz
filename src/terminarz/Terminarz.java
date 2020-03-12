@@ -300,6 +300,20 @@ public class Terminarz {
 		return grupy;		
 	}
 	
+	public int przypis_ilosc_przypisan(int id_zadanie) {
+		// TODO: handle exception
+		int ilosc_wynikow;
+		try {
+			String zapytanie = "SELECT id_przypis FROM przypisania WHERE id_zadanie = " + id_zadanie;
+			ResultSet wynik = stat.executeQuery(zapytanie);
+			ilosc_wynikow = wynik.getFetchSize();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0;									//zastanowiæ siê
+		}
+		return ilosc_wynikow;
+	}
+	
 	//grupy przypisane do danego zadania - napisy
 	public List<String>lista_przypisanych_grup(int id_zadanie) {
 		List<String>przypisane_grupy = new LinkedList<String>();
