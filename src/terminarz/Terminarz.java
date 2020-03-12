@@ -276,7 +276,12 @@ public class Terminarz {
 		List<Grupa>grupy = new LinkedList<Grupa>();
 		
 		try {
-			ResultSet wynik = stat.executeQuery("SELECT * FROM grupy ORDER BY nazwa_grupa");
+			String zapytanie = ""
+					+ "SELECT g.id_grupa, g.nazwa_grupa, g.opis_grupa "
+					+ "FROM zadania AS z, grupy AS g, przypisania AS p "
+					+ "WHERE z.id_zadanie = p.id_zadanie AND g.id_grupa = p.id_grupa AND p.id_zadanie = " + id_zadanie
+					+ " ORDER BY g.nazwa_grupa";
+			ResultSet wynik = stat.executeQuery(zapytanie);
 			int id_grupa;
 			String nazwa_grupa, opis_grupa;
 				

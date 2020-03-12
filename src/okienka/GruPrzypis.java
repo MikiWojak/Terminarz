@@ -19,6 +19,8 @@ import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Choice;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class GruPrzypis extends JDialog {
 	private Zadanie zadanie;
@@ -58,6 +60,7 @@ public class GruPrzypis extends JDialog {
 		
 		this.zadanie = zadanie;
 		this.czyUsuwanie = true;	//bez wzglêdu na wartoœæ drugiego parametru
+		wybraneGrupy();
 		zadanieWskrocie();
 		
 		initFinal();
@@ -73,11 +76,21 @@ public class GruPrzypis extends JDialog {
 		panel.setLayout(null);
 		
 		btnPotwierdz = new JButton("Dodaj");
+		btnPotwierdz.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+			}
+		});
 		btnPotwierdz.setFont(new Font("Arial", Font.BOLD, 20));
 		btnPotwierdz.setBounds(461, 235, 100, 30);
 		panel.add(btnPotwierdz);
 		
 		btnAnuluj = new JButton("Anuluj");
+		btnAnuluj.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 		btnAnuluj.setFont(new Font("Arial", Font.BOLD, 20));
 		btnAnuluj.setBounds(570, 235, 100, 30);
 		panel.add(btnAnuluj);
@@ -128,6 +141,16 @@ public class GruPrzypis extends JDialog {
 	private void wszystkieGrupy() {
 		terminarz = new Terminarz();
 		grupy = terminarz.lista_grupy();
+		terminarz.zamknij_polaczenie();
+		
+		for(int i = 0; i < grupy.size(); i++) {
+			wyborGrupy.add(grupy.get(i).pobierz_nazwa_grupa());
+		}
+	}
+	
+	private void wybraneGrupy() {
+		terminarz = new Terminarz();
+		grupy = terminarz.lista_grupy(zadanie.pobierz_id_zadanie());
 		terminarz.zamknij_polaczenie();
 		
 		for(int i = 0; i < grupy.size(); i++) {
