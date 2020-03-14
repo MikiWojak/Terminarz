@@ -11,6 +11,8 @@ import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.naming.spi.DirStateFactory.Result;
+
 import model.Grupa;
 import model.Zadanie;
 
@@ -357,6 +359,27 @@ public class Terminarz {
 		}
 		
 		return id_zadan_przypisanych;
+	}
+	
+	public List<Integer> grupy_przypisane(int id_zadanie) {
+		// TODO: handle exception
+		List<Integer>id_grup_przypisanych = new LinkedList<Integer>();
+		
+		try {
+			String zapytanie = "SELECT DISTINCT id_grupa FROM przypisania WHERE id_zadanie = " + id_zadanie;
+			ResultSet wynik = stat.executeQuery(zapytanie);
+			int id_grupa;
+			
+			while(wynik.next()) {
+				id_grupa = wynik.getInt("id_grupa");
+				id_grup_przypisanych.add(id_grupa);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+		return id_grup_przypisanych;
 	}
 	
 	public boolean modyfikuj_zadanie(int id_zadanie, Date data_zadanie, String tytul_zadanie, String opis_zadanie, String priorytet_zadanie, boolean czy_wykonane) {

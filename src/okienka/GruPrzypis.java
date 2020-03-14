@@ -14,6 +14,7 @@ import model.Grupa;
 
 import java.awt.Font;
 import java.awt.Dialog.ModalityType;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.swing.JLabel;
