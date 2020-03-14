@@ -274,25 +274,63 @@ public class Terminarz {
 	
 	//lista grup przypisanych do danego zadania - wszystko
 	public List<Grupa>lista_grupy(int id_zadanie) {
-		// TODO: handle exception
 		List<Grupa>grupy = new LinkedList<Grupa>();
-		List<Integer>id_grup_przypisanych = new LinkedList<Integer>();
-		id_grup_przypisanych = grupy_przypisane(id_zadanie);
-		int ilosc_grup = id_grup_przypisanych.size();
-		boolean czy_przypisany;
-		
+			
 		try {
-			String zapytanie = "SELECT * FROM grupy ORDER BY nazwa_grupa";
+			String zapytanie = ""
+					+ "SELECT g.id_grupa, g.nazwa_grupa, g.opis_grupa "
+					+ "FROM zadania AS z, grupy AS g, przypisania AS p "
+					+ "WHERE z.id_zadanie = p.id_zadanie AND g.id_grupa = p.id_grupa AND p.id_zadanie = " + id_zadanie
+					+ " ORDER BY g.nazwa_grupa";
 			ResultSet wynik = stat.executeQuery(zapytanie);
 			int id_grupa;
 			String nazwa_grupa, opis_grupa;
-				
+					
 			while(wynik.next()) {
 				id_grupa = wynik.getInt("id_grupa");
 				nazwa_grupa = wynik.getString("nazwa_grupa");
 				opis_grupa = wynik.getString("opis_grupa");
-					
+						
 				grupy.add(new Grupa(id_grupa, nazwa_grupa, opis_grupa));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+			
+		return grupy;		
+	}
+	
+    //lista grup NIEprzypisanych do danego zadania - wszystko
+	public List<Grupa>lista_brakujacych_grup(int id_zadanie) {
+		// TODO: handle exception
+		List<Grupa>grupy = new LinkedList<Grupa>();
+		List<Integer>id_grup_przypisanych = new LinkedList<Integer>();
+		id_grup_przypisanych = grupy_przypisane_id(id_zadanie);
+		int ilosc_grup = id_grup_przypisanych.size();
+		boolean czy_przypisany;
+		
+		try {
+			ResultSet wynik = stat.executeQuery("SELECT * FROM grupy ORDER BY nazwa_grupa");
+			int id_grupa;
+			String nazwa_grupa, opis_grupa;
+				
+			while(wynik.next()) {
+				czy_przypisany = false;
+				id_grupa = wynik.getInt("id_grupa");
+				for(int i = 0; i < ilosc_grup; i++) {
+					if(id_grupa == id_grup_przypisanych.get(i)) {
+						czy_przypisany = true;
+						break;
+					}
+				}
+				
+				if(!czy_przypisany) {
+					id_grupa = wynik.getInt("id_grupa");
+					nazwa_grupa = wynik.getString("nazwa_grupa");
+					opis_grupa = wynik.getString("opis_grupa");
+					grupy.add(new Grupa(id_grupa, nazwa_grupa, opis_grupa));
+				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -362,7 +400,7 @@ public class Terminarz {
 	}
 	
 	//pozyskanie ID grup przypisanych do zadania
-	public List<Integer> grupy_przypisane(int id_zadanie) {
+	public List<Integer> grupy_przypisane_id(int id_zadanie) {
 		// TODO: handle exception
 		List<Integer>id_grup_przypisanych = new LinkedList<Integer>();
 		

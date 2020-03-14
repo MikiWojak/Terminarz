@@ -145,12 +145,8 @@ public class GruPrzypis extends JDialog {
 		terminarz = new Terminarz();
 		
 		ilosc_wynikow = terminarz.przypis_ilosc_przypisan(zadanie.pobierz_id_zadanie());
-		if(ilosc_wynikow == 0) {
-			grupy = terminarz.lista_grupy();	//wszystkie grupy
-		} else {
-			//TYMCZASOWO
-			grupy = terminarz.lista_grupy();
-		}
+		if(ilosc_wynikow == 0) { grupy = terminarz.lista_grupy(); }							//wszystkie grupy
+		else { grupy = terminarz.lista_brakujacych_grup(zadanie.pobierz_id_zadanie()); }	//nieprzypisane grupy
 		
 		terminarz.zamknij_polaczenie();
 		
