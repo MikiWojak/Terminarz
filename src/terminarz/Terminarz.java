@@ -276,13 +276,13 @@ public class Terminarz {
 	public List<Grupa>lista_grupy(int id_zadanie) {
 		// TODO: handle exception
 		List<Grupa>grupy = new LinkedList<Grupa>();
+		List<Integer>id_grup_przypisanych = new LinkedList<Integer>();
+		id_grup_przypisanych = grupy_przypisane(id_zadanie);
+		int ilosc_grup = id_grup_przypisanych.size();
+		boolean czy_przypisany;
 		
 		try {
-			String zapytanie = ""
-					+ "SELECT g.id_grupa, g.nazwa_grupa, g.opis_grupa "
-					+ "FROM zadania AS z, grupy AS g, przypisania AS p "
-					+ "WHERE z.id_zadanie = p.id_zadanie AND g.id_grupa = p.id_grupa AND p.id_zadanie = " + id_zadanie
-					+ " ORDER BY g.nazwa_grupa";
+			String zapytanie = "SELECT * FROM grupy ORDER BY nazwa_grupa";
 			ResultSet wynik = stat.executeQuery(zapytanie);
 			int id_grupa;
 			String nazwa_grupa, opis_grupa;
@@ -361,6 +361,7 @@ public class Terminarz {
 		return id_zadan_przypisanych;
 	}
 	
+	//pozyskanie ID grup przypisanych do zadania
 	public List<Integer> grupy_przypisane(int id_zadanie) {
 		// TODO: handle exception
 		List<Integer>id_grup_przypisanych = new LinkedList<Integer>();
