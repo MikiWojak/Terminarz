@@ -304,12 +304,12 @@ public class Terminarz {
 		// TODO: handle exception
 		int ilosc_wynikow;
 		try {
-			String zapytanie = "SELECT id_przypis FROM przypisania WHERE id_zadanie = " + id_zadanie;
+			String zapytanie = "SELECT COUNT(id_przypis) AS ilosc FROM przypisania WHERE id_zadanie = " + id_zadanie;
 			ResultSet wynik = stat.executeQuery(zapytanie);
-			ilosc_wynikow = wynik.getFetchSize();
+			ilosc_wynikow = wynik.getInt("ilosc");
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return 0;									//zastanowiæ siê
+			return 1;									//zastanowiæ siê
 		}
 		return ilosc_wynikow;
 	}

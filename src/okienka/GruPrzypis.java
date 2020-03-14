@@ -140,11 +140,17 @@ public class GruPrzypis extends JDialog {
 	
 	private void wszystkieGrupy() {
 		// TODO: handle exception
+		int ilosc_wynikow;
 		terminarz = new Terminarz();
 		
-		System.out.println(terminarz.przypis_ilosc_przypisan(zadanie.pobierz_id_zadanie()));
+		ilosc_wynikow = terminarz.przypis_ilosc_przypisan(zadanie.pobierz_id_zadanie());
+		if(ilosc_wynikow == 0) {
+			grupy = terminarz.lista_grupy();	//wszystkie grupy
+		} else {
+			//TYMCZASOWO
+			grupy = terminarz.lista_grupy();
+		}
 		
-		grupy = terminarz.lista_grupy();
 		terminarz.zamknij_polaczenie();
 		
 		for(int i = 0; i < grupy.size(); i++) {
