@@ -18,6 +18,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.Choice;
 import java.awt.event.ActionListener;
@@ -151,6 +152,12 @@ public class GruPrzypis extends JDialog {
 		else { grupy = terminarz.lista_brakujacych_grup(zadanie.pobierz_id_zadanie()); }	//nieprzypisane grupy
 		
 		terminarz.zamknij_polaczenie();
+		
+		//brak grup do przypisania
+		if(grupy.size() == 0) {
+			JOptionPane.showMessageDialog(null, "Brak grup do przypisania!", "Uwaga!", JOptionPane.WARNING_MESSAGE);
+			btnPotwierdz.setEnabled(false);
+		}
 		
 		for(int i = 0; i < grupy.size(); i++) {
 			wyborGrupy.add(grupy.get(i).pobierz_nazwa_grupa());

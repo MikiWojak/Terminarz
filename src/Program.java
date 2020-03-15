@@ -256,6 +256,7 @@ public class Program{
 				if(sel_index >= 0) {
 					doGrupy = new GruPrzypis(zadania.get(sel_index));
 					//przerwa
+					lista_rekordy_zadania_wybrane();
 				} else { wybierz_rekord(); }
 			}
 		});
@@ -271,6 +272,7 @@ public class Program{
 				if(sel_index >= 0) {
 					doGrupy = new GruPrzypis(zadania.get(sel_index), true);
 					//przerwa
+					lista_rekordy_zadania_wybrane();
 				} else { wybierz_rekord(); }
 			}
 		});
