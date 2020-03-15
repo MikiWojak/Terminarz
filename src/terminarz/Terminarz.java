@@ -149,7 +149,7 @@ public class Terminarz {
 		List<Zadanie>zadania = new LinkedList<Zadanie>();
 		
 		try {
-			ResultSet wynik = stat.executeQuery("SELECT * FROM zadania ORDER BY data_zadanie");
+			ResultSet wynik = stat.executeQuery("SELECT * FROM zadania ORDER BY czy_wykonane, data_zadanie, tytul_zadanie");
 			int id_zadanie;
 			Date data_zadanie;
 			String tytul_zadanie, opis_zadanie, priorytet_zadanie;
@@ -180,7 +180,7 @@ public class Terminarz {
 				+ "SELECT z.id_zadanie, z.data_zadanie, z.tytul_zadanie, z.opis_zadanie, z.priorytet_zadanie, z.czy_wykonane "
 				+ "FROM zadania AS z, grupy AS g, przypisania AS p "
 				+ "WHERE z.id_zadanie = p.id_zadanie AND g.id_grupa = p.id_grupa AND p.id_grupa = " + id_grupa
-				+ " ORDER BY data_zadanie";
+				+ " ORDER BY z.czy_wykonane, z.data_zadanie, z.tytul_zadanie";
 		try {
 			ResultSet wynik = stat.executeQuery(zapytanie);
 			int id_zadanie;
@@ -214,7 +214,7 @@ public class Terminarz {
 			int id_zadan_bg_rozmiar = id_zadan_bg.size();
 			boolean czy_przypisany;
 			try {
-				ResultSet wynik = stat.executeQuery("SELECT * FROM zadania ORDER BY data_zadanie");
+				ResultSet wynik = stat.executeQuery("SELECT * FROM zadania ORDER BY czy_wykonane, data_zadanie, tytul_zadanie");
 				int id_zadanie;
 				Date data_zadanie;
 				String tytul_zadanie, opis_zadanie, priorytet_zadanie;
