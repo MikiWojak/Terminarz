@@ -79,6 +79,8 @@ public class GruPrzypis extends JDialog {
 		btnPotwierdz = new JButton("Dodaj");
 		btnPotwierdz.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				// TODO: handle exception
+				dodajGrupe();
 				dispose();
 			}
 		});
@@ -89,6 +91,7 @@ public class GruPrzypis extends JDialog {
 		btnAnuluj = new JButton("Anuluj");
 		btnAnuluj.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				// TODO: handle exception
 				dispose();
 			}
 		});
@@ -140,7 +143,6 @@ public class GruPrzypis extends JDialog {
 	}
 	
 	private void wszystkieGrupy() {
-		// TODO: handle exception
 		int ilosc_wynikow;
 		terminarz = new Terminarz();
 		
@@ -169,5 +171,14 @@ public class GruPrzypis extends JDialog {
 	private void initFinal() {
 		setModalityType(ModalityType.APPLICATION_MODAL);
 		setVisible(true);
+	}
+	
+	private void dodajGrupe() {
+		// TODO: handle exception
+		terminarz = new Terminarz();
+		terminarz.wstaw_przypisanie(
+				grupy.get(wyborGrupy.getSelectedIndex()).pobierz_id_grupa(), 
+				zadanie.pobierz_id_zadanie());
+		terminarz.zamknij_polaczenie();
 	}
 }

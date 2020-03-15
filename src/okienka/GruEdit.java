@@ -95,7 +95,6 @@ public class GruEdit extends JDialog {
 		btn_mod = new JButton("Dodaj");
 		btn_mod.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// TODO: handle exception
 				if(czy_tytul_pusty()) {
 					JOptionPane.showMessageDialog(null, "Tytu³ nie mo¿e byæ pusty!", "Uwaga!", JOptionPane.WARNING_MESSAGE);
 				} else {
@@ -125,7 +124,6 @@ public class GruEdit extends JDialog {
 	}
 	
 	protected void mod_grupe() {
-		// TODO Auto-generated method stub
 		terminarz = new Terminarz();
 		terminarz.modyfikuj_grupa(
 				grupa.pobierz_id_grupa(),
