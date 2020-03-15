@@ -303,7 +303,6 @@ public class Terminarz {
 	
     //lista grup NIEprzypisanych do danego zadania - wszystko
 	public List<Grupa>lista_brakujacych_grup(int id_zadanie) {
-		// TODO: handle exception
 		List<Grupa>grupy = new LinkedList<Grupa>();
 		List<Integer>id_grup_przypisanych = new LinkedList<Integer>();
 		id_grup_przypisanych = grupy_przypisane_id(id_zadanie);
@@ -341,7 +340,6 @@ public class Terminarz {
 	}
 	
 	public int przypis_ilosc_przypisan(int id_zadanie) {
-		// TODO: handle exception
 		int ilosc_wynikow;
 		try {
 			String zapytanie = "SELECT COUNT(id_przypis) AS ilosc FROM przypisania WHERE id_zadanie = " + id_zadanie;
@@ -401,7 +399,6 @@ public class Terminarz {
 	
 	//pozyskanie ID grup przypisanych do zadania
 	public List<Integer> grupy_przypisane_id(int id_zadanie) {
-		// TODO: handle exception
 		List<Integer>id_grup_przypisanych = new LinkedList<Integer>();
 		
 		try {
@@ -496,7 +493,7 @@ public class Terminarz {
 			prepStmt.setInt(3, id_grupa);
 			
 			prepStmt.execute();
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			System.err.println("B³¹d przy modyfikacji grupy!");
 			e.printStackTrace();
 			return false;
@@ -518,8 +515,26 @@ public class Terminarz {
 					"DELETE FROM przypisania WHERE id_grupa = ?");
 			prepStmt.setInt(1, id_grupa);
 			prepStmt.execute();
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			System.err.println("B³¹d przy usuwaniu grupy!");
+			e.printStackTrace();
+			return false;
+		}
+		
+		return true;
+	}
+	
+	//usuniêcia powi¹zania zadania z grup¹
+	public boolean usun_przypisanie(int id_grupa, int id_zadanie) {
+		// TODO: handle exception
+		try {
+			PreparedStatement prepStmt = conn.prepareStatement(
+					"DELETE FROM przypisania WHERE id_grupa = ? AND id_zadanie = ?");
+			prepStmt.setInt(1, id_grupa);
+			prepStmt.setInt(2, id_zadanie);
+			prepStmt.execute();
+		} catch (SQLException e) {
+			System.err.println("B³¹d przy usuwaniu przypisania!");
 			e.printStackTrace();
 			return false;
 		}

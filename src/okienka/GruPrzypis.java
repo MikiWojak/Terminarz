@@ -81,7 +81,8 @@ public class GruPrzypis extends JDialog {
 		btnPotwierdz.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO: handle exception
-				dodajGrupe();
+				if(czyUsuwanie) { usunGrupe(); }			//usuwanie grupy
+				else { dodajGrupe(); }						//dodawanie grupy
 				dispose();
 			}
 		});
@@ -93,6 +94,7 @@ public class GruPrzypis extends JDialog {
 		btnAnuluj.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// TODO: handle exception
+				
 				dispose();
 			}
 		});
@@ -169,6 +171,12 @@ public class GruPrzypis extends JDialog {
 		grupy = terminarz.lista_grupy(zadanie.pobierz_id_zadanie());
 		terminarz.zamknij_polaczenie();
 		
+		//brak grup do usuniêcia
+		if(grupy.size() == 0) {
+			JOptionPane.showMessageDialog(null, "Brak grup do usuniêcia!", "Uwaga!", JOptionPane.WARNING_MESSAGE);
+			btnPotwierdz.setEnabled(false);
+		}
+		
 		for(int i = 0; i < grupy.size(); i++) {
 			wyborGrupy.add(grupy.get(i).pobierz_nazwa_grupa());
 		}
@@ -184,6 +192,15 @@ public class GruPrzypis extends JDialog {
 		// TODO: handle exception
 		terminarz = new Terminarz();
 		terminarz.wstaw_przypisanie(
+				grupy.get(wyborGrupy.getSelectedIndex()).pobierz_id_grupa(), 
+				zadanie.pobierz_id_zadanie());
+		terminarz.zamknij_polaczenie();
+	}
+	
+	private void usunGrupe() {
+		// TODO: handle exception
+		terminarz = new Terminarz();
+		terminarz.usun_przypisanie(
 				grupy.get(wyborGrupy.getSelectedIndex()).pobierz_id_grupa(), 
 				zadanie.pobierz_id_zadanie());
 		terminarz.zamknij_polaczenie();
