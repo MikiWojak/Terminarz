@@ -124,12 +124,12 @@ public class Program{
 	private void initialize() {
 		frmTerminarz = new JFrame();
 		frmTerminarz.setTitle("Terminarz");
-		frmTerminarz.setBounds(100, 100, 1200, 800);
+		frmTerminarz.setBounds(100, 100, 1200, 650);
 		frmTerminarz.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmTerminarz.getContentPane().setLayout(null);
 		
 		warstwy = new JLayeredPane();
-		warstwy.setBounds(10, 39, 1160, 701);
+		warstwy.setBounds(10, 39, 1160, 551);
 		frmTerminarz.getContentPane().add(warstwy);
 		warstwy.setLayout(new CardLayout(0, 0));
 		
@@ -145,7 +145,7 @@ public class Program{
 		
 		scroll_lista_zad = new JScrollPane();
 		scroll_lista_zad.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scroll_lista_zad.setBounds(12, 96, 1138, 440);
+		scroll_lista_zad.setBounds(12, 96, 1138, 390);
 		zad_lista.add(scroll_lista_zad);
 		
 		lista_zad = new JList();
@@ -158,7 +158,7 @@ public class Program{
 		});
 		
 		btn_zad_szczegoly = new JButton("Szczeg\u00F3\u0142y\r\n zadania");
-		btn_zad_szczegoly.setBounds(12, 549, 220, 39);
+		btn_zad_szczegoly.setBounds(12, 499, 220, 39);
 		zad_lista.add(btn_zad_szczegoly);
 		btn_zad_szczegoly.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -198,7 +198,7 @@ public class Program{
 			}
 		});
 		btn_zrobione.setFont(new Font("Arial", Font.BOLD, 20));
-		btn_zrobione.setBounds(244, 549, 270, 39);
+		btn_zrobione.setBounds(880, 499, 270, 39);
 		zad_lista.add(btn_zrobione);
 		
 		zad_szczegowy = new JPanel();
@@ -242,7 +242,7 @@ public class Program{
 		zad_szczegowy.add(opis_wykonane);
 		
 		btn_zad_lista = new JButton("Wr\u00F3\u0107");
-		btn_zad_lista.setBounds(12, 649, 133, 39);
+		btn_zad_lista.setBounds(12, 499, 133, 39);
 		zad_szczegowy.add(btn_zad_lista);
 		btn_zad_lista.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -322,7 +322,7 @@ public class Program{
 		
 		scroll_lista_gru = new JScrollPane();
 		scroll_lista_gru.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scroll_lista_gru.setBounds(12, 67, 440, 621);
+		scroll_lista_gru.setBounds(12, 67, 440, 471);
 		gru_panel.add(scroll_lista_gru);
 		
 		lista_gru = new JList();
@@ -380,7 +380,7 @@ public class Program{
 			}
 		});
 		btn_dodaj_gru.setFont(new Font("Arial", Font.BOLD, 20));
-		btn_dodaj_gru.setBounds(803, 649, 100, 39);
+		btn_dodaj_gru.setBounds(791, 499, 100, 39);
 		gru_panel.add(btn_dodaj_gru);
 		
 		btn_mod_gru = new JButton("Modyfikuj");
@@ -394,7 +394,7 @@ public class Program{
 			}
 		});
 		btn_mod_gru.setFont(new Font("Arial", Font.BOLD, 20));
-		btn_mod_gru.setBounds(915, 649, 133, 39);
+		btn_mod_gru.setBounds(903, 499, 133, 39);
 		gru_panel.add(btn_mod_gru);
 		
 		btn_usun_gru = new JButton("Usu\u0144");
@@ -416,7 +416,7 @@ public class Program{
 			}
 		});
 		btn_usun_gru.setFont(new Font("Arial", Font.BOLD, 20));
-		btn_usun_gru.setBounds(1060, 649, 100, 39);
+		btn_usun_gru.setBounds(1048, 499, 100, 39);
 		gru_panel.add(btn_usun_gru);
 		
 		menu = new JMenuBar();
