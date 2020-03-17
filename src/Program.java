@@ -90,17 +90,12 @@ public class Program{
 	private JTextPane tresc_priorytet_zad;
 	private JTextPane tresc_wykonane;
 	private JTextPane tresc_id_zad;
-	private JButton btn_dodaj_zad;
 	private JLabel opis_filtr;
-	private JButton btn_mod_zad;
 	private JScrollPane scroll_opis_szczegoly_zad;
-	private JButton btn_usun;
 	private JButton btn_zrobione;
 	private JButton btn_dodaj_gru;
 	private JButton btn_mod_gru;
 	private JButton btn_usun_gru;
-	private JButton btn_dodaj_do_gru;
-	private JButton btn_usun_z_gru;
 	private JMenu mn_zadanie;
 	private JMenuItem mntm_mod_zad;
 	private JMenuItem mntm_dod_zad;
@@ -185,59 +180,11 @@ public class Program{
 		wybor_grupa.setBounds(795, 60, 355, 41);
 		zad_lista.add(wybor_grupa);
 		
-		btn_dodaj_zad = new JButton("Dodaj zadanie");
-		btn_dodaj_zad.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				edycja = new ZadEdit();
-				//przerwa
-				lista_rekordy_zadania();
-			}
-		});
-		btn_dodaj_zad.setFont(new Font("Arial", Font.BOLD, 20));
-		btn_dodaj_zad.setBounds(12, 599, 170, 39);
-		zad_lista.add(btn_dodaj_zad);
-		
 		opis_filtr = new JLabel("Filtr grupy");
 		opis_filtr.setHorizontalAlignment(SwingConstants.RIGHT);
 		opis_filtr.setFont(new Font("Arial", Font.ITALIC, 20));
 		opis_filtr.setBounds(12, 60, 777, 30);
 		zad_lista.add(opis_filtr);
-		
-		btn_mod_zad = new JButton("Modyfikuj zadanie");
-		btn_mod_zad.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				if(lista_zad.getSelectedIndex() >= 0) {
-					edycja = new ZadEdit(zadania.get(lista_zad.getSelectedIndex()));
-					//przerwa
-					lista_rekordy_zadania();
-				} else { wybierz_rekord(); }
-			}
-		});
-		btn_mod_zad.setFont(new Font("Arial", Font.BOLD, 20));
-		btn_mod_zad.setBounds(194, 599, 220, 39);
-		zad_lista.add(btn_mod_zad);
-		
-		btn_usun = new JButton("Usu\u0144 zadanie");
-		btn_usun.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				if(lista_zad.getSelectedIndex() >= 0) {
-					Object nazwy_opcji[] = {"Tak", "Nie"};
-					int opcja = JOptionPane.showOptionDialog(
-							null, 
-							"Na pewno chcesz usun¹æ ten rekord?",
-							"Pytanie",
-							JOptionPane.YES_NO_OPTION,
-							JOptionPane.QUESTION_MESSAGE,
-							null,
-							nazwy_opcji,
-							nazwy_opcji[1]);
-					if(opcja == 0) { usun_zadanie(); }
-				} else { wybierz_rekord(); }
-			}
-		});
-		btn_usun.setFont(new Font("Arial", Font.BOLD, 20));
-		btn_usun.setBounds(426, 599, 180, 39);
-		zad_lista.add(btn_usun);
 		
 		btn_zrobione = new JButton("Oznacz jako zrobione");
 		btn_zrobione.addActionListener(new ActionListener() {
@@ -253,36 +200,6 @@ public class Program{
 		btn_zrobione.setFont(new Font("Arial", Font.BOLD, 20));
 		btn_zrobione.setBounds(244, 549, 270, 39);
 		zad_lista.add(btn_zrobione);
-		
-		btn_dodaj_do_gru = new JButton("Dodaj do grupy");
-		btn_dodaj_do_gru.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				int sel_index = lista_zad.getSelectedIndex();
-				if(sel_index >= 0) {
-					doGrupy = new GruPrzypis(zadania.get(sel_index));
-					//przerwa
-					lista_rekordy_zadania_wybrane();
-				} else { wybierz_rekord(); }
-			}
-		});
-		btn_dodaj_do_gru.setFont(new Font("Arial", Font.BOLD, 20));
-		btn_dodaj_do_gru.setBounds(12, 651, 200, 39);
-		zad_lista.add(btn_dodaj_do_gru);
-		
-		btn_usun_z_gru = new JButton("Usu\u0144 z grupy");
-		btn_usun_z_gru.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				int sel_index = lista_zad.getSelectedIndex();
-				if(sel_index >= 0) {
-					doGrupy = new GruPrzypis(zadania.get(sel_index), true);
-					//przerwa
-					lista_rekordy_zadania_wybrane();
-				} else { wybierz_rekord(); }
-			}
-		});
-		btn_usun_z_gru.setFont(new Font("Arial", Font.BOLD, 20));
-		btn_usun_z_gru.setBounds(224, 651, 170, 39);
-		zad_lista.add(btn_usun_z_gru);
 		
 		zad_szczegowy = new JPanel();
 		warstwy.add(zad_szczegowy, "name_762878183462982");
@@ -516,9 +433,14 @@ public class Program{
 				zmiana_panelu(zad_lista);
 				lista_rekordy_zadania();
 				wybor_grupa.select(0);
+				
+				mn_it_grupy.setEnabled(true);
+				mn_it_zadania.setEnabled(false);
+				mn_zadanie.setEnabled(true);
 			}
 		});
 		mn_it_zadania.setFont(new Font("Arial", Font.PLAIN, 16));
+		mn_it_zadania.setEnabled(false);
 		mn_widok.add(mn_it_zadania);
 		
 		mn_it_grupy = new JMenuItem("Grupy");
@@ -527,6 +449,10 @@ public class Program{
 				zmiana_panelu(gru_panel);
 				lista_rekordy_grupy();
 				grupa_szczegoly_reset();
+				
+				mn_it_grupy.setEnabled(false);
+				mn_it_zadania.setEnabled(true);
+				mn_zadanie.setEnabled(false);
 			}
 		});
 		mn_it_grupy.setFont(new Font("Arial", Font.PLAIN, 16));
