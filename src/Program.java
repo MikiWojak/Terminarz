@@ -257,7 +257,6 @@ public class Program{
 		btn_dodaj_do_gru = new JButton("Dodaj do grupy");
 		btn_dodaj_do_gru.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO: handle exception
 				int sel_index = lista_zad.getSelectedIndex();
 				if(sel_index >= 0) {
 					doGrupy = new GruPrzypis(zadania.get(sel_index));
@@ -273,7 +272,6 @@ public class Program{
 		btn_usun_z_gru = new JButton("Usu\u0144 z grupy");
 		btn_usun_z_gru.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// TODO: handle exception
 				int sel_index = lista_zad.getSelectedIndex();
 				if(sel_index >= 0) {
 					doGrupy = new GruPrzypis(zadania.get(sel_index), true);
@@ -539,22 +537,80 @@ public class Program{
 		menu.add(mn_zadanie);
 		
 		mntm_dod_zad = new JMenuItem("Dodaj");
+		mntm_dod_zad.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO: handle exception
+				edycja = new ZadEdit();
+				//przerwa
+				lista_rekordy_zadania();
+			}
+		});
 		mntm_dod_zad.setFont(new Font("Arial", Font.PLAIN, 16));
 		mn_zadanie.add(mntm_dod_zad);
 		
 		mntm_mod_zad = new JMenuItem("Modyfikuj");
+		mntm_mod_zad.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// TODO: handle exception
+				if(lista_zad.getSelectedIndex() >= 0) {
+					edycja = new ZadEdit(zadania.get(lista_zad.getSelectedIndex()));
+					//przerwa
+					lista_rekordy_zadania();
+				} else { wybierz_rekord(); }
+			}
+		});
 		mntm_mod_zad.setFont(new Font("Arial", Font.PLAIN, 16));
 		mn_zadanie.add(mntm_mod_zad);
 		
 		mntm_usun_zad = new JMenuItem("Usu\u0144");
+		mntm_usun_zad.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// TODO: handle exception
+				if(lista_zad.getSelectedIndex() >= 0) {
+					Object nazwy_opcji[] = {"Tak", "Nie"};
+					int opcja = JOptionPane.showOptionDialog(
+							null, 
+							"Na pewno chcesz usun¹æ ten rekord?",
+							"Pytanie",
+							JOptionPane.YES_NO_OPTION,
+							JOptionPane.QUESTION_MESSAGE,
+							null,
+							nazwy_opcji,
+							nazwy_opcji[1]);
+					if(opcja == 0) { usun_zadanie(); }
+				} else { wybierz_rekord(); }
+			}
+		});
 		mntm_usun_zad.setFont(new Font("Arial", Font.PLAIN, 16));
 		mn_zadanie.add(mntm_usun_zad);
 		
 		mntm_dod_do_gru = new JMenuItem("Dodaj do grupy");
+		mntm_dod_do_gru.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// TODO: handle exception
+				int sel_index = lista_zad.getSelectedIndex();
+				if(sel_index >= 0) {
+					doGrupy = new GruPrzypis(zadania.get(sel_index));
+					//przerwa
+					lista_rekordy_zadania_wybrane();
+				} else { wybierz_rekord(); }
+			}
+		});
 		mntm_dod_do_gru.setFont(new Font("Arial", Font.PLAIN, 16));
 		mn_zadanie.add(mntm_dod_do_gru);
 		
 		mntm_usun_z_gru = new JMenuItem("Usu\u0144 z grupy");
+		mntm_usun_z_gru.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// TODO: handle exception
+				int sel_index = lista_zad.getSelectedIndex();
+				if(sel_index >= 0) {
+					doGrupy = new GruPrzypis(zadania.get(sel_index), true);
+					//przerwa
+					lista_rekordy_zadania_wybrane();
+				} else { wybierz_rekord(); }
+			}
+		});
 		mntm_usun_z_gru.setFont(new Font("Arial", Font.PLAIN, 16));
 		mn_zadanie.add(mntm_usun_z_gru);
 		
