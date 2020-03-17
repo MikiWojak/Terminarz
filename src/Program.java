@@ -101,6 +101,12 @@ public class Program{
 	private JButton btn_usun_gru;
 	private JButton btn_dodaj_do_gru;
 	private JButton btn_usun_z_gru;
+	private JMenu mn_zadanie;
+	private JMenuItem mntm_mod_zad;
+	private JMenuItem mntm_dod_zad;
+	private JMenuItem mntm_usun_zad;
+	private JMenuItem mntm_dod_do_gru;
+	private JMenuItem mntm_usun_z_gru;
 
 	/**
 	 * Create the application.
@@ -527,6 +533,30 @@ public class Program{
 		});
 		mn_it_grupy.setFont(new Font("Arial", Font.PLAIN, 16));
 		mn_widok.add(mn_it_grupy);
+		
+		mn_zadanie = new JMenu("Zadanie");
+		mn_zadanie.setFont(new Font("Arial", Font.PLAIN, 16));
+		menu.add(mn_zadanie);
+		
+		mntm_dod_zad = new JMenuItem("Dodaj");
+		mntm_dod_zad.setFont(new Font("Arial", Font.PLAIN, 16));
+		mn_zadanie.add(mntm_dod_zad);
+		
+		mntm_mod_zad = new JMenuItem("Modyfikuj");
+		mntm_mod_zad.setFont(new Font("Arial", Font.PLAIN, 16));
+		mn_zadanie.add(mntm_mod_zad);
+		
+		mntm_usun_zad = new JMenuItem("Usu\u0144");
+		mntm_usun_zad.setFont(new Font("Arial", Font.PLAIN, 16));
+		mn_zadanie.add(mntm_usun_zad);
+		
+		mntm_dod_do_gru = new JMenuItem("Dodaj do grupy");
+		mntm_dod_do_gru.setFont(new Font("Arial", Font.PLAIN, 16));
+		mn_zadanie.add(mntm_dod_do_gru);
+		
+		mntm_usun_z_gru = new JMenuItem("Usu\u0144 z grupy");
+		mntm_usun_z_gru.setFont(new Font("Arial", Font.PLAIN, 16));
+		mn_zadanie.add(mntm_usun_z_gru);
 		
 		frmTerminarz.setVisible(true);
 	}
