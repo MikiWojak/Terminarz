@@ -13,6 +13,7 @@ import terminarz.Terminarz;
 import model.Grupa;
 
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.Dialog.ModalityType;
 import java.util.LinkedList;
 import java.util.List;
@@ -44,6 +45,7 @@ public class GruPrzypis extends JDialog {
 	 * @wbp.parser.constructor
 	 */
 	public GruPrzypis(Zadanie zadanie) {
+		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		initComp();
 		setTitle("Dodaj grupê");
 		
@@ -69,7 +71,17 @@ public class GruPrzypis extends JDialog {
 	}
 	
 	private void initComp() {
-		setBounds(100, 100, 700, 325);
+		//wymiary programu
+		int program_szerokosc = 725;
+		int program_wysokosc = 325;
+		int system_szerokosc = Toolkit.getDefaultToolkit().getScreenSize().width;
+		int system_wysokosc = Toolkit.getDefaultToolkit().getScreenSize().height;
+		
+		setBounds(
+				(system_szerokosc - program_szerokosc) / 2,
+				(system_wysokosc - program_wysokosc) / 2,
+				program_szerokosc,
+				program_wysokosc);
 		getContentPane().setLayout(null);
 		
 		panel = new JPanel();

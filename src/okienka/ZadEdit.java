@@ -15,6 +15,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
+import java.awt.Toolkit;
+
 import javax.swing.SwingConstants;
 import javax.swing.JTextPane;
 import java.awt.Choice;
@@ -76,8 +78,18 @@ public class ZadEdit extends JDialog {
 	}
 	
 	private void initComp() {
+		//wymiary programu
+		int program_szerokosc = 1000;
+		int program_wysokosc = 500;
+		int system_szerokosc = Toolkit.getDefaultToolkit().getScreenSize().width;
+		int system_wysokosc = Toolkit.getDefaultToolkit().getScreenSize().height;
+		
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 1000, 500);
+		setBounds(
+				(system_szerokosc - program_szerokosc) / 2,
+				(system_wysokosc - program_wysokosc) / 2,
+				program_szerokosc,
+				program_wysokosc);
 		getContentPane().setLayout(null);
 		
 		panel = new JPanel();

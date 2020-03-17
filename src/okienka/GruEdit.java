@@ -14,6 +14,8 @@ import terminarz.Terminarz;
 
 import javax.swing.JTextPane;
 import java.awt.Font;
+import java.awt.Toolkit;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
@@ -35,6 +37,7 @@ public class GruEdit extends JDialog {
 	private JLabel tytul;
 	//dodanie grupy
 	public GruEdit() {
+		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		initComp();
 		setTitle("Dodaj grupê");
 		czy_modyfikacja = false;
@@ -52,7 +55,17 @@ public class GruEdit extends JDialog {
 	
 	//elementy w okienku
 	private void initComp() {
-		setBounds(100, 100, 725, 325);
+		//wymiary programu
+		int program_szerokosc = 725;
+		int program_wysokosc = 325;
+		int system_szerokosc = Toolkit.getDefaultToolkit().getScreenSize().width;
+		int system_wysokosc = Toolkit.getDefaultToolkit().getScreenSize().height;
+		
+		setBounds(
+				(system_szerokosc - program_szerokosc) / 2,
+				(system_wysokosc - program_wysokosc) / 2,
+				program_szerokosc,
+				program_wysokosc);
 		getContentPane().setLayout(null);
 		
 		panel = new JPanel();
