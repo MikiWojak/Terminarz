@@ -12,6 +12,7 @@ import okienka.GruPrzypis;
 import okienka.ZadEdit;
 
 import java.awt.Font;
+import java.awt.Toolkit;
 
 import javax.sound.midi.SysexMessage;
 import javax.swing.DefaultListModel;
@@ -122,10 +123,22 @@ public class Program{
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		// TODO: handle exception
+		//wymiary programu
+		int program_szerokosc = 1200;
+		int program_wysokosc = 650;
+		int system_szerokosc = Toolkit.getDefaultToolkit().getScreenSize().width;
+		int system_wysokosc = Toolkit.getDefaultToolkit().getScreenSize().height;
+		
 		frmTerminarz = new JFrame();
 		frmTerminarz.setTitle("Terminarz");
-		frmTerminarz.setBounds(100, 100, 1200, 650);
+		frmTerminarz.setBounds(
+				(system_szerokosc - program_szerokosc), 
+				(system_wysokosc - program_wysokosc),
+				program_szerokosc,
+				program_wysokosc);
 		frmTerminarz.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmTerminarz.setResizable(false);
 		frmTerminarz.getContentPane().setLayout(null);
 		
 		warstwy = new JLayeredPane();
@@ -465,7 +478,6 @@ public class Program{
 		mntm_dod_zad = new JMenuItem("Dodaj");
 		mntm_dod_zad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO: handle exception
 				edycja = new ZadEdit();
 				//przerwa
 				lista_rekordy_zadania();
@@ -477,7 +489,6 @@ public class Program{
 		mntm_mod_zad = new JMenuItem("Modyfikuj");
 		mntm_mod_zad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// TODO: handle exception
 				if(lista_zad.getSelectedIndex() >= 0) {
 					edycja = new ZadEdit(zadania.get(lista_zad.getSelectedIndex()));
 					//przerwa
@@ -491,7 +502,6 @@ public class Program{
 		mntm_usun_zad = new JMenuItem("Usu\u0144");
 		mntm_usun_zad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// TODO: handle exception
 				if(lista_zad.getSelectedIndex() >= 0) {
 					Object nazwy_opcji[] = {"Tak", "Nie"};
 					int opcja = JOptionPane.showOptionDialog(
@@ -513,7 +523,6 @@ public class Program{
 		mntm_dod_do_gru = new JMenuItem("Dodaj do grupy");
 		mntm_dod_do_gru.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// TODO: handle exception
 				int sel_index = lista_zad.getSelectedIndex();
 				if(sel_index >= 0) {
 					doGrupy = new GruPrzypis(zadania.get(sel_index));
@@ -528,7 +537,6 @@ public class Program{
 		mntm_usun_z_gru = new JMenuItem("Usu\u0144 z grupy");
 		mntm_usun_z_gru.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// TODO: handle exception
 				int sel_index = lista_zad.getSelectedIndex();
 				if(sel_index >= 0) {
 					doGrupy = new GruPrzypis(zadania.get(sel_index), true);
