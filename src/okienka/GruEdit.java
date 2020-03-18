@@ -37,7 +37,6 @@ public class GruEdit extends JDialog {
 	private JLabel tytul;
 	//dodanie grupy
 	public GruEdit() {
-		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		initComp();
 		setTitle("Dodaj grupê");
 		czy_modyfikacja = false;
@@ -61,6 +60,7 @@ public class GruEdit extends JDialog {
 		int system_szerokosc = Toolkit.getDefaultToolkit().getScreenSize().width;
 		int system_wysokosc = Toolkit.getDefaultToolkit().getScreenSize().height;
 		
+		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setBounds(
 				(system_szerokosc - program_szerokosc) / 2,
 				(system_wysokosc - program_wysokosc) / 2,

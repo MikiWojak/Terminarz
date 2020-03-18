@@ -45,7 +45,6 @@ public class GruPrzypis extends JDialog {
 	 * @wbp.parser.constructor
 	 */
 	public GruPrzypis(Zadanie zadanie) {
-		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		initComp();
 		setTitle("Dodaj grupê");
 		
@@ -77,6 +76,7 @@ public class GruPrzypis extends JDialog {
 		int system_szerokosc = Toolkit.getDefaultToolkit().getScreenSize().width;
 		int system_wysokosc = Toolkit.getDefaultToolkit().getScreenSize().height;
 		
+		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setBounds(
 				(system_szerokosc - program_szerokosc) / 2,
 				(system_wysokosc - program_wysokosc) / 2,

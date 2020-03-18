@@ -133,8 +133,8 @@ public class Program{
 		frmTerminarz = new JFrame();
 		frmTerminarz.setTitle("Terminarz");
 		frmTerminarz.setBounds(
-				(system_szerokosc - program_szerokosc), 
-				(system_wysokosc - program_wysokosc),
+				(system_szerokosc - program_szerokosc) / 2, 
+				(system_wysokosc - program_wysokosc) / 2,
 				program_szerokosc,
 				program_wysokosc);
 		frmTerminarz.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
