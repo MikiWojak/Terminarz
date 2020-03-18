@@ -21,6 +21,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
 
 public class GruEdit extends JDialog {
 	private Terminarz terminarz;
@@ -35,6 +36,7 @@ public class GruEdit extends JDialog {
 	private JButton btn_mod;
 	private JTextPane tresc_opis;
 	private JLabel tytul;
+	private JScrollPane scroll_opis_gru;
 	//dodanie grupy
 	public GruEdit() {
 		initComp();
@@ -90,10 +92,13 @@ public class GruEdit extends JDialog {
 		opis_opis.setBounds(12, 94, 94, 120);
 		panel.add(opis_opis);
 		
+		scroll_opis_gru = new JScrollPane();
+		scroll_opis_gru.setBounds(118, 94, 578, 120);
+		panel.add(scroll_opis_gru);
+		
 		tresc_opis = new JTextPane();
+		scroll_opis_gru.setViewportView(tresc_opis);
 		tresc_opis.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_opis.setBounds(118, 94, 578, 120);
-		panel.add(tresc_opis);
 		
 		btn_anuluj = new JButton("Anuluj");
 		btn_anuluj.addActionListener(new ActionListener() {

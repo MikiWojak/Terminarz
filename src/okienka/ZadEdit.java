@@ -151,7 +151,6 @@ public class ZadEdit extends JDialog {
 		panel.add(tresc_tytul);
 		
 		scroll_opis_zad = new JScrollPane();
-		scroll_opis_zad.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scroll_opis_zad.setBounds(172, 135, 796, 150);
 		panel.add(scroll_opis_zad);
 		

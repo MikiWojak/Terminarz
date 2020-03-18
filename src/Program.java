@@ -99,6 +99,7 @@ public class Program{
 	private JMenuItem mntm_usun_zad;
 	private JMenuItem mntm_dod_do_gru;
 	private JMenuItem mntm_usun_z_gru;
+	private JScrollPane scroll_opis_gru;
 
 	/**
 	 * Create the application.
@@ -153,7 +154,6 @@ public class Program{
 		zad_lista.add(tytul_lista_zad);
 		
 		scroll_lista_zad = new JScrollPane();
-		scroll_lista_zad.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scroll_lista_zad.setBounds(12, 96, 1138, 390);
 		zad_lista.add(scroll_lista_zad);
 		
@@ -286,7 +286,6 @@ public class Program{
 		zad_szczegowy.add(tresc_tytul_zad);
 		
 		scroll_opis_szczegoly_zad = new JScrollPane();
-		scroll_opis_szczegoly_zad.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scroll_opis_szczegoly_zad.setBounds(128, 196, 1020, 150);
 		zad_szczegowy.add(scroll_opis_szczegoly_zad);
 		
@@ -318,7 +317,6 @@ public class Program{
 		gru_panel.add(tytul_lista_gru);
 		
 		scroll_lista_gru = new JScrollPane();
-		scroll_lista_gru.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scroll_lista_gru.setBounds(12, 67, 440, 471);
 		gru_panel.add(scroll_lista_gru);
 		
@@ -350,11 +348,14 @@ public class Program{
 		tresc_nazwa_gru.setBounds(570, 67, 578, 30);
 		gru_panel.add(tresc_nazwa_gru);
 		
+		scroll_opis_gru = new JScrollPane();
+		scroll_opis_gru.setBounds(570, 105, 578, 120);
+		gru_panel.add(scroll_opis_gru);
+		
 		tresc_opis_gru = new JTextPane();
+		scroll_opis_gru.setViewportView(tresc_opis_gru);
 		tresc_opis_gru.setEditable(false);
 		tresc_opis_gru.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_opis_gru.setBounds(570, 105, 578, 120);
-		gru_panel.add(tresc_opis_gru);
 		
 		btn_dodaj_gru = new JButton("Dodaj");
 		btn_dodaj_gru.addActionListener(new ActionListener() {
