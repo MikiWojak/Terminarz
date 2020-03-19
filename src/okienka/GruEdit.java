@@ -129,7 +129,7 @@ public class GruEdit extends JDialog {
 		btn_mod.setBounds(449, 227, 135, 39);
 		panel.add(btn_mod);
 		
-		tytul = new JLabel("Dodaj zadanie");
+		tytul = new JLabel("Dodaj grupê");
 		tytul.setHorizontalAlignment(SwingConstants.CENTER);
 		tytul.setFont(new Font("Arial", Font.BOLD, 20));
 		tytul.setBounds(12, 13, 682, 30);
@@ -154,9 +154,9 @@ public class GruEdit extends JDialog {
 	}
 
 	private void modyfikacja_wyglad() {
-		setTitle("Modyfikuj zadanie");
+		setTitle("Modyfikuj grupê");
 		btn_mod.setText("Modyfikuj");
-		tytul.setText("Modyfikuj zadanie");
+		tytul.setText("Modyfikuj grupê");
 	}
 	
 	private void grupa_dane() {

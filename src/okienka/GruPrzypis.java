@@ -92,7 +92,6 @@ public class GruPrzypis extends JDialog {
 		btnPotwierdz = new JButton("Dodaj");
 		btnPotwierdz.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO: handle exception
 				if(czyUsuwanie) { usunGrupe(); }			//usuwanie grupy
 				else { dodajGrupe(); }						//dodawanie grupy
 				dispose();
@@ -105,8 +104,6 @@ public class GruPrzypis extends JDialog {
 		btnAnuluj = new JButton("Anuluj");
 		btnAnuluj.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// TODO: handle exception
-				
 				dispose();
 			}
 		});
@@ -114,7 +111,7 @@ public class GruPrzypis extends JDialog {
 		btnAnuluj.setBounds(570, 235, 100, 30);
 		panel.add(btnAnuluj);
 		
-		tytulDodaj = new JLabel("Dodaj grup\u0119 do zadania");
+		tytulDodaj = new JLabel("Wybierz grupê, któr¹ chcesz dodaæ do zadania");
 		tytulDodaj.setHorizontalAlignment(SwingConstants.CENTER);
 		tytulDodaj.setFont(new Font("Arial", Font.BOLD, 20));
 		tytulDodaj.setBounds(12, 13, 658, 30);
@@ -147,7 +144,7 @@ public class GruPrzypis extends JDialog {
 	//dla usuwania zadania
 	private void usuwanieWyglad() {
 		setTitle("Usuñ grupê");
-		tytulDodaj.setText("Usuñ grupê z zadania");
+		tytulDodaj.setText("Wybierz grupê, któr¹ chcesz usun¹æ z zadania");
 		btnPotwierdz.setText("Usuñ");
 	}
 	
@@ -201,7 +198,6 @@ public class GruPrzypis extends JDialog {
 	}
 	
 	private void dodajGrupe() {
-		// TODO: handle exception
 		terminarz = new Terminarz();
 		terminarz.wstaw_przypisanie(
 				grupy.get(wyborGrupy.getSelectedIndex()).pobierz_id_grupa(), 
@@ -210,7 +206,6 @@ public class GruPrzypis extends JDialog {
 	}
 	
 	private void usunGrupe() {
-		// TODO: handle exception
 		terminarz = new Terminarz();
 		terminarz.usun_przypisanie(
 				grupy.get(wyborGrupy.getSelectedIndex()).pobierz_id_grupa(), 
