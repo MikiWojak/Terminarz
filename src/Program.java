@@ -120,7 +120,6 @@ public class Program{
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		// TODO: handle exception
 		//wymiary programu
 		int program_szerokosc = 1200;
 		int program_wysokosc = 650;
@@ -459,9 +458,10 @@ public class Program{
 		mntm_dod_zad = new JMenuItem("Dodaj");
 		mntm_dod_zad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				// TODO: handle exception
 				edycja = new ZadEdit();
 				//przerwa
-				lista_rekordy_zadania();
+				lista_rekordy_zadania_wybrane();
 			}
 		});
 		mntm_dod_zad.setFont(new Font("Arial", Font.PLAIN, 16));
@@ -470,10 +470,11 @@ public class Program{
 		mntm_mod_zad = new JMenuItem("Modyfikuj");
 		mntm_mod_zad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				// TODO: handle exception
 				if(lista_zad.getSelectedIndex() >= 0) {
 					edycja = new ZadEdit(zadania.get(lista_zad.getSelectedIndex()));
 					//przerwa
-					lista_rekordy_zadania();
+					lista_rekordy_zadania_wybrane();
 				} else { wybierz_rekord(); }
 			}
 		});
@@ -483,6 +484,7 @@ public class Program{
 		mntm_usun_zad = new JMenuItem("Usu\u0144");
 		mntm_usun_zad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				// TODO: handle exception
 				if(lista_zad.getSelectedIndex() >= 0) {
 					Object nazwy_opcji[] = {"Tak", "Nie"};
 					int opcja = JOptionPane.showOptionDialog(
@@ -504,6 +506,7 @@ public class Program{
 		mntm_dod_do_gru = new JMenuItem("Dodaj do grupy");
 		mntm_dod_do_gru.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				// TODO: handle exception
 				int sel_index = lista_zad.getSelectedIndex();
 				if(sel_index >= 0) {
 					doGrupy = new GruPrzypis(zadania.get(sel_index));
@@ -518,6 +521,7 @@ public class Program{
 		mntm_usun_z_gru = new JMenuItem("Usu\u0144 z grupy");
 		mntm_usun_z_gru.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				// TODO: handle exception
 				int sel_index = lista_zad.getSelectedIndex();
 				if(sel_index >= 0) {
 					doGrupy = new GruPrzypis(zadania.get(sel_index), true);
