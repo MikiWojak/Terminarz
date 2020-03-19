@@ -607,9 +607,8 @@ public class Program{
 		//lista grup
 		int id_zadanie = zadania.get(index).pobierz_id_zadanie();
 		lista_przypisane_grupy(id_zadanie);
-		String grupy = "";
 		for(int i = 0; i < przypisane_grupy.size(); i++) {
-			grupy = grupy + przypisane_grupy.get(i) + "\t";
+			tresc_grupy.add(przypisane_grupy.get(i));
 		}
 		
 		//czy wykonane
@@ -618,7 +617,6 @@ public class Program{
 		else { czy_wykonane = "nie"; }
 		
 		//wyœwietlenie szczegó³ów
-		//tresc_grupy.setText(grupy);
 		tresc_data_zad.setText(zadania.get(index).pobierz_data_zadanie().toString());
 		tresc_tytul_zad.setText(zadania.get(index).pobierz_tytul_zadanie());
 		tresc_opis_zad.setText(zadania.get(index).pobierz_opis_zadanie());
@@ -629,7 +627,7 @@ public class Program{
 	//zerowanie pól szczegó³ów zadania
 	private void zadania_szczegoly_reset() {
 		// TODO: handle exception
-		//tresc_grupy.setText("");
+		tresc_grupy.removeAll();
 		tresc_data_zad.setText("");
 		tresc_tytul_zad.setText("");
 		tresc_opis_zad.setText("");
