@@ -81,7 +81,6 @@ public class Program{
 	private JLabel opis_opis_gru;
 	private JTextPane tresc_nazwa_gru;
 	private JTextPane tresc_opis_gru;
-	private JTextPane tresc_grupy;
 	private JTextPane tresc_data_zad;
 	private JTextPane tresc_tytul_zad;
 	private JTextPane tresc_opis_zad;
@@ -100,11 +99,13 @@ public class Program{
 	private JMenuItem mntm_dod_do_gru;
 	private JMenuItem mntm_usun_z_gru;
 	private JScrollPane scroll_opis_gru;
+	private Choice tresc_grupy;
 
 	/**
 	 * Create the application.
 	 */
 	public Program() {
+		// TODO: handle exception
 		initialize();
 		inicjalizacja_pol();
 		
@@ -268,12 +269,6 @@ public class Program{
 		opis_grupy.setBounds(22, 67, 94, 30);
 		zad_szczegowy.add(opis_grupy);
 		
-		tresc_grupy = new JTextPane();
-		tresc_grupy.setEditable(false);
-		tresc_grupy.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_grupy.setBounds(128, 67, 1020, 30);
-		zad_szczegowy.add(tresc_grupy);
-		
 		tresc_data_zad = new JTextPane();
 		tresc_data_zad.setFont(new Font("Arial", Font.PLAIN, 20));
 		tresc_data_zad.setEditable(false);
@@ -308,6 +303,11 @@ public class Program{
 		tresc_wykonane.setEditable(false);
 		tresc_wykonane.setBounds(128, 402, 1020, 30);
 		zad_szczegowy.add(tresc_wykonane);
+		
+		tresc_grupy = new Choice();
+		tresc_grupy.setFont(new Font("Arial", Font.PLAIN, 20));
+		tresc_grupy.setBounds(128, 67, 1020, 30);
+		zad_szczegowy.add(tresc_grupy);
 		
 		gru_panel = new JPanel();
 		warstwy.add(gru_panel, "name_165903459099969");
@@ -458,7 +458,6 @@ public class Program{
 		mntm_dod_zad = new JMenuItem("Dodaj");
 		mntm_dod_zad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO: handle exception
 				edycja = new ZadEdit();
 				//przerwa
 				lista_rekordy_zadania_wybrane();
@@ -470,7 +469,6 @@ public class Program{
 		mntm_mod_zad = new JMenuItem("Modyfikuj");
 		mntm_mod_zad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// TODO: handle exception
 				if(lista_zad.getSelectedIndex() >= 0) {
 					edycja = new ZadEdit(zadania.get(lista_zad.getSelectedIndex()));
 					//przerwa
@@ -484,7 +482,6 @@ public class Program{
 		mntm_usun_zad = new JMenuItem("Usu\u0144");
 		mntm_usun_zad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// TODO: handle exception
 				if(lista_zad.getSelectedIndex() >= 0) {
 					Object nazwy_opcji[] = {"Tak", "Nie"};
 					int opcja = JOptionPane.showOptionDialog(
@@ -506,7 +503,6 @@ public class Program{
 		mntm_dod_do_gru = new JMenuItem("Dodaj do grupy");
 		mntm_dod_do_gru.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// TODO: handle exception
 				int sel_index = lista_zad.getSelectedIndex();
 				if(sel_index >= 0) {
 					doGrupy = new GruPrzypis(zadania.get(sel_index));
@@ -521,7 +517,6 @@ public class Program{
 		mntm_usun_z_gru = new JMenuItem("Usu\u0144 z grupy");
 		mntm_usun_z_gru.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// TODO: handle exception
 				int sel_index = lista_zad.getSelectedIndex();
 				if(sel_index >= 0) {
 					doGrupy = new GruPrzypis(zadania.get(sel_index), true);
@@ -608,6 +603,7 @@ public class Program{
 	}
 	
 	private void zadanie_szczegoly(int index) {
+		// TODO: handle exception
 		//lista grup
 		int id_zadanie = zadania.get(index).pobierz_id_zadanie();
 		lista_przypisane_grupy(id_zadanie);
@@ -622,7 +618,7 @@ public class Program{
 		else { czy_wykonane = "nie"; }
 		
 		//wyœwietlenie szczegó³ów
-		tresc_grupy.setText(grupy);
+		//tresc_grupy.setText(grupy);
 		tresc_data_zad.setText(zadania.get(index).pobierz_data_zadanie().toString());
 		tresc_tytul_zad.setText(zadania.get(index).pobierz_tytul_zadanie());
 		tresc_opis_zad.setText(zadania.get(index).pobierz_opis_zadanie());
@@ -632,7 +628,8 @@ public class Program{
 	
 	//zerowanie pól szczegó³ów zadania
 	private void zadania_szczegoly_reset() {
-		tresc_grupy.setText("");
+		// TODO: handle exception
+		//tresc_grupy.setText("");
 		tresc_data_zad.setText("");
 		tresc_tytul_zad.setText("");
 		tresc_opis_zad.setText("");
