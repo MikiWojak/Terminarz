@@ -154,6 +154,8 @@ public class Program{
 		zad_lista.add(tytul_lista_zad);
 		
 		scroll_lista_zad = new JScrollPane();
+		scroll_lista_zad.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scroll_lista_zad.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scroll_lista_zad.setBounds(12, 96, 1138, 390);
 		zad_lista.add(scroll_lista_zad);
 		
@@ -286,6 +288,8 @@ public class Program{
 		zad_szczegowy.add(tresc_tytul_zad);
 		
 		scroll_opis_szczegoly_zad = new JScrollPane();
+		scroll_opis_szczegoly_zad.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scroll_opis_szczegoly_zad.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scroll_opis_szczegoly_zad.setBounds(128, 196, 1020, 150);
 		zad_szczegowy.add(scroll_opis_szczegoly_zad);
 		
@@ -317,6 +321,8 @@ public class Program{
 		gru_panel.add(tytul_lista_gru);
 		
 		scroll_lista_gru = new JScrollPane();
+		scroll_lista_gru.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scroll_lista_gru.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scroll_lista_gru.setBounds(12, 67, 440, 471);
 		gru_panel.add(scroll_lista_gru);
 		
@@ -349,6 +355,8 @@ public class Program{
 		gru_panel.add(tresc_nazwa_gru);
 		
 		scroll_opis_gru = new JScrollPane();
+		scroll_opis_gru.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scroll_opis_gru.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scroll_opis_gru.setBounds(570, 105, 578, 120);
 		gru_panel.add(scroll_opis_gru);
 		

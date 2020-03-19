@@ -22,6 +22,7 @@ import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 
 public class GruEdit extends JDialog {
 	private Terminarz terminarz;
@@ -93,6 +94,8 @@ public class GruEdit extends JDialog {
 		panel.add(opis_opis);
 		
 		scroll_opis_gru = new JScrollPane();
+		scroll_opis_gru.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scroll_opis_gru.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scroll_opis_gru.setBounds(118, 94, 578, 120);
 		panel.add(scroll_opis_gru);
 		
