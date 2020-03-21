@@ -85,7 +85,7 @@ public class GruPrzypis extends JDialog {
 		getContentPane().setLayout(null);
 		
 		panel = new JPanel();
-		panel.setBounds(0, 0, 682, 278);
+		panel.setBounds(0, 0, 707, 278);
 		getContentPane().add(panel);
 		panel.setLayout(null);
 		
@@ -98,7 +98,7 @@ public class GruPrzypis extends JDialog {
 			}
 		});
 		btnPotwierdz.setFont(new Font("Arial", Font.BOLD, 20));
-		btnPotwierdz.setBounds(461, 235, 100, 30);
+		btnPotwierdz.setBounds(483, 235, 100, 30);
 		panel.add(btnPotwierdz);
 		
 		btnAnuluj = new JButton("Anuluj");
@@ -108,36 +108,36 @@ public class GruPrzypis extends JDialog {
 			}
 		});
 		btnAnuluj.setFont(new Font("Arial", Font.BOLD, 20));
-		btnAnuluj.setBounds(570, 235, 100, 30);
+		btnAnuluj.setBounds(595, 235, 100, 30);
 		panel.add(btnAnuluj);
 		
 		tytulDodaj = new JLabel("Wybierz grupê, któr¹ chcesz dodaæ do zadania");
 		tytulDodaj.setHorizontalAlignment(SwingConstants.CENTER);
 		tytulDodaj.setFont(new Font("Arial", Font.BOLD, 20));
-		tytulDodaj.setBounds(12, 13, 658, 30);
+		tytulDodaj.setBounds(12, 13, 683, 30);
 		panel.add(tytulDodaj);
 		
 		wyborGrupy = new Choice();
 		wyborGrupy.setFont(new Font("Arial", Font.PLAIN, 20));
-		wyborGrupy.setBounds(12, 49, 658, 30);
+		wyborGrupy.setBounds(12, 49, 683, 30);
 		panel.add(wyborGrupy);
 		
 		tytulZad = new JLabel("Zadanie w skr\u00F3cie");
 		tytulZad.setHorizontalAlignment(SwingConstants.CENTER);
 		tytulZad.setFont(new Font("Arial", Font.BOLD, 20));
-		tytulZad.setBounds(12, 84, 658, 30);
+		tytulZad.setBounds(12, 84, 683, 30);
 		panel.add(tytulZad);
 		
 		trescTytul = new JLabel("Tytu\u0142");
 		trescTytul.setHorizontalAlignment(SwingConstants.CENTER);
 		trescTytul.setFont(new Font("Arial", Font.PLAIN, 20));
-		trescTytul.setBounds(12, 127, 658, 30);
+		trescTytul.setBounds(12, 127, 683, 30);
 		panel.add(trescTytul);
 		
 		trescData = new JLabel("Data");
 		trescData.setHorizontalAlignment(SwingConstants.CENTER);
 		trescData.setFont(new Font("Arial", Font.PLAIN, 20));
-		trescData.setBounds(12, 170, 658, 30);
+		trescData.setBounds(12, 170, 683, 30);
 		panel.add(trescData);
 	}
 	
