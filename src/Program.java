@@ -9,6 +9,7 @@ import model.Przypis;
 import model.Zadanie;
 import okienka.GruEdit;
 import okienka.GruPrzypis;
+import okienka.Pomoc;
 import okienka.ZadEdit;
 
 import java.awt.Font;
@@ -41,6 +42,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JTextPane;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Program{
 	
@@ -51,6 +54,7 @@ public class Program{
 	private List<String>przypisane_grupy;
 	private JDialog edycja;
 	private JDialog doGrupy;
+	private JDialog pomoc;
 	
 	private JFrame frmTerminarz;
 	private JPanel zad_lista;
@@ -100,6 +104,7 @@ public class Program{
 	private JMenuItem mntm_usun_z_gru;
 	private JScrollPane scroll_opis_gru;
 	private Choice tresc_grupy;
+	private JMenu mnNewMenu;
 
 	/**
 	 * Create the application.
@@ -413,7 +418,7 @@ public class Program{
 		gru_panel.add(btn_usun_gru);
 		
 		menu = new JMenuBar();
-		menu.setBounds(0, 0, 1182, 26);
+		menu.setBounds(0, 0, 1194, 26);
 		frmTerminarz.getContentPane().add(menu);
 		
 		mn_widok = new JMenu("Widok");
@@ -528,6 +533,16 @@ public class Program{
 		mntm_usun_z_gru.setFont(new Font("Arial", Font.PLAIN, 16));
 		mn_zadanie.add(mntm_usun_z_gru);
 		
+		mnNewMenu = new JMenu("Pomoc");
+		mnNewMenu.setFont(new Font("Arial", Font.PLAIN, 16));
+		mnNewMenu.addMouseListener(new MouseAdapter() {
+			// TODO: handle exception
+			public void mouseClicked(MouseEvent arg0) {
+				pomoc = new Pomoc();
+			}
+		});
+		menu.add(mnNewMenu);
+		
 		frmTerminarz.setVisible(true);
 	}
 
@@ -603,7 +618,6 @@ public class Program{
 	}
 	
 	private void zadanie_szczegoly(int index) {
-		// TODO: handle exception
 		//lista grup
 		int id_zadanie = zadania.get(index).pobierz_id_zadanie();
 		lista_przypisane_grupy(id_zadanie);
@@ -626,7 +640,6 @@ public class Program{
 	
 	//zerowanie pól szczegó³ów zadania
 	private void zadania_szczegoly_reset() {
-		// TODO: handle exception
 		tresc_grupy.removeAll();
 		tresc_data_zad.setText("");
 		tresc_tytul_zad.setText("");
