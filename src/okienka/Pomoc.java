@@ -123,9 +123,13 @@ public class Pomoc extends JDialog {
 	//lista tematów
 	private void utworz_liste_tematow() {
 		lista_tematow.add("Wstêp");
+		lista_tematow.add("Widok");
+		lista_tematow.add("Zadanie");
+		lista_tematow.add("Pomoc");
 		lista_tematow.add("Lista zadañ");
 		lista_tematow.add("Filtr grup");
 		lista_tematow.add("Szczegó³y zadania");
+		lista_tematow.add("Oznacz jako zrobione/niezrobione");
 		
 		tematy.setModel(rekordy_tematy());
 	}
@@ -152,24 +156,40 @@ public class Pomoc extends JDialog {
 		case 0:		//Wstêp
 			return "Terminarz"
 					+ "\n\nTytu³: Miko³aj ¯arnowski";
-		case 1:		//Lista zadañ
+		case 1:		//Widok
+			return "Menu znajduj¹ce siê na górnej belce. Umo¿liwia prze³¹czenie siê pomiêdzy list¹ zadañ a list¹ grup."
+					+ "\n\nOpcje:"
+					+ "\n- Zadania;"
+					+ "\n- Grupy.";
+		case 2:		//Zadanie
+			return "Menu znajduj¹ce siê na górnej belce. S¹ tam operacje na zadnaiach. Jest w³¹czone tylko gdy jest w³¹czona lista zadañ."
+					+ "\n\nOpcje:"
+					+ "\n- Dodaj;"
+					+ "\n- Modyfikuj;"
+					+ "\n- Usuñ;"
+					+ "\n- Dodaj do grupy;"
+					+ "\n- Usuñ z grupy.";
+		case 3:		//Pomoc
+			return "";
+		case 4:		//Lista zadañ
 			return "Na liœcie zadañ prezentowane s¹ takie informacje:"
 					+ "\n- czy zadanie jest zrobione (* lub jej brak);"
 					+ "\n- data zadania (rrrr-mm-dd);"
 					+ "\n- tytu³ zadania."
 					+ "\n\nKolejnoœæ sortowania rekordów jest taka sama. Dziêki temu na górze znajduj¹ siê zadania: niewykonane i o najbli¿szym terminie.";
-		case 2:		//Filtr grup
-			return "Nad list¹ znajduje siê filtr grup. Grupy maj¹ za zadanie u³atwiæ organizacjê i zarz¹dzanie zadaniami. Oprócz grup utworzonych przez u¿ytkownika s¹ dwie specjalne:"
+		case 5:		//Filtr grup
+			return "Nad list¹ znajduje siê filtr grup. Grupy maj¹ za zadanie u³atwiæ organizacjê i zarz¹dzanie zadaniami."
+					+ "\n\nOprócz grup utworzonych przez u¿ytkownika s¹ dwie specjalne:"
 					+ "\n- brak filtru - wszystkie zadania;"
 					+ "\n- brak grupy - zadania bez przypisanej grupy, tam l¹duj¹ nowo utworzone zadania.";
-		case 3:		//Szczegó³y zadania
-			return "Umo¿liwia wyœwietlenie szczegó³ów zadania, takich jak:"
+		case 6:		//Szczegó³y zadania
+			return "Ten przycisk znajduje siê pod list¹ zadañ po lewej stronie. Umo¿liwia wyœwietlenie szczegó³ów zadania, takich jak:"
 					+ "\n- lista grup przypisanych do zadania;"
 					+ "\n- opis zadania;"
-					+ "\n- priorytet zadania";
-		case 4:
-			return "";
-		case 5:
+					+ "\n- priorytet zadania.";
+		case 7:		//Oznacz jako zrobione/niezrobione
+			return "Ten przycisk znajduje siê pod list¹ zadañ po prawej stronie. Pozwala na szybkie oznaczenie niezrobionego zadania jako zrobione i na odwrót - zrobionego jako niezrobione.";
+		case 8:
 			return "";
 		default:
 			return "";
