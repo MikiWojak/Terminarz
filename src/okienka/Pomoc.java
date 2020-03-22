@@ -108,6 +108,7 @@ public class Pomoc extends JDialog {
 		panel.add(scroll_tresc);
 		
 		tresc_artykulu = new JTextPane();
+		tresc_artykulu.setEditable(false);
 		scroll_tresc.setViewportView(tresc_artykulu);
 		tresc_artykulu.setFont(new Font("Arial", Font.PLAIN, 20));
 	}
