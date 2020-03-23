@@ -178,7 +178,8 @@ public class Pomoc extends JDialog {
 					+ "\n- Dodaj do grupy;"
 					+ "\n- Usuñ z grupy.";
 		case 3:		//Pomoc
-			return "Znajduje siê w menu na górnej belce. Uruchamia okno pomocy, w którym siê teraz znajdujesz.";
+			return "Znajduje siê w menu na górnej belce. Uruchamia okno pomocy, w którym siê teraz znajdujesz."
+					+ "\n\nZnajdziesz tu trochê informacji o tym, jak pos³ugiwaæ siê programem.";
 		case 4:		//Lista zadañ
 			return "Na liœcie zadañ prezentowane s¹ takie informacje:"
 					+ "\n- czy zadanie jest zrobione (* lub jej brak);"
@@ -198,24 +199,54 @@ public class Pomoc extends JDialog {
 		case 7:		//Oznacz jako zrobione/niezrobione
 			return "Ten przycisk znajduje siê pod list¹ zadañ po prawej stronie. Pozwala na szybkie oznaczenie niezrobionego zadania jako zrobione i na odwrót - zrobionego jako niezrobione.";
 		case 8:		//Dodawanie, modyfikacja i usuwanie zadañ
-			return "Zadanie -> Dodaj"
+			return "Dodawanie zadania"
+					+ "\nZadanie -> Dodaj"
 					+ "\nUzupe³niasz pola danymi. Wprowadzasz datê, u¿ywaj¹c odpowiednio: roku, miesi¹ca i dnia. Zapisujesz nowe zadanie."
-					+ "\n\nZadanie -> Modyfikuj"
+					+ "\n\nModyfikacja zadania"
+					+ "\nZadanie -> Modyfikuj"
 					+ "\nWybierasz jedno zadanie. Modyfikujesz b¹dŸ poprawiasz wybrane zadanie. Potwierdzasz wprowadzone zmiany."
-					+ "\n\nZadanie -> Usuñ"
-					+ "\nWybierasz jedno zadanie. Potwierdzasz chêæ usuniêcia zadania.";
+					+ "\n\nUsuniêcie zadania"
+					+ "\nZadanie -> Usuñ"
+					+ "\nWybierasz jedno zadanie. Potwierdzasz chêæ jego usuniêcia.";
 		case 9:		//Przypisywanie zadañ do grup
-			return "Przypisywanie zadañ do grup";
+			return "Program umo¿liwia przypisanie zadania do co najmniej jednej grupy. Mo¿na przypisaæ do wiêkszej liczby grup."
+					+ "\n\nPrzypisanie zadania do grupy"
+					+ "\nZadanie -> Dodaj do grupy"
+					+ "\nWybierasz grupê. Sprawdzasz, czy tytu³ zadania i jego data siê zgadzaj¹. Potwierdzasz przypisanie zadania do grupy."
+					+ "\nUwaga!"
+					+ "\nPo wyczerpaniu wolnych grup dalsze przypisywanie grup do takiego zadania bêdzie niemo¿liwe."
+					+ "\n\nUsuniêcie zadania z grupy"
+					+ "\nZadanie -> Usuñ z grupy"
+					+ "\nWybierasz grupê. Sprawdzasz, czy tytu³ zadania i jego data siê zgadzaj¹. Potwierdzasz usuniêcie zadania z grupy."
+					+ "\nUwaga!"
+					+ "\nUsuniêcie grup z zadania, które nie zosta³o przypisane do ¿adnej grupy, bêdzie niemo¿liwe.";
 		case 10:	//Lista grup
-			return "Lista grup";
+			return "Lista stworzonych przez u¿ytkownika grup. Na liœcie wyœwietla siê jedynie nazwa grupy. Grupy s¹ posortowane alfabetycznie.";
 		case 11:	//Szczegó³y grupy
-			return "Szczegó³y grupy";
+			return "Po wybraniu grupy z listy wyœwietl¹ siê jej szczegó³y:"
+					+ "\n- nazwa grupy;"
+					+ "\n- opis grupy.";
 		case 12:	//Dodawanie, modyfikacja i usuwanie grup
-			return "Dodawanie, modyfikacja i usuwanie grup";
+			return "Przyciski do ww. operacji znajduj¹ siê pod szczegó³ami zadania."
+					+ "\n\nDodawanie grupy"
+					+ "\nPrzycisk Dodaj"
+					+ "\nWprowadzasz dane. Zapisujesz now¹ grupê."
+					+ "\n\nModyfikacja grupy"
+					+ "\nPrzycisk Modyfikuj"
+					+ "\nWybierasz jedn¹ grupê. Wprowadzasz lub modyfikujesz jej dane. Potwierdzasz wprowadzone zmiany."
+					+ "\n\nUsuniêcie grupy"
+					+ "\nPrzycisk Usuñ"
+					+ "\nWybierasz jedn¹ grupê. Potwierdzasz chêæ jej usuniêcia.";
 		case 13:	//Plik z danymi
-			return "Plik z danymi";
+			return "Plik z danymi to plik bazy danych. Ma nazwê 'terminarz.db'. Znajduje siê w tym samym folderze, co program."
+					+ "\n\nJeœli go nie ma, jest tworzony nowy, pusty plik danych."
+					+ "\n\nJeœli zaœ jest, to z niego s¹ wczytywane dane."
+					+ "\n\nUwaga!"
+					+ "\nUsuniêcie tego pliku powoduje utratê zapisanych w nich danych!"
+					+ "\n\nZaleca siê wykonywanie kopii zapasowej pliku 'terminarz.db' w celu ochrony zapisanych w nich danych.";
 		case 14:	//Rozwi¹zywanie problemów
-			return "Rozwi¹zywanie problemów";
+			return "Na wiêkszoœæ typowych problemów wystarczy ponowne uruchomienie funkcji lub ca³ego programu."
+					+ "\n\nDo³o¿y³em wszelkich starañ, ¿eby program dzia³a³ prawid³owo. Nie wykluczam jednak obecnoœci b³êdów, które mog¹ wyjœæ na jaw podczas u¿ytkowania programu.";
 		default:
 			return "";
 		}
