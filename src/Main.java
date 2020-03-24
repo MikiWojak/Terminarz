@@ -1,3 +1,8 @@
+/*
+ * Program: 	Terminarz
+ * Autor: 		Miko³aj ¯arnowski
+ */
+
 import java.awt.EventQueue;
 import java.sql.Date;
 import java.util.List;
