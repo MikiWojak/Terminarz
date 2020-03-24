@@ -163,14 +163,14 @@ public class Pomoc extends JDialog {
 		case 0:		//Wstêp
 			return "Terminarz"
 					+ "\n\nTytu³: Miko³aj ¯arnowski"
-					+ "\n\nProgram ma za zadanie u³atwiæ zarz¹dzanie zadaniami, planami, spotkaniami, itp.";
+					+ "\n\nProgram ma u³atwiæ zarz¹dzanie zadaniami, planami, spotkaniami, itp.";
 		case 1:		//Widok
 			return "Znajduje siê w menu na górnej belce. Umo¿liwia prze³¹czenie siê pomiêdzy list¹ zadañ a list¹ grup."
 					+ "\n\nOpcje:"
 					+ "\n- Zadania;"
 					+ "\n- Grupy.";
 		case 2:		//Zadanie
-			return "Znajduje siê w menu na górnej belce. S¹ tam operacje na zadnaiach. Jest w³¹czone tylko gdy jest w³¹czona lista zadañ."
+			return "Znajduje siê w menu na górnej belce. S¹ tam operacje na zadaniach. Jest w³¹czone tylko gdy jest w³¹czona lista zadañ."
 					+ "\n\nOpcje:"
 					+ "\n- Dodaj;"
 					+ "\n- Modyfikuj;"
@@ -182,7 +182,7 @@ public class Pomoc extends JDialog {
 					+ "\n\nZnajdziesz tu trochê informacji o tym, jak pos³ugiwaæ siê programem.";
 		case 4:		//Lista zadañ
 			return "Na liœcie zadañ prezentowane s¹ takie informacje:"
-					+ "\n- czy zadanie jest zrobione (* lub jej brak);"
+					+ "\n- czy zadanie jest zrobione ('*' - tak, ' ' - nie);"
 					+ "\n- data zadania (rrrr-mm-dd);"
 					+ "\n- tytu³ zadania."
 					+ "\n\nKolejnoœæ sortowania rekordów jest taka sama. Dziêki temu na górze znajduj¹ siê zadania: niewykonane i o najbli¿szym terminie.";
@@ -209,7 +209,7 @@ public class Pomoc extends JDialog {
 					+ "\nZadanie -> Usuñ"
 					+ "\nWybierasz jedno zadanie. Potwierdzasz chêæ jego usuniêcia.";
 		case 9:		//Przypisywanie zadañ do grup
-			return "Program umo¿liwia przypisanie zadania do co najmniej jednej grupy. Mo¿na przypisaæ do wiêkszej liczby grup."
+			return "Program umo¿liwia przypisanie zadania do co najmniej jednej grupy. Mo¿na je tak¿e przypisaæ do wiêkszej liczby grup."
 					+ "\n\nPrzypisanie zadania do grupy"
 					+ "\nZadanie -> Dodaj do grupy"
 					+ "\nWybierasz grupê. Sprawdzasz, czy tytu³ zadania i jego data siê zgadzaj¹. Potwierdzasz przypisanie zadania do grupy."
@@ -238,7 +238,7 @@ public class Pomoc extends JDialog {
 					+ "\nPrzycisk Usuñ"
 					+ "\nWybierasz jedn¹ grupê. Potwierdzasz chêæ jej usuniêcia.";
 		case 13:	//Plik z danymi
-			return "Plik z danymi to plik bazy danych. Ma nazwê 'terminarz.db'. Znajduje siê w tym samym folderze, co program."
+			return "Plik z danymi to plik bazy danych. Ma nazwê 'terminarz.db'. Znajduje siê w tym samym folderze, co plik uruchomieniowy programu."
 					+ "\n\nJeœli go nie ma, jest tworzony nowy, pusty plik danych."
 					+ "\n\nJeœli zaœ jest, to z niego s¹ wczytywane dane."
 					+ "\n\nUwaga!"
