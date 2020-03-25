@@ -740,30 +740,6 @@ public class Program{
 		}
 	}
 	
-	//DEBUG
-	private void lista_zadania_debug() {
-		System.out.println("Zadania:");
-		for(int i = 0 ; i < zadania.size(); i++) {
-			System.out.println("\t" + zadania.get(i).pobierz_id_zadanie());
-			System.out.println("\t" + zadania.get(i).pobierz_data_zadanie().toString());
-			System.out.println("\t" + zadania.get(i).pobierz_tytul_zadanie());
-			System.out.println("\t" + zadania.get(i).pobierz_opis_zadanie());
-			System.out.println("\t" + zadania.get(i).pobierz_priorytet_zadanie());
-			System.out.println("\t" + zadania.get(i).pobierz_czy_wykonane());
-			System.out.println();
-		}
-	}
-	
-	private void lista_przypisanych_grup_debug(int id_zadanie) {
-		lista_przypisane_grupy(id_zadanie);
-		
-		System.out.println("Przypisane grupy");
-		for(int i = 0; i < przypisane_grupy.size(); i++) {
-			System.out.println("\t" + przypisane_grupy.get(i));
-		}
-		System.out.println();
-	}
-	
 	private void przycisk_zrobione(int index) {
 		boolean czy_wykonane;
 		if(index < 0) {czy_wykonane = false; }
