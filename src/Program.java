@@ -87,10 +87,7 @@ public class Program{
 	private JLabel opis_opis_gru;
 	private JTextPane tresc_nazwa_gru;
 	private JTextPane tresc_opis_gru;
-	private JTextPane tresc_data_zad;
 	private JTextPane tresc_opis_zad;
-	private JTextPane tresc_priorytet_zad;
-	private JTextPane tresc_wykonane;
 	private JLabel opis_filtr;
 	private JScrollPane scroll_opis_szczegoly_zad;
 	private JButton btn_zrobione;
@@ -107,6 +104,9 @@ public class Program{
 	private Choice tresc_grupy;
 	private JMenu mnNewMenu;
 	private JTextField tresc_tytul_zad;
+	private JTextField tresc_data_zad;
+	private JTextField tresc_priorytet_zad;
+	private JTextField tresc_wykonane;
 
 	/**
 	 * Create the application.
@@ -278,12 +278,6 @@ public class Program{
 		opis_grupy.setBounds(22, 67, 94, 30);
 		zad_szczegowy.add(opis_grupy);
 		
-		tresc_data_zad = new JTextPane();
-		tresc_data_zad.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_data_zad.setEditable(false);
-		tresc_data_zad.setBounds(128, 110, 1020, 30);
-		zad_szczegowy.add(tresc_data_zad);
-		
 		scroll_opis_szczegoly_zad = new JScrollPane();
 		scroll_opis_szczegoly_zad.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scroll_opis_szczegoly_zad.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
@@ -294,18 +288,6 @@ public class Program{
 		scroll_opis_szczegoly_zad.setViewportView(tresc_opis_zad);
 		tresc_opis_zad.setFont(new Font("Arial", Font.PLAIN, 20));
 		tresc_opis_zad.setEditable(false);
-		
-		tresc_priorytet_zad = new JTextPane();
-		tresc_priorytet_zad.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_priorytet_zad.setEditable(false);
-		tresc_priorytet_zad.setBounds(128, 359, 1020, 30);
-		zad_szczegowy.add(tresc_priorytet_zad);
-		
-		tresc_wykonane = new JTextPane();
-		tresc_wykonane.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_wykonane.setEditable(false);
-		tresc_wykonane.setBounds(128, 402, 1020, 30);
-		zad_szczegowy.add(tresc_wykonane);
 		
 		tresc_grupy = new Choice();
 		tresc_grupy.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -319,6 +301,30 @@ public class Program{
 		tresc_tytul_zad.setBounds(128, 155, 1020, 30);
 		zad_szczegowy.add(tresc_tytul_zad);
 		tresc_tytul_zad.setColumns(10);
+		
+		tresc_data_zad = new JTextField();
+		tresc_data_zad.setFont(new Font("Arial", Font.PLAIN, 20));
+		tresc_data_zad.setEditable(false);
+		tresc_data_zad.setColumns(10);
+		tresc_data_zad.setBackground(Color.WHITE);
+		tresc_data_zad.setBounds(128, 110, 1020, 30);
+		zad_szczegowy.add(tresc_data_zad);
+		
+		tresc_priorytet_zad = new JTextField();
+		tresc_priorytet_zad.setFont(new Font("Arial", Font.PLAIN, 20));
+		tresc_priorytet_zad.setEditable(false);
+		tresc_priorytet_zad.setColumns(10);
+		tresc_priorytet_zad.setBackground(Color.WHITE);
+		tresc_priorytet_zad.setBounds(128, 359, 1020, 30);
+		zad_szczegowy.add(tresc_priorytet_zad);
+		
+		tresc_wykonane = new JTextField();
+		tresc_wykonane.setFont(new Font("Arial", Font.PLAIN, 20));
+		tresc_wykonane.setEditable(false);
+		tresc_wykonane.setColumns(10);
+		tresc_wykonane.setBackground(Color.WHITE);
+		tresc_wykonane.setBounds(128, 402, 1020, 30);
+		zad_szczegowy.add(tresc_wykonane);
 		
 		gru_panel = new JPanel();
 		warstwy.add(gru_panel, "name_165903459099969");
