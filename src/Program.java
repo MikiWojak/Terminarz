@@ -85,7 +85,6 @@ public class Program{
 	private JScrollPane scroll_lista_gru;
 	private JLabel opis_nazwa_gru;
 	private JLabel opis_opis_gru;
-	private JTextPane tresc_nazwa_gru;
 	private JTextPane tresc_opis_gru;
 	private JTextPane tresc_opis_zad;
 	private JLabel opis_filtr;
@@ -107,6 +106,7 @@ public class Program{
 	private JTextField tresc_data_zad;
 	private JTextField tresc_priorytet_zad;
 	private JTextField tresc_wykonane;
+	private JTextField tresc_nazwa_gru;
 
 	/**
 	 * Create the application.
@@ -364,12 +364,6 @@ public class Program{
 		opis_opis_gru.setBounds(464, 105, 94, 120);
 		gru_panel.add(opis_opis_gru);
 		
-		tresc_nazwa_gru = new JTextPane();
-		tresc_nazwa_gru.setEditable(false);
-		tresc_nazwa_gru.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_nazwa_gru.setBounds(570, 67, 578, 30);
-		gru_panel.add(tresc_nazwa_gru);
-		
 		scroll_opis_gru = new JScrollPane();
 		scroll_opis_gru.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scroll_opis_gru.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
@@ -428,6 +422,14 @@ public class Program{
 		btn_usun_gru.setFont(new Font("Arial", Font.BOLD, 20));
 		btn_usun_gru.setBounds(1048, 499, 100, 39);
 		gru_panel.add(btn_usun_gru);
+		
+		tresc_nazwa_gru = new JTextField();
+		tresc_nazwa_gru.setBackground(Color.WHITE);
+		tresc_nazwa_gru.setEditable(false);
+		tresc_nazwa_gru.setFont(new Font("Arial", Font.PLAIN, 20));
+		tresc_nazwa_gru.setBounds(570, 67, 578, 30);
+		gru_panel.add(tresc_nazwa_gru);
+		tresc_nazwa_gru.setColumns(10);
 		
 		menu = new JMenuBar();
 		menu.setBounds(0, 0, 1194, 26);

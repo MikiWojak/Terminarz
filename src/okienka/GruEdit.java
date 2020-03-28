@@ -23,6 +23,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.JTextField;
+import java.awt.Color;
 
 public class GruEdit extends JDialog {
 	private Terminarz terminarz;
@@ -30,7 +32,6 @@ public class GruEdit extends JDialog {
 	private boolean czy_modyfikacja;
 	
 	private JPanel panel;
-	private JTextPane tresc_nazwa;
 	private JLabel opis_nazwa;
 	private JLabel opis_opis;
 	private JButton btn_anuluj;
@@ -38,6 +39,7 @@ public class GruEdit extends JDialog {
 	private JTextPane tresc_opis;
 	private JLabel tytul;
 	private JScrollPane scroll_opis_gru;
+	private JTextField tresc_nazwa;
 	//dodanie grupy
 	public GruEdit() {
 		initComp();
@@ -76,11 +78,6 @@ public class GruEdit extends JDialog {
 		panel.setBounds(0, 0, 719, 290);
 		getContentPane().add(panel);
 		panel.setLayout(null);
-		
-		tresc_nazwa = new JTextPane();
-		tresc_nazwa.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_nazwa.setBounds(118, 56, 589, 30);
-		panel.add(tresc_nazwa);
 		
 		opis_nazwa = new JLabel("Nazwa");
 		opis_nazwa.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -135,6 +132,13 @@ public class GruEdit extends JDialog {
 		tytul.setFont(new Font("Arial", Font.BOLD, 20));
 		tytul.setBounds(12, 13, 682, 30);
 		panel.add(tytul);
+		
+		tresc_nazwa = new JTextField();
+		tresc_nazwa.setFont(new Font("Arial", Font.PLAIN, 20));
+		tresc_nazwa.setColumns(10);
+		tresc_nazwa.setBackground(Color.WHITE);
+		tresc_nazwa.setBounds(118, 56, 589, 30);
+		panel.add(tresc_nazwa);
 	}
 
 	protected void wstaw_grupe() {
