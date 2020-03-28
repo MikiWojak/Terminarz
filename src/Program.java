@@ -181,6 +181,7 @@ public class Program{
 				if(lista_zad.getSelectedIndex() >= 0) {
 					zmiana_panelu(zad_szczegowy);
 					zadanie_szczegoly(lista_zad.getSelectedIndex());
+					mn_zadanie.setEnabled(false);
 				} else { wybierz_rekord(); }								//komunikat
 			}
 		});
@@ -264,6 +265,7 @@ public class Program{
 			public void actionPerformed(ActionEvent arg0) {
 				zmiana_panelu(zad_lista);
 				zadania_szczegoly_reset();
+				mn_zadanie.setEnabled(true);
 			}
 		});
 		btn_zad_lista.setFont(new Font("Arial", Font.BOLD, 20));
