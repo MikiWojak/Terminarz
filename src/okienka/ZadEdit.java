@@ -84,6 +84,7 @@ public class ZadEdit extends JDialog {
 		int system_szerokosc = Toolkit.getDefaultToolkit().getScreenSize().width;
 		int system_wysokosc = Toolkit.getDefaultToolkit().getScreenSize().height;
 		
+		setResizable(false);
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setBounds(
 				(system_szerokosc - program_szerokosc) / 2,
@@ -93,14 +94,14 @@ public class ZadEdit extends JDialog {
 		getContentPane().setLayout(null);
 		
 		panel = new JPanel();
-		panel.setBounds(0, 0, 982, 453);
+		panel.setBounds(0, 0, 994, 465);
 		getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		tytul = new JLabel("Dodaj zadanie");
 		tytul.setHorizontalAlignment(SwingConstants.CENTER);
 		tytul.setFont(new Font("Arial", Font.BOLD, 20));
-		tytul.setBounds(12, 13, 958, 30);
+		tytul.setBounds(12, 13, 970, 30);
 		panel.add(tytul);
 		
 		opis_dzien = new JLabel("Dzie\u0144");
@@ -147,13 +148,13 @@ public class ZadEdit extends JDialog {
 		
 		tresc_tytul = new JTextPane();
 		tresc_tytul.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_tytul.setBounds(172, 92, 796, 30);
+		tresc_tytul.setBounds(172, 92, 810, 30);
 		panel.add(tresc_tytul);
 		
 		scroll_opis_zad = new JScrollPane();
 		scroll_opis_zad.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scroll_opis_zad.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-		scroll_opis_zad.setBounds(172, 135, 796, 150);
+		scroll_opis_zad.setBounds(172, 135, 810, 150);
 		panel.add(scroll_opis_zad);
 		
 		tresc_opis = new JTextPane();
@@ -162,13 +163,13 @@ public class ZadEdit extends JDialog {
 		
 		tresc_priorytet = new Choice();
 		tresc_priorytet.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_priorytet.setBounds(172, 298, 798, 30);
+		tresc_priorytet.setBounds(172, 298, 810, 30);
 		priorytet_wartosci();										//watroœci dla priorytetu
 		panel.add(tresc_priorytet);
 		
 		tresc_wykonane = new Choice();
 		tresc_wykonane.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_wykonane.setBounds(172, 341, 798, 30);
+		tresc_wykonane.setBounds(172, 341, 810, 30);
 		wykonane_wartosci();										//wartoœci dla wykonania
 		panel.add(tresc_wykonane);
 		
@@ -179,7 +180,7 @@ public class ZadEdit extends JDialog {
 			}
 		});
 		btn_anuluj.setFont(new Font("Arial", Font.BOLD, 20));
-		btn_anuluj.setBounds(870, 410, 100, 30);
+		btn_anuluj.setBounds(882, 422, 100, 30);
 		panel.add(btn_anuluj);
 		
 		btn_dodaj = new JButton("Dodaj\r\n");
@@ -198,7 +199,7 @@ public class ZadEdit extends JDialog {
 			}
 		});
 		btn_dodaj.setFont(new Font("Arial", Font.BOLD, 20));
-		btn_dodaj.setBounds(718, 410, 140, 30);
+		btn_dodaj.setBounds(730, 422, 140, 30);
 		panel.add(btn_dodaj);
 		
 		tresc_rok = new Choice();

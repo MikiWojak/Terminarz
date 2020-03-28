@@ -63,6 +63,7 @@ public class GruEdit extends JDialog {
 		int system_szerokosc = Toolkit.getDefaultToolkit().getScreenSize().width;
 		int system_wysokosc = Toolkit.getDefaultToolkit().getScreenSize().height;
 		
+		setResizable(false);
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setBounds(
 				(system_szerokosc - program_szerokosc) / 2,
@@ -72,13 +73,13 @@ public class GruEdit extends JDialog {
 		getContentPane().setLayout(null);
 		
 		panel = new JPanel();
-		panel.setBounds(0, 0, 706, 278);
+		panel.setBounds(0, 0, 719, 290);
 		getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		tresc_nazwa = new JTextPane();
 		tresc_nazwa.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_nazwa.setBounds(118, 56, 578, 30);
+		tresc_nazwa.setBounds(118, 56, 589, 30);
 		panel.add(tresc_nazwa);
 		
 		opis_nazwa = new JLabel("Nazwa");
@@ -96,7 +97,7 @@ public class GruEdit extends JDialog {
 		scroll_opis_gru = new JScrollPane();
 		scroll_opis_gru.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scroll_opis_gru.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-		scroll_opis_gru.setBounds(118, 94, 578, 120);
+		scroll_opis_gru.setBounds(118, 94, 589, 120);
 		panel.add(scroll_opis_gru);
 		
 		tresc_opis = new JTextPane();
@@ -110,7 +111,7 @@ public class GruEdit extends JDialog {
 			}
 		});
 		btn_anuluj.setFont(new Font("Arial", Font.BOLD, 20));
-		btn_anuluj.setBounds(596, 227, 100, 39);
+		btn_anuluj.setBounds(607, 238, 100, 39);
 		panel.add(btn_anuluj);
 		
 		btn_mod = new JButton("Dodaj");
@@ -126,7 +127,7 @@ public class GruEdit extends JDialog {
 			}
 		});
 		btn_mod.setFont(new Font("Arial", Font.BOLD, 20));
-		btn_mod.setBounds(449, 227, 135, 39);
+		btn_mod.setBounds(460, 238, 135, 39);
 		panel.add(btn_mod);
 		
 		tytul = new JLabel("Dodaj grupê");

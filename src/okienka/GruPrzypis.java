@@ -76,6 +76,7 @@ public class GruPrzypis extends JDialog {
 		int system_szerokosc = Toolkit.getDefaultToolkit().getScreenSize().width;
 		int system_wysokosc = Toolkit.getDefaultToolkit().getScreenSize().height;
 		
+		setResizable(false);
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setBounds(
 				(system_szerokosc - program_szerokosc) / 2,
@@ -85,7 +86,7 @@ public class GruPrzypis extends JDialog {
 		getContentPane().setLayout(null);
 		
 		panel = new JPanel();
-		panel.setBounds(0, 0, 707, 278);
+		panel.setBounds(0, 0, 719, 290);
 		getContentPane().add(panel);
 		panel.setLayout(null);
 		
@@ -98,7 +99,7 @@ public class GruPrzypis extends JDialog {
 			}
 		});
 		btnPotwierdz.setFont(new Font("Arial", Font.BOLD, 20));
-		btnPotwierdz.setBounds(483, 235, 100, 30);
+		btnPotwierdz.setBounds(495, 247, 100, 30);
 		panel.add(btnPotwierdz);
 		
 		btnAnuluj = new JButton("Anuluj");
@@ -108,36 +109,36 @@ public class GruPrzypis extends JDialog {
 			}
 		});
 		btnAnuluj.setFont(new Font("Arial", Font.BOLD, 20));
-		btnAnuluj.setBounds(595, 235, 100, 30);
+		btnAnuluj.setBounds(607, 247, 100, 30);
 		panel.add(btnAnuluj);
 		
 		tytulDodaj = new JLabel("Wybierz grupê, któr¹ chcesz dodaæ do zadania");
 		tytulDodaj.setHorizontalAlignment(SwingConstants.CENTER);
 		tytulDodaj.setFont(new Font("Arial", Font.BOLD, 20));
-		tytulDodaj.setBounds(12, 13, 683, 30);
+		tytulDodaj.setBounds(12, 13, 695, 30);
 		panel.add(tytulDodaj);
 		
 		wyborGrupy = new Choice();
 		wyborGrupy.setFont(new Font("Arial", Font.PLAIN, 20));
-		wyborGrupy.setBounds(12, 49, 683, 30);
+		wyborGrupy.setBounds(12, 49, 695, 30);
 		panel.add(wyborGrupy);
 		
 		tytulZad = new JLabel("Zadanie w skr\u00F3cie");
 		tytulZad.setHorizontalAlignment(SwingConstants.CENTER);
 		tytulZad.setFont(new Font("Arial", Font.BOLD, 20));
-		tytulZad.setBounds(12, 84, 683, 30);
+		tytulZad.setBounds(12, 84, 695, 30);
 		panel.add(tytulZad);
 		
 		trescTytul = new JLabel("Tytu\u0142");
 		trescTytul.setHorizontalAlignment(SwingConstants.CENTER);
 		trescTytul.setFont(new Font("Arial", Font.PLAIN, 20));
-		trescTytul.setBounds(12, 127, 683, 30);
+		trescTytul.setBounds(12, 127, 695, 30);
 		panel.add(trescTytul);
 		
 		trescData = new JLabel("Data");
 		trescData.setHorizontalAlignment(SwingConstants.CENTER);
 		trescData.setFont(new Font("Arial", Font.PLAIN, 20));
-		trescData.setBounds(12, 170, 683, 30);
+		trescData.setBounds(12, 170, 695, 30);
 		panel.add(trescData);
 	}
 	

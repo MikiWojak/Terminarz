@@ -54,7 +54,8 @@ public class Pomoc extends JDialog {
 		int program_wysokosc = 600;
 		int system_szerokosc = Toolkit.getDefaultToolkit().getScreenSize().width;
 		int system_wysokosc = Toolkit.getDefaultToolkit().getScreenSize().height;
-				
+		
+		setResizable(false);
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setBounds(
 				(system_szerokosc - program_szerokosc) / 2,
@@ -65,14 +66,14 @@ public class Pomoc extends JDialog {
 		setTitle("Pomoc");
 		
 		panel = new JPanel();
-		panel.setBounds(0, 0, 982, 553);
+		panel.setBounds(0, 0, 994, 565);
 		getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		tytul_artykulu = new JLabel("Tytu\u0142 artyku\u0142u");
 		tytul_artykulu.setHorizontalAlignment(SwingConstants.CENTER);
 		tytul_artykulu.setFont(new Font("Arial", Font.BOLD, 20));
-		tytul_artykulu.setBounds(424, 12, 546, 30);
+		tytul_artykulu.setBounds(424, 12, 558, 30);
 		panel.add(tytul_artykulu);
 		
 		btn_zamknij = new JButton("Zamknij");
@@ -82,13 +83,13 @@ public class Pomoc extends JDialog {
 			}
 		});
 		btn_zamknij.setFont(new Font("Arial", Font.BOLD, 20));
-		btn_zamknij.setBounds(830, 510, 140, 30);
+		btn_zamknij.setBounds(842, 522, 140, 30);
 		panel.add(btn_zamknij);
 		
 		scroll_tematy = new JScrollPane();
 		scroll_tematy.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scroll_tematy.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-		scroll_tematy.setBounds(12, 13, 400, 527);
+		scroll_tematy.setBounds(12, 13, 400, 539);
 		panel.add(scroll_tematy);
 		
 		tematy = new JList();
@@ -105,7 +106,7 @@ public class Pomoc extends JDialog {
 		scroll_tresc = new JScrollPane();
 		scroll_tresc.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scroll_tresc.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-		scroll_tresc.setBounds(424, 58, 546, 439);
+		scroll_tresc.setBounds(424, 58, 558, 451);
 		panel.add(scroll_tresc);
 		
 		tresc_artykulu = new JTextPane();
