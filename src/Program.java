@@ -44,6 +44,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextPane;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JTextField;
+import java.awt.Color;
 
 public class Program{
 	
@@ -86,7 +88,6 @@ public class Program{
 	private JTextPane tresc_nazwa_gru;
 	private JTextPane tresc_opis_gru;
 	private JTextPane tresc_data_zad;
-	private JTextPane tresc_tytul_zad;
 	private JTextPane tresc_opis_zad;
 	private JTextPane tresc_priorytet_zad;
 	private JTextPane tresc_wykonane;
@@ -105,6 +106,7 @@ public class Program{
 	private JScrollPane scroll_opis_gru;
 	private Choice tresc_grupy;
 	private JMenu mnNewMenu;
+	private JTextField tresc_tytul_zad;
 
 	/**
 	 * Create the application.
@@ -282,12 +284,6 @@ public class Program{
 		tresc_data_zad.setBounds(128, 110, 1020, 30);
 		zad_szczegowy.add(tresc_data_zad);
 		
-		tresc_tytul_zad = new JTextPane();
-		tresc_tytul_zad.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_tytul_zad.setEditable(false);
-		tresc_tytul_zad.setBounds(128, 153, 1020, 30);
-		zad_szczegowy.add(tresc_tytul_zad);
-		
 		scroll_opis_szczegoly_zad = new JScrollPane();
 		scroll_opis_szczegoly_zad.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scroll_opis_szczegoly_zad.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
@@ -315,6 +311,14 @@ public class Program{
 		tresc_grupy.setFont(new Font("Arial", Font.PLAIN, 20));
 		tresc_grupy.setBounds(128, 67, 1020, 30);
 		zad_szczegowy.add(tresc_grupy);
+		
+		tresc_tytul_zad = new JTextField();
+		tresc_tytul_zad.setBackground(Color.WHITE);
+		tresc_tytul_zad.setEditable(false);
+		tresc_tytul_zad.setFont(new Font("Arial", Font.PLAIN, 20));
+		tresc_tytul_zad.setBounds(128, 155, 1020, 30);
+		zad_szczegowy.add(tresc_tytul_zad);
+		tresc_tytul_zad.setColumns(10);
 		
 		gru_panel = new JPanel();
 		warstwy.add(gru_panel, "name_165903459099969");

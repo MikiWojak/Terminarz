@@ -29,6 +29,7 @@ import java.time.LocalDate;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.JTextField;
 
 public class ZadEdit extends JDialog {
 	private Terminarz terminarz;
@@ -44,7 +45,6 @@ public class ZadEdit extends JDialog {
 	private JLabel opis_opis;
 	private JLabel opis_priorytet;
 	private JLabel opis_wykonane;
-	private JTextPane tresc_tytul;
 	private JTextPane tresc_opis;
 	private Choice tresc_priorytet;
 	private Choice tresc_wykonane;
@@ -54,6 +54,7 @@ public class ZadEdit extends JDialog {
 	private Choice tresc_miesiac;
 	private Choice tresc_dzien;
 	private JScrollPane scroll_opis_zad;
+	private JTextField tresc_tytul;
 	
 	//dodanie zadania
 	public ZadEdit() {
@@ -146,11 +147,6 @@ public class ZadEdit extends JDialog {
 		opis_wykonane.setBounds(10, 341, 150, 30);
 		panel.add(opis_wykonane);
 		
-		tresc_tytul = new JTextPane();
-		tresc_tytul.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_tytul.setBounds(172, 92, 810, 30);
-		panel.add(tresc_tytul);
-		
 		scroll_opis_zad = new JScrollPane();
 		scroll_opis_zad.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scroll_opis_zad.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
@@ -229,6 +225,12 @@ public class ZadEdit extends JDialog {
 		tresc_dzien.setBounds(632, 49, 60, 30);
 		dni_wartosci(); 											//dzieñ
 		panel.add(tresc_dzien);
+		
+		tresc_tytul = new JTextField();
+		tresc_tytul.setFont(new Font("Arial", Font.PLAIN, 20));
+		tresc_tytul.setBounds(172, 92, 810, 30);
+		panel.add(tresc_tytul);
+		tresc_tytul.setColumns(10);
 	}
 	
 	private void rok_wartosci() {
