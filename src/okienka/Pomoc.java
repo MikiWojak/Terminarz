@@ -44,6 +44,7 @@ public class Pomoc extends JDialog {
 		
 		tytul_artykulu.setText(lista_tematow.get(0));
 		tresc_artykulu.setText(ustaw_tresc_artykulu(0));
+		tresc_artykulu.setCaretPosition(0);
 		
 		initFinal();
 	}
@@ -100,6 +101,7 @@ public class Pomoc extends JDialog {
 				// TODO Auto-generated method stub
 				tresc_artykulu.setText(ustaw_tresc_artykulu(tematy.getSelectedIndex()));
 				tytul_artykulu.setText(tematy.getSelectedValue().toString());
+				tresc_artykulu.setCaretPosition(0);
 			}
 		});
 		
