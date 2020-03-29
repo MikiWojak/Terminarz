@@ -168,37 +168,37 @@ public class Pomoc extends JDialog {
 		case 1:		//Widok
 			return "Znajduje siê w menu na górnej belce. Umo¿liwia prze³¹czenie siê pomiêdzy list¹ zadañ a list¹ grup."
 					+ "\n\nOpcje:"
-					+ "\n- Zadania;"
+					+ "\n- Zadania,"
 					+ "\n- Grupy.";
 		case 2:		//Zadanie
 			return "Znajduje siê w menu na górnej belce. S¹ tam operacje na zadaniach. Jest w³¹czone tylko gdy jest w³¹czona lista zadañ."
 					+ "\n\nOpcje:"
-					+ "\n- Dodaj;"
-					+ "\n- Modyfikuj;"
-					+ "\n- Usuñ;"
-					+ "\n- Dodaj do grupy;"
+					+ "\n- Dodaj,"
+					+ "\n- Modyfikuj,"
+					+ "\n- Usuñ,"
+					+ "\n- Dodaj do grupy,"
 					+ "\n- Usuñ z grupy.";
 		case 3:		//Pomoc
 			return "Znajduje siê w menu na górnej belce. Uruchamia okno pomocy, w którym siê teraz znajdujesz."
 					+ "\n\nZnajdziesz tu trochê informacji o tym, jak pos³ugiwaæ siê programem.";
 		case 4:		//Lista zadañ
 			return "Na liœcie zadañ prezentowane s¹ takie informacje:"
-					+ "\n- czy zadanie jest zrobione ('*' - tak, ' ' - nie);"
-					+ "\n- data zadania (rrrr-mm-dd);"
+					+ "\n- czy zadanie jest zrobione ('*' - tak, ' ' - nie),"
+					+ "\n- data zadania (rrrr-mm-dd),"
 					+ "\n- tytu³ zadania."
 					+ "\n\nKolejnoœæ sortowania rekordów jest taka sama. Dziêki temu na górze znajduj¹ siê zadania: niewykonane i o najbli¿szym terminie.";
 		case 5:		//Filtr grup
 			return "Nad list¹ znajduje siê filtr grup. Grupy maj¹ za zadanie u³atwiæ organizacjê i zarz¹dzanie zadaniami."
 					+ "\n\nOprócz grup utworzonych przez u¿ytkownika s¹ dwie specjalne:"
-					+ "\n- brak filtru - wszystkie zadania;"
+					+ "\n- brak filtru - wszystkie zadania,"
 					+ "\n- brak grupy - zadania bez przypisanej grupy, tam l¹duj¹ nowo utworzone zadania.";
 		case 6:		//Szczegó³y zadania
 			return "Ten przycisk znajduje siê pod list¹ zadañ po lewej stronie. Umo¿liwia wyœwietlenie szczegó³ów zadania, takich jak:"
-					+ "\n- lista grup przypisanych do zadania;"
-					+ "\n- opis zadania;"
+					+ "\n- lista grup przypisanych do zadania,"
+					+ "\n- opis zadania,"
 					+ "\n- priorytet zadania.";
 		case 7:		//Oznacz jako zrobione/niezrobione
-			return "Ten przycisk znajduje siê pod list¹ zadañ po prawej stronie. Pozwala na szybkie oznaczenie niezrobionego zadania jako zrobione i na odwrót - zrobionego jako niezrobione.";
+			return "Ten przycisk znajduje siê pod list¹ zadañ po prawej stronie. Pozwala na szybkie oznaczenie zadania jako zrobione lub niezrobione.";
 		case 8:		//Dodawanie, modyfikacja i usuwanie zadañ
 			return "Dodawanie zadania"
 					+ "\nZadanie -> Dodaj"
@@ -225,7 +225,7 @@ public class Pomoc extends JDialog {
 			return "Lista stworzonych przez u¿ytkownika grup. Na liœcie wyœwietla siê jedynie nazwa grupy. Grupy s¹ posortowane alfabetycznie.";
 		case 11:	//Szczegó³y grupy
 			return "Po wybraniu grupy z listy wyœwietl¹ siê jej szczegó³y:"
-					+ "\n- nazwa grupy;"
+					+ "\n- nazwa grupy,"
 					+ "\n- opis grupy.";
 		case 12:	//Dodawanie, modyfikacja i usuwanie grup
 			return "Przyciski do ww. operacji znajduj¹ siê pod szczegó³ami zadania."
@@ -246,7 +246,7 @@ public class Pomoc extends JDialog {
 					+ "\nUsuniêcie tego pliku powoduje utratê zapisanych w nich danych!"
 					+ "\n\nZaleca siê wykonywanie kopii zapasowej pliku 'terminarz.db' w celu ochrony zapisanych w nich danych.";
 		case 14:	//Rozwi¹zywanie problemów
-			return "Na wiêkszoœæ typowych problemów wystarczy ponowne uruchomienie funkcji lub ca³ego programu."
+			return "Na wiêkszoœæ typowych problemów wystarczy ponowne uruchomienie funkcji lub ca³ego programu. Po prostu spróbuj jeszcze raz wejœæ i wyjœæ ;)."
 					+ "\n\nDo³o¿y³em wszelkich starañ, ¿eby program dzia³a³ prawid³owo. Nie wykluczam jednak obecnoœci b³êdów, które mog¹ wyjœæ na jaw podczas u¿ytkowania programu.";
 		default:
 			return "";
