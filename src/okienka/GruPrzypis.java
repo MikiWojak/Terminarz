@@ -24,6 +24,7 @@ import javax.swing.SwingConstants;
 import java.awt.Choice;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class GruPrzypis extends JDialog {
 	private Zadanie zadanie;
@@ -130,15 +131,19 @@ public class GruPrzypis extends JDialog {
 		panel.add(tytulZad);
 		
 		trescTytul = new JLabel("Tytu\u0142");
+		trescTytul.setBackground(Color.WHITE);
+		trescTytul.setOpaque(true);
 		trescTytul.setHorizontalAlignment(SwingConstants.CENTER);
 		trescTytul.setFont(new Font("Arial", Font.PLAIN, 20));
-		trescTytul.setBounds(12, 127, 695, 30);
+		trescTytul.setBounds(12, 170, 695, 30);
 		panel.add(trescTytul);
 		
 		trescData = new JLabel("Data");
+		trescData.setBackground(Color.WHITE);
+		trescData.setOpaque(true);
 		trescData.setHorizontalAlignment(SwingConstants.CENTER);
 		trescData.setFont(new Font("Arial", Font.PLAIN, 20));
-		trescData.setBounds(12, 170, 695, 30);
+		trescData.setBounds(12, 127, 695, 30);
 		panel.add(trescData);
 	}
 	

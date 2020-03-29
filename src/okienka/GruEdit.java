@@ -130,7 +130,7 @@ public class GruEdit extends JDialog {
 		tytul = new JLabel("Dodaj grupê");
 		tytul.setHorizontalAlignment(SwingConstants.CENTER);
 		tytul.setFont(new Font("Arial", Font.BOLD, 20));
-		tytul.setBounds(12, 13, 682, 30);
+		tytul.setBounds(12, 13, 695, 30);
 		panel.add(tytul);
 		
 		tresc_nazwa = new JTextField();
