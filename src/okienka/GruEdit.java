@@ -115,7 +115,7 @@ public class GruEdit extends JDialog {
 		btn_mod.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(czy_tytul_pusty()) {
-					JOptionPane.showMessageDialog(null, "Tytu³ nie mo¿e byæ pusty!", "Uwaga!", JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Nazwa nie mo¿e byæ pusta!", "Uwaga!", JOptionPane.WARNING_MESSAGE);
 				} else {
 					if(czy_modyfikacja) { mod_grupe(); }
 					else { wstaw_grupe(); }
