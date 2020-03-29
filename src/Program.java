@@ -102,11 +102,11 @@ public class Program{
 	private JScrollPane scroll_opis_gru;
 	private Choice tresc_grupy;
 	private JMenu mnNewMenu;
-	private JTextField tresc_tytul_zad;
-	private JTextField tresc_data_zad;
-	private JTextField tresc_priorytet_zad;
-	private JTextField tresc_wykonane;
 	private JTextField tresc_nazwa_gru;
+	private JLabel tresc_tytul_zad;
+	private JLabel tresc_data_zad;
+	private JLabel tresc_priorytet_zad;
+	private JLabel tresc_wykonane;
 
 	/**
 	 * Create the application.
@@ -294,34 +294,30 @@ public class Program{
 		tresc_grupy.setBounds(128, 67, 1020, 30);
 		zad_szczegowy.add(tresc_grupy);
 		
-		tresc_tytul_zad = new JTextField();
+		tresc_tytul_zad = new JLabel("");
+		tresc_tytul_zad.setOpaque(true);
 		tresc_tytul_zad.setBackground(Color.WHITE);
-		tresc_tytul_zad.setEditable(false);
 		tresc_tytul_zad.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_tytul_zad.setBounds(128, 155, 1020, 30);
+		tresc_tytul_zad.setBounds(128, 153, 1020, 30);
 		zad_szczegowy.add(tresc_tytul_zad);
-		tresc_tytul_zad.setColumns(10);
 		
-		tresc_data_zad = new JTextField();
+		tresc_data_zad = new JLabel("");
+		tresc_data_zad.setOpaque(true);
 		tresc_data_zad.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_data_zad.setEditable(false);
-		tresc_data_zad.setColumns(10);
 		tresc_data_zad.setBackground(Color.WHITE);
 		tresc_data_zad.setBounds(128, 110, 1020, 30);
 		zad_szczegowy.add(tresc_data_zad);
 		
-		tresc_priorytet_zad = new JTextField();
+		tresc_priorytet_zad = new JLabel("");
+		tresc_priorytet_zad.setOpaque(true);
 		tresc_priorytet_zad.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_priorytet_zad.setEditable(false);
-		tresc_priorytet_zad.setColumns(10);
 		tresc_priorytet_zad.setBackground(Color.WHITE);
 		tresc_priorytet_zad.setBounds(128, 359, 1020, 30);
 		zad_szczegowy.add(tresc_priorytet_zad);
 		
-		tresc_wykonane = new JTextField();
+		tresc_wykonane = new JLabel("");
+		tresc_wykonane.setOpaque(true);
 		tresc_wykonane.setFont(new Font("Arial", Font.PLAIN, 20));
-		tresc_wykonane.setEditable(false);
-		tresc_wykonane.setColumns(10);
 		tresc_wykonane.setBackground(Color.WHITE);
 		tresc_wykonane.setBounds(128, 402, 1020, 30);
 		zad_szczegowy.add(tresc_wykonane);
