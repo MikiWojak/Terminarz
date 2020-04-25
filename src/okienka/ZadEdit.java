@@ -395,4 +395,16 @@ public class ZadEdit extends JDialog {
 		tresc_priorytet.select(zadanie.pobierz_priorytet_zadanie());
 		tresc_wykonane.select(czy_wykonane);
 	}
+	
+	/**
+	 * DEBUG
+	 * Sprawdzenie czy dni podczas modyfikacji s¹ prawid³owe
+	 */
+	public int dni_wartosci_debug() {
+		int ilosc = tresc_dzien.getItemCount();
+		System.out.println(tresc_dzien.getItemCount());
+		int dzien = Integer.parseInt(tresc_dzien.getItem(ilosc - 1));
+		
+		return dzien;
+	}
 }
