@@ -398,11 +398,26 @@ public class ZadEdit extends JDialog {
 	
 	/**
 	 * DEBUG
+	 * Okienko do modyfikacji zadania
+	 * @param zadanie rekord w tabeli Zadanie
+	 * @param status odró¿nienie od innych konstruktorów
+	 */
+	public ZadEdit(Zadanie zadanie, boolean status) {
+		initComp();
+		modyfikacja_wyglad();
+		
+		czy_modyfikacja = true;
+		this.zadanie = zadanie;
+		zadanie_dane();
+	}
+	
+	/**
+	 * DEBUG
 	 * Sprawdzenie czy dni podczas modyfikacji s¹ prawid³owe
+	 * @return ostatni dzieñ miesi¹ca
 	 */
 	public int dni_wartosci_debug() {
 		int ilosc = tresc_dzien.getItemCount();
-		System.out.println(tresc_dzien.getItemCount());
 		int dzien = Integer.parseInt(tresc_dzien.getItem(ilosc - 1));
 		
 		return dzien;

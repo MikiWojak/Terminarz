@@ -43,7 +43,7 @@ public class GruPrzypis extends JDialog {
 	
 	//dodawanie grupy do zadania
 	/**
-	 * @wbp.parser.constructor
+	 * 
 	 */
 	public GruPrzypis(Zadanie zadanie) {
 		initComp();
