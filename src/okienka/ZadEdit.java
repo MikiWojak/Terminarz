@@ -389,6 +389,7 @@ public class ZadEdit extends JDialog {
 		
 		tresc_rok.select(rok);
 		tresc_miesiac.select(miesiac);
+		dni_wartosci();
 		tresc_dzien.select(dzien);
 		tresc_tytul.setText(zadanie.pobierz_tytul_zadanie());
 		tresc_opis.setText(zadanie.pobierz_opis_zadanie());
